@@ -67,6 +67,11 @@
     .logistics-card h3{font-size:1.05rem;margin-bottom:.5rem;display:flex;align-items:center;gap:.5rem}
     .logistics-card .icon{font-size:1.3rem}
     .logistics-card p{font-size:.88rem;color:var(--text-light);line-height:1.7}
+    .island-card { padding: 0; overflow: hidden; background: var(--white); border-radius: 8px; border: 1px solid var(--border); }
+    .island-card img { width: 100%; height: 180px; object-fit: cover; display: block; }
+    .island-card .island-text { padding: 1.25rem 1.5rem; }
+    .island-card h3 { font-size: 1.1rem; margin-bottom: 0.5rem; }
+    .island-card p { font-size: .88rem; color: var(--text-light); line-height: 1.7; }
     .flights-section{margin-top:2.5rem}
     .flights-section h3{margin-bottom:1rem}
     .flights-note{font-size:.88rem;color:var(--text-light);font-style:italic;margin-bottom:1.5rem}
@@ -283,7 +288,7 @@
     <div class="container">
       <span class="label fade-up">Подорож</span>
       <h2 class="fade-up">Тиждень на Адріатиці</h2>
-      <p class="section-intro fade-up">Приєднуйтесь до нас на борту OHANA — подорожуючи кришталевими водами Далматинського узбережжя. Стародавні гавані, купання в бірюзових бухтах, обіди на палубі та заходи сонця, від яких перехоплює подих.</p>
+      <p class="section-intro fade-up">Приєднуйтесь до нас на борту OHANA — подорожуючи кришталевими водами Далматинського узбережжя. Стародавні гавані, купання в бірюзових бухтах, обіди на палубі та заходи сонця, від яких перехоплює подих. Очікуйте 26°C, 14 годин світла та воду, теплу для купання цілий день.</p>
       <div class="details-grid fade-up">
         <div class="detail-item"><span class="label">Посадка</span><strong>6 червня (сб)</strong><span>З 16:00</span></div>
         <div class="detail-item"><span class="label">Повернення</span><strong>13 червня (сб)</strong><span>До 9:00</span></div>
@@ -306,7 +311,7 @@
         <p>Прибувши на день раніше, ви зможете дослідити чудове старе місто Спліту, відпочити та приєднатися до нас у розслабленому стані.</p>
       </div>
       <div class="logistics-grid fade-up">
-        <div class="logistics-card"><h3><span class="icon">&#127464;&#127479;</span> Готель</h3><p>Потрібне житло на ніч 5 червня? Ми залюбки допоможемо з бронюванням. Просто вкажіть це у формі RSVP.</p></div>
+        <div class="logistics-card"><h3><span class="icon">&#127469;&#127479;</span> Готель</h3><p>Потрібне житло на ніч 5 червня? Ми залюбки допоможемо з бронюванням. Просто вкажіть це у формі RSVP.</p></div>
         <div class="logistics-card"><h3><span class="icon">&#128188;</span> Багаж</h3><p>Хочете погуляти Сплітом перед посадкою? Ми організуємо доставку багажу з готелю — насолоджуйтесь містом налегке.</p></div>
         <div class="logistics-card"><h3><span class="icon">&#128663;</span> Трансфер</h3><p>Як тільки ми матимемо деталі прибуття кожного, усі трансфери з аеропорту та готелю будуть організовані.</p></div>
       </div>
@@ -354,8 +359,114 @@
     </div>
   </section>
 
+  <section class="bg-cream">
+    <div class="container">
+      <span class="label fade-up">На борту</span>
+      <h2 class="fade-up">Ваш дім у морі</h2>
+      <p class="section-intro fade-up">OHANA — моторна яхта довжиною 49 метрів. 14 кают для 30 гостей, 12 членів екіпажу та безліч водних розваг.</p>
+      <div class="amenities-grid fade-up">
+        <div class="amenity-group"><h3>На воді</h3><ul class="amenity-list"><li>Гідроцикл <span style="color:var(--gold);font-size:.8em;">*</span></li><li>SeaBobs &times; 2</li><li>E-Foil</li><li>Водні лижі</li><li>Тюбінг</li><li>Падлборди &times; 2</li><li>Каяки &times; 2</li><li>Водна гірка</li><li>Надувний басейн</li></ul></div>
+        <div class="amenity-group"><h3>На борту</h3><ul class="amenity-list"><li>Кондиціонер</li><li>Wi-Fi</li><li>Постільна білизна</li><li>Рушники</li><li>Повне харчування</li><li>Капітан + 11 екіпажу</li></ul><p style="margin-top:1rem;font-size:.88rem;color:var(--text-light);">Їжа та напої на борту — за наш рахунок. Просто повідомте нам про ваші побажання.</p></div>
+      </div>
+
+      <div class="jet-ski-notice fade-up" style="margin-top:2.5rem;padding:1.25rem 1.5rem;background:rgba(184,149,95,.08);border-left:3px solid var(--gold);border-radius:6px;font-size:.9rem;line-height:1.6;">
+        <strong style="color:var(--navy);">* Для гідроцикла потрібна ліцензія</strong><br>
+        Для керування гідроциклом у Хорватії потрібен дійсний <strong>Міжнародний сертифікат компетентності (ICC)</strong> або еквівалентний національний сертифікат. Берегова охорона суворо контролює дотримання правил через минулі інциденти. Якщо хочете кататися, отримайте сертифікат до поїздки.
+      </div>
+    </div>
+  </section>
+
+  <section class="gallery-section">
+    <span class="label">M/Y OHANA</span>
+    <div class="photo-grid">
+      <figure class="wide"><img src="../img/ycf2.jpg" alt="OHANA" loading="lazy"></figure>
+      <figure><img src="../img/brochure4.jpg" alt="Палуба" loading="lazy"></figure>
+      <figure><img src="../img/brochure5.jpg" alt="Обід на палубі" loading="lazy"></figure>
+      <figure><img src="../img/brochure6.jpg" alt="Салон" loading="lazy"></figure>
+      <figure><img src="../img/brochure7.jpg" alt="Бар" loading="lazy"></figure>
+      <figure class="wide"><img src="../img/brochure3.jpg" alt="OHANA в морі" loading="lazy"></figure>
+      <figure><img src="../img/brochure8.jpg" alt="Каюта" loading="lazy"></figure>
+      <figure><img src="../img/brochure9.jpg" alt="Люкс" loading="lazy"></figure>
+      <figure><img src="../img/brochure10.jpg" alt="Деталі" loading="lazy"></figure>
+      <figure><img src="../img/brochure11.jpg" alt="Водні розваги" loading="lazy"></figure>
+      <figure class="wide"><img src="../img/ycf3.jpg" alt="Вид зверху" loading="lazy"></figure>
+      <figure><img src="../img/brochure12.jpg" alt="Джакузі" loading="lazy"></figure>
+      <figure><img src="../img/brochure13.jpg" alt="Вечеря" loading="lazy"></figure>
+      <figure><img src="../img/brochure14.jpg" alt="Захід сонця" loading="lazy"></figure>
+      <figure><img src="../img/brochure15.jpg" alt="Узбережжя" loading="lazy"></figure>
+    </div>
+  </section>
+
+  <section class="bg-white">
+    <div class="container">
+      <span class="label fade-up">Корисне</span>
+      <h2 class="fade-up">Що варто знати</h2>
+      <ul class="tips-list fade-up">
+        <li>Одягайтесь легко — літній одяг, купальники, кілька smart-casual нарядів для вечерь на березі</li>
+        <li>Візьміть сонцезахисний крем, капелюх, окуляри</li>
+        <li><strong>М'які сумки рекомендовані</strong> — жорсткі валізи складно зберігати в каюті. На борту є послуга прання</li>
+        <li><strong>Візьміть адаптер для розеток</strong> — на яхті європейські розетки Type C/F. Адаптерів на борту недостатньо для всіх</li>
+        <li><strong>Отримайте eSIM перед поїздкою</strong> — телефони з-за меж ЄС (США, Японія, Таїланд) можуть не мати даних без неї. Airalo або eSIM.me працюють добре</li>
+        <li>Візьміть трохи <strong>готівки в євро</strong> — більшість місць приймають картки, але деякі невеликі ресторани на островах працюють лише з готівкою. Чайові в ресторанах — 10–15%</li>
+        <li>Для спокою рекомендуємо оформити <strong>медичну страховку для подорожей</strong> — це швидко і покриває вас по всій Європі</li>
+        <li>Паління дозволене лише у спеціальних зонах на відкритому повітрі</li>
+        <li>Діти повинні бути під наглядом дорослих</li>
+        <li>Моторні водні розваги потребують підписання відмови від претензій</li>
+        <li><strong>Для гідроцикла потрібен ICC</strong> (Міжнародний сертифікат компетентності) або еквівалент — берегова охорона Хорватії суворо контролює</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ═══ Маршрут ═══ -->
+  <section class="bg-cream">
+    <div class="container">
+      <span class="label fade-up">The Route</span>
+      <h2 class="fade-up">Острівний круїз Далматинським узбережжям</h2>
+      <p class="section-intro fade-up">Наш маршрут пролягає через найкрасивіші острови Адріатики. Ми будемо плавати приблизно 2–2,5 години на день — решту часу купаємося, досліджуємо та відпочиваємо.</p>
+      <div class="route-islands fade-up">
+        <span class="island">Спліт</span><span class="arrow">&rarr;</span>
+        <span class="island">Брач</span><span class="arrow">&rarr;</span>
+        <span class="island">Віс</span><span class="arrow">&rarr;</span>
+        <span class="island">Корчула</span><span class="arrow">&rarr;</span>
+        <span class="island">Jelsa</span><span class="arrow">&rarr;</span>
+        <span class="island">Шолта</span><span class="arrow">&rarr;</span>
+        <span class="island">Хвар</span><span class="arrow">&rarr;</span>
+        <span class="island">Спліт</span>
+      </div>
+      <p class="route-note fade-up">Погода та поточні умови визначають маршрут під час круїзу. Капітан обирає найкращий шлях щодня.</p>
+
+      <!-- Island highlights -->
+      <div class="logistics-grid fade-up" style="margin-top:3rem;">
+        <div class="island-card">
+          <img src="https://images.unsplash.com/photo-1565186488642-5765d2e59498?w=600&h=360&fit=crop&q=80" alt="Zlatni Rat" loading="lazy">
+          <div class="island-text"><h3>Брач</h3><p>Тут знаходиться Златні Рат — найвідоміший пляж Хорватії, золотий мис з галькою, що змінює форму від вітру. Кришталево чисте мілководдя, ідеальне для дітей та снорклінгу.</p></div>
+        </div>
+        <div class="island-card">
+          <img src="https://images.unsplash.com/photo-1600532767602-bd498cf9ce1c?w=600&h=360&fit=crop&q=80" alt="Blue Cave" loading="lazy">
+          <div class="island-text"><h3>Віс</h3><p>Найвіддаленіший населений острів. Відвідайте вражаючу Блакитну печеру на Бішево, купайтесь у бухті Стініва (визнаний найкращим пляжем Європи), їжте у простих конобах, де риба щойно впіймана.</p></div>
+        </div>
+        <div class="island-card">
+          <img src="https://images.unsplash.com/photo-1592486058517-fc80e39af652?w=600&h=360&fit=crop&q=80" alt="Korčula" loading="lazy">
+          <div class="island-text"><h3>Корчула</h3><p>Мініатюрний Дубровник без натовпів. Середньовічне старе місто з мурами, місце народження Марко Поло. Відоме білими винами — спробуйте Пошип та Грк.</p></div>
+        </div>
+        <div class="island-card">
+          <img src="https://images.unsplash.com/photo-1596098981511-710b920f1b0c?w=600&h=360&fit=crop&q=80" alt="Jelsa" loading="lazy">
+          <div class="island-text"><h3>Єлса</h3><p>Тихе портове містечко на північному узбережжі Хвару. Оточене лавандовими полями та сосновими лісами. Спокійна атмосфера, чудові місцеві ресторани та красиві бухти поблизу.</p></div>
+        </div>
+        <div class="island-card">
+          <img src="https://images.unsplash.com/photo-1555990538-1e5c9b3b7a06?w=600&h=360&fit=crop&q=80" alt="Šolta" loading="lazy">
+          <div class="island-text"><h3>Шолта</h3><p>Секрет місцевих — майже не торкнутий туризмом. Відома оливковою олією та медом. Тихі бухти з водою настілько прозорою, що човен виглядає ніби летить у повітрі.</p></div>
+        </div>
+        <div class="island-card">
+          <img src="https://images.unsplash.com/photo-1564594736624-def7a10ab047?w=600&h=360&fit=crop&q=80" alt="Hvar" loading="lazy">
+          <div class="island-text"><h3>Хвар</h3><p>Гламурний острів. Вишукані ресторани, коктейль-бари з видом на гавань, фортеця XIII століття з панорамним видом. Найжвавіше нічне життя на Адріатиці.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ═══ Повернення додому ═══ -->
-  <section class="callout-section bg-cream">
+  <section class="callout-section bg-white">
     <div class="container">
       <span class="label fade-up">Від'їзд</span>
       <h2 class="fade-up">Повернення додому</h2>
@@ -443,112 +554,8 @@
     </div>
   </section>
 
-  <section class="bg-white">
-    <div class="container">
-      <span class="label fade-up">На борту</span>
-      <h2 class="fade-up">Ваш дім у морі</h2>
-      <p class="section-intro fade-up">OHANA — моторна яхта довжиною 49 метрів. 14 кают для 30 гостей, 12 членів екіпажу та безліч водних розваг.</p>
-      <div class="amenities-grid fade-up">
-        <div class="amenity-group"><h3>На воді</h3><ul class="amenity-list"><li>Гідроцикл <span style="color:var(--gold);font-size:.8em;">*</span></li><li>SeaBobs &times; 2</li><li>E-Foil</li><li>Водні лижі</li><li>Тюбінг</li><li>Падлборди &times; 2</li><li>Каяки &times; 2</li><li>Водна гірка</li><li>Надувний басейн</li></ul></div>
-        <div class="amenity-group"><h3>На борту</h3><ul class="amenity-list"><li>Кондиціонер</li><li>Wi-Fi</li><li>Постільна білизна</li><li>Рушники</li><li>Повне харчування</li><li>Капітан + 11 екіпажу</li></ul><p style="margin-top:1rem;font-size:.88rem;color:var(--text-light);">Їжа та напої на борту — за наш рахунок. Просто повідомте нам про ваші побажання.</p></div>
-      </div>
-
-      <div class="jet-ski-notice fade-up" style="margin-top:2.5rem;padding:1.25rem 1.5rem;background:rgba(184,149,95,.08);border-left:3px solid var(--gold);border-radius:6px;font-size:.9rem;line-height:1.6;">
-        <strong style="color:var(--navy);">* Для гідроцикла потрібна ліцензія</strong><br>
-        Для керування гідроциклом у Хорватії потрібен дійсний <strong>Міжнародний сертифікат компетентності (ICC)</strong> або еквівалентний національний сертифікат. Берегова охорона суворо контролює дотримання правил через минулі інциденти. Якщо хочете кататися, отримайте сертифікат до поїздки.
-      </div>
-    </div>
-  </section>
-
-  <section class="gallery-section">
-    <span class="label">M/Y OHANA</span>
-    <div class="photo-grid">
-      <figure class="wide"><img src="../img/ycf2.jpg" alt="OHANA" loading="lazy"></figure>
-      <figure><img src="../img/brochure4.jpg" alt="Палуба" loading="lazy"></figure>
-      <figure><img src="../img/brochure5.jpg" alt="Обід на палубі" loading="lazy"></figure>
-      <figure><img src="../img/brochure6.jpg" alt="Салон" loading="lazy"></figure>
-      <figure><img src="../img/brochure7.jpg" alt="Бар" loading="lazy"></figure>
-      <figure class="wide"><img src="../img/brochure3.jpg" alt="OHANA в морі" loading="lazy"></figure>
-      <figure><img src="../img/brochure8.jpg" alt="Каюта" loading="lazy"></figure>
-      <figure><img src="../img/brochure9.jpg" alt="Люкс" loading="lazy"></figure>
-      <figure><img src="../img/brochure10.jpg" alt="Деталі" loading="lazy"></figure>
-      <figure><img src="../img/brochure11.jpg" alt="Водні розваги" loading="lazy"></figure>
-      <figure class="wide"><img src="../img/ycf3.jpg" alt="Вид зверху" loading="lazy"></figure>
-      <figure><img src="../img/brochure12.jpg" alt="Джакузі" loading="lazy"></figure>
-      <figure><img src="../img/brochure13.jpg" alt="Вечеря" loading="lazy"></figure>
-      <figure><img src="../img/brochure14.jpg" alt="Захід сонця" loading="lazy"></figure>
-      <figure><img src="../img/brochure15.jpg" alt="Узбережжя" loading="lazy"></figure>
-    </div>
-  </section>
-
-  <section class="bg-white">
-    <div class="container">
-      <span class="label fade-up">Корисне</span>
-      <h2 class="fade-up">Що варто знати</h2>
-      <ul class="tips-list fade-up">
-        <li>Одягайтесь легко — літній одяг, купальники, кілька smart-casual нарядів для вечерь на березі</li>
-        <li>Візьміть сонцезахисний крем, капелюх, окуляри</li>
-        <li><strong>Тільки м'які сумки</strong> — жорсткі валізи не поміщаються в каюті. На борту є послуга прання</li>
-        <li><strong>Візьміть адаптер для розеток</strong> — на яхті європейські розетки Type C/F. Адаптерів на борту недостатньо для всіх</li>
-        <li><strong>Отримайте eSIM перед поїздкою</strong> — телефони з-за меж ЄС (США, Японія, Таїланд) не матимуть даних без неї. Airalo або eSIM.me працюють добре</li>
-        <li>Паління дозволене лише у спеціальних зонах на відкритому повітрі</li>
-        <li>Діти повинні бути під наглядом дорослих</li>
-        <li>Моторні водні розваги потребують підписання відмови від претензій</li>
-        <li><strong>Для гідроцикла потрібен ICC</strong> (Міжнародний сертифікат компетентності) або еквівалент — берегова охорона Хорватії суворо контролює</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- ═══ Маршрут ═══ -->
-  <section class="bg-cream">
-    <div class="container">
-      <span class="label fade-up">The Route</span>
-      <h2 class="fade-up">Острівний круїз Далматинським узбережжям</h2>
-      <p class="section-intro fade-up">Наш маршрут пролягає через найкрасивіші острови Адріатики. Ми будемо плавати приблизно 2–2,5 години на день — решту часу купаємося, досліджуємо та відпочиваємо.</p>
-      <div class="route-islands fade-up">
-        <span class="island">Спліт</span><span class="arrow">&rarr;</span>
-        <span class="island">Брач</span><span class="arrow">&rarr;</span>
-        <span class="island">Віс</span><span class="arrow">&rarr;</span>
-        <span class="island">Корчула</span><span class="arrow">&rarr;</span>
-        <span class="island">Jelsa</span><span class="arrow">&rarr;</span>
-        <span class="island">Шолта</span><span class="arrow">&rarr;</span>
-        <span class="island">Хвар</span><span class="arrow">&rarr;</span>
-        <span class="island">Спліт</span>
-      </div>
-      <p class="route-note fade-up">Погода та поточні умови визначають маршрут під час круїзу. Капітан обирає найкращий шлях щодня.</p>
-
-      <!-- Island highlights -->
-      <div class="logistics-grid fade-up" style="margin-top:3rem;">
-        <div class="logistics-card">
-          <h3>Брач</h3>
-          <p>Тут знаходиться Златні Рат — найвідоміший пляж Хорватії, золотий мис з галькою, що змінює форму від вітру. Кришталево чисте мілководдя, ідеальне для дітей та снорклінгу.</p>
-        </div>
-        <div class="logistics-card">
-          <h3>Віс</h3>
-          <p>Найвіддаленіший населений острів. Відвідайте вражаючу Блакитну печеру на Бішево, купайтесь у бухті Стініва (визнаний найкращим пляжем Європи), їжте у простих конобах, де риба щойно впіймана.</p>
-        </div>
-        <div class="logistics-card">
-          <h3>Корчула</h3>
-          <p>Мініатюрний Дубровник без натовпів. Середньовічне старе місто з мурами, місце народження Марко Поло. Відоме білими винами — спробуйте Пошип та Грк.</p>
-        </div>
-        <div class="logistics-card">
-          <h3>Єлса</h3>
-          <p>Тихе портове містечко на північному узбережжі Хвару. Оточене лавандовими полями та сосновими лісами. Спокійна атмосфера, чудові місцеві ресторани та красиві бухти поблизу.</p>
-        </div>
-        <div class="logistics-card">
-          <h3>Шолта</h3>
-          <p>Секрет місцевих — майже не торкнутий туризмом. Відома оливковою олією та медом. Тихі бухти з водою настільки прозорою, що човен виглядає ніби летить у повітрі.</p>
-        </div>
-        <div class="logistics-card">
-          <h3>Хвар</h3>
-          <p>Гламурний острів. Вишукані ресторани, коктейль-бари з видом на гавань, фортеця XIII століття з панорамним видом. Найжвавіше нічне життя на Адріатиці.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- ═══ Вимоги до подорожі ═══ -->
-  <section class="bg-white">
+  <section class="bg-cream">
     <div class="container">
       <span class="label fade-up">Before You Travel</span>
       <h2 class="fade-up">Вимоги до подорожі</h2>
@@ -562,13 +569,13 @@
         <li>Часовий пояс: <strong>CEST (UTC+2)</strong></li>
       </ul>
       <div class="visa-alert fade-up">
-        <strong>Власники тайських паспортів:</strong> Для в'їзду до Хорватії потрібна <strong>Шенгенська віза</strong>. Оформлення займає 2–8 тижнів. Подавайте заяву в найближчому посольстві Шенгенської країни якнайшвидше.
+        <strong>Власники тайських паспортів:</strong> Для в'їзду до Хорватії потрібна <strong>Шенгенська віза</strong>. Оформлення займає 2–8 тижнів — <strong id="visaUrgency"></strong> Подавайте заяву в найближчому посольстві Шенгенської країни якнайшвидше.
       </div>
     </div>
   </section>
 
   <!-- ═══ EMERGENCY & MEDICAL ═══ -->
-  <section id="medical" class="bg-cream">
+  <section id="medical" class="bg-white">
     <div class="container">
       <span class="label fade-up">Безпека</span>
       <h2 class="fade-up">Екстрена допомога та медицина</h2>
@@ -580,7 +587,7 @@
           <span><strong>Загальний екстрений:</strong> 112</span>
           <span><strong>Швидка допомога:</strong> 194</span>
         </div>
-        <p style="margin-top:.5rem;font-size:.85rem;color:var(--text-light);">Безкоштовно з будь-якого телефону. Усім гостям наполегливо рекомендуємо оформити туристичну страховку.</p>
+        <p style="margin-top:.5rem;font-size:.85rem;color:var(--text-light);">Безкоштовно з будь-якого телефону.</p>
       </div>
 
       <div class="faq-list fade-up">
@@ -639,13 +646,13 @@
   </section>
 
   <!-- ═══ FAQ ═══ -->
-  <section class="bg-white">
+  <section class="bg-cream">
     <div class="container">
       <span class="label fade-up">FAQ</span>
       <h2 class="fade-up">Все, що потрібно знати</h2>
       <div class="faq-list fade-up">
         <details class="faq-item"><summary>Чи є Wi-Fi на борту?</summary><div class="faq-answer">Так — <strong>Starlink</strong> супутниковий інтернет. Стабільне з'єднання у більшості локацій, достатнє для відеодзвінків.</div></details>
-        <details class="faq-item"><summary>Які розетки на борту?</summary><div class="faq-answer">Європейські Type C/F. На борту є кілька адаптерів, але не для всіх — <strong>візьміть свій адаптер</strong>.</div></details>
+        <details class="faq-item"><summary>Які розетки на борту?</summary><div class="faq-answer">Європейські Type C/F. Візьміть свій адаптер.</div></details>
         <details class="faq-item"><summary>Як виглядає типовий день?</summary><div class="faq-answer">Підйом, сніданок у зручний час, 2–2,5 години плавання до наступного острова, зупинка в красивій бухті для купання, обід на борту, прогулянка містечком. Деякими вечорами бажаючі можуть повечеряти на березі в місцевому ресторані — або залишитись на борту.</div></details>
         <details class="faq-item"><summary>Де ми їмо — на борту чи на острові?</summary><div class="faq-answer">І там, і там. Сніданок і обід на борту (шведський стіл). Деякими вечорами бажаючі можуть піти на вечерю в ресторани на островах — це завжди за бажанням. Хвар — найвишуканіший, інші острови — затишні місцеві коноби.</div></details>
         <details class="faq-item"><summary>Що робити з морською хворобою?</summary><div class="faq-answer">Ліки від заколисування є на борту (можуть викликати сонливість). Рекомендуємо взяти: <strong>акупунктурні браслети</strong>, <strong>пластирі від заколисування</strong> (за вухо), <strong>тайський трав'яний бальзам</strong> (рол-он).</div></details>
@@ -653,28 +660,10 @@
         <details class="faq-item"><summary>Безпека дітей?</summary><div class="faq-answer">Рятувальні жилети для дорослих є. <strong>Батькам краще взяти дитячі жилети правильного розміру</strong>. Один дитячий стільчик на борту.</div></details>
         <details class="faq-item"><summary>Чи є прання?</summary><div class="faq-answer">Так — прання та сушіння на борту, 24 години. Пакуйте легко.</div></details>
         <details class="faq-item"><summary>Медична допомога?</summary><div class="faq-answer">Аптечка на борту, екіпаж має сертифікат з надання першої допомоги. Європейський номер екстреної допомоги: <strong>112</strong>.</div></details>
-        <details class="faq-item"><summary>Скільки багажу брати?</summary><div class="faq-answer">Без суворих обмежень, але багаж зберігається у каюті. <strong>М'які сумки рекомендовані</strong> замість жорстких валіз.</div></details>
+        <details class="faq-item"><summary>Скільки багажу брати?</summary><div class="faq-answer">Без суворих обмежень, але багаж зберігається у каюті. М'які сумки рекомендовані — жорсткі валізи складно зберігати.</div></details>
         <details class="faq-item"><summary>Яка температура води?</summary><div class="faq-answer">Середня температура у червні — <strong>22°C</strong> (19–25°C). Достатньо тепло для комфортного купання.</div></details>
         <details class="faq-item"><summary>Можна брати свої напої?</summary><div class="faq-answer">Так. Але все буде повністю забезпечено на борту — можливо, не варто нести все з собою.</div></details>
         <details class="faq-item"><summary>Що відбувається в день посадки?</summary><div class="faq-answer">Посадка о 16:00 у Спліті. Вітальний напій, знайомство з екіпажем, інструктаж з безпеки. Потім повільний круїз до острова Брач, якір у тихій бухті, купання та вечеря на борту.</div></details>
-      </div>
-    </div>
-  </section>
-
-  <section class="bg-cream">
-    <div class="container">
-      <span class="label fade-up">Перед поїздкою</span>
-      <h2 class="fade-up">Трохи хорватської</h2>
-      <p class="section-intro fade-up" style="max-width:500px;">Кілька слів, щоб вразити екіпаж та місцевих.</p>
-      <div class="phrase-grid fade-up">
-        <div class="phrase-card"><div class="phrase-hr">Bok</div><div class="phrase-en">Привіт / Бувай</div><div class="phrase-pron">бок</div></div>
-        <div class="phrase-card"><div class="phrase-hr">Hvala</div><div class="phrase-en">Дякую</div><div class="phrase-pron">ХВАЛА</div></div>
-        <div class="phrase-card"><div class="phrase-hr">Molim</div><div class="phrase-en">Будь ласка / Нема за що</div><div class="phrase-pron">МОЛІМ</div></div>
-        <div class="phrase-card"><div class="phrase-hr">Živjeli!</div><div class="phrase-en">Будьмо!</div><div class="phrase-pron">ЖІВ'ЄЛІ</div></div>
-        <div class="phrase-card"><div class="phrase-hr">Dobro jutro</div><div class="phrase-en">Доброго ранку</div><div class="phrase-pron">ДОБРО ЮТРО</div></div>
-        <div class="phrase-card"><div class="phrase-hr">Dobar dan</div><div class="phrase-en">Добрий день</div><div class="phrase-pron">ДОБАР ДАН</div></div>
-        <div class="phrase-card"><div class="phrase-hr">Predivno!</div><div class="phrase-en">Чудово!</div><div class="phrase-pron">ПРЕДІВНО</div></div>
-        <div class="phrase-card"><div class="phrase-hr">Jedno pivo, molim</div><div class="phrase-en">Одне пиво, будь ласка</div><div class="phrase-pron">ЄДНО ПІВО МОЛІМ</div></div>
       </div>
     </div>
   </section>
@@ -801,7 +790,7 @@
   <footer>
     <p class="footer-vessel">YACHTTARO</p>
     <p>Спліт, Хорватія · 6–13 червня 2026</p>
-    <p style="margin-top:1.5rem;">Питання? Звертайтесь до Кентаро напряму.</p>
+    <p style="margin-top: 1.5rem;">Питання? <a href="https://wa.me/380977316943" style="color:var(--gold-light);text-decoration:underline;">Напишіть Кентаро в WhatsApp</a></p>
   </footer>
 
   <a href="#rsvp" class="floating-rsvp" id="floatingRsvp">RSVP</a>
@@ -860,6 +849,18 @@
       const show = window.scrollY > window.innerHeight * 0.8 && rsvpTop > window.innerHeight;
       floatingRsvp.classList.toggle('visible', show);
     },{passive:true});
+
+    // ── Visa urgency (dynamic) ──
+    (function() {
+      const trip = new Date('2026-06-06');
+      const weeks = Math.floor((trip - new Date()) / (7 * 864e5));
+      const el = document.getElementById('visaUrgency');
+      if (el) {
+        if (weeks <= 0) el.textContent = 'поїздка вже почалася.';
+        else if (weeks <= 4) el.textContent = 'до поїздки ' + weeks + ' тижн' + (weeks === 1 ? 'ь' : 'ів') + '. Це надзвичайно терміново.';
+        else el.textContent = 'до поїздки ' + weeks + ' тижнів.';
+      }
+    })();
 
     // ── RSVP deadline countdown ──
     (function() {
