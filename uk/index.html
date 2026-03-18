@@ -37,14 +37,14 @@
     .lang-switch.scrolled .active{color:var(--navy);font-weight:600}
     .lang-switch .sep{color:rgba(255,255,255,.2)}.lang-switch.scrolled .sep{color:var(--border)}
     .hero{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden;background:var(--navy);padding:2rem 1.5rem}
-    .hero::before{content:'';position:absolute;inset:0;background:rgba(0,0,0,0.65)}
-    .hero-content{position:relative;z-index:1}
-    .hero .label{color:var(--gold-light);margin-bottom:1.5rem;font-size:.8rem;letter-spacing:.25em}
-    .hero h1{font-family:var(--font-serif);font-size:clamp(2.5rem,7vw,4.5rem);font-weight:300;color:var(--white);line-height:1.15;margin-bottom:1.5rem}
-    .hero-sub{font-family:var(--font-serif);font-size:clamp(1rem,2.2vw,1.25rem);color:rgba(255,255,255,.7);max-width:480px;margin:0 auto 2rem;line-height:1.7}
-    .hero-date{font-family:var(--font-sans);font-size:.75rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-light);padding:.6rem 1.5rem;border:1px solid rgba(184,149,95,.3);border-radius:2rem;display:inline-block;margin-bottom:2.5rem}
+    .hero::before{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.55) 40%,rgba(0,0,0,0.65) 70%,rgba(0,0,0,0.8) 100%);z-index:1}
+    .hero-content{position:relative;z-index:2}
+    .hero .label{color:var(--gold-bright);margin-bottom:1.5rem;font-size:.8rem;letter-spacing:.25em;text-shadow:0 2px 8px rgba(0,0,0,0.6)}
+    .hero h1{font-family:var(--font-serif);font-size:clamp(2.5rem,7vw,4.5rem);font-weight:400;color:var(--white);line-height:1.15;margin-bottom:1.5rem;text-shadow:0 2px 16px rgba(0,0,0,0.5),0 4px 32px rgba(0,0,0,0.3)}
+    .hero-sub{font-family:var(--font-serif);font-size:clamp(1rem,2.2vw,1.25rem);color:rgba(255,255,255,0.95);max-width:480px;margin:0 auto 2rem;line-height:1.7;text-shadow:0 2px 8px rgba(0,0,0,0.6)}
+    .hero-date{font-family:var(--font-sans);font-size:.75rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-bright);padding:.6rem 1.5rem;border:1px solid rgba(184,149,95,0.4);border-radius:2rem;display:inline-block;margin-bottom:2.5rem;text-shadow:0 2px 8px rgba(0,0,0,0.5);backdrop-filter:blur(4px);background:rgba(0,0,0,0.2)}
     .countdown{font-family:var(--font-sans);font-size:.85rem;color:rgba(255,255,255,.5);margin-top:.5rem}
-    .scroll-hint{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);animation:float 2.5s ease-in-out infinite}
+    .scroll-hint{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);animation:float 2.5s ease-in-out infinite;z-index:2}
     .scroll-hint svg{width:24px;height:24px;stroke:rgba(255,255,255,.3);fill:none;stroke-width:2}
     @keyframes float{0%,100%{transform:translateX(-50%) translateY(0);opacity:.6}50%{transform:translateX(-50%) translateY(8px);opacity:1}}
     .wave-separator{display:block;width:100%;height:60px;margin-top:-1px}
@@ -135,8 +135,63 @@
     .hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
 .countdown-grid{display:flex;gap:1.5rem;justify-content:center;margin-top:.5rem}
 .countdown-unit{text-align:center}
-.countdown-num{font-family:var(--font-serif);font-size:clamp(1.8rem,4vw,2.5rem);font-weight:400;color:var(--white);line-height:1}
-.countdown-label{font-family:var(--font-sans);font-size:.65rem;font-weight:500;text-transform:uppercase;letter-spacing:.15em;color:rgba(255,255,255,.4);margin-top:.3rem}
+.countdown-num{font-family:var(--font-serif);font-size:clamp(1.8rem,4vw,2.5rem);font-weight:500;color:var(--white);line-height:1;text-shadow:0 2px 8px rgba(0,0,0,0.5)}
+.countdown-label{font-family:var(--font-sans);font-size:.65rem;font-weight:600;text-transform:uppercase;letter-spacing:.15em;color:rgba(255,255,255,.7);margin-top:.3rem;text-shadow:0 1px 4px rgba(0,0,0,0.5)}
+    .hero-rsvp-btn {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 0.9rem 2.5rem;
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--navy);
+      background: var(--gold-bright);
+      border-radius: 50px;
+      text-decoration: none;
+      transition: all 0.3s;
+      text-shadow: none;
+    }
+    .hero-rsvp-btn:hover {
+      background: var(--white);
+      color: var(--navy);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    }
+
+    /* Floating RSVP button */
+    .floating-rsvp {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      z-index: 999;
+      padding: 0.75rem 1.8rem;
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--white);
+      background: var(--navy);
+      border: 1px solid var(--gold);
+      border-radius: 50px;
+      text-decoration: none;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+      transition: all 0.3s;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(10px);
+    }
+    .floating-rsvp.visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+    .floating-rsvp:hover {
+      background: var(--gold);
+      color: var(--navy);
+    }
 #confetti-canvas{position:fixed;inset:0;z-index:9999;pointer-events:none}
     .route-islands{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:.5rem 0;margin:2rem 0;font-family:var(--font-serif);font-size:clamp(1rem,2vw,1.25rem);color:var(--navy)}
     .route-islands .island{padding:0 .75rem}
@@ -199,6 +254,7 @@
   <div class="countdown-unit"><div class="countdown-num" id="cd-min">--</div><div class="countdown-label">Хв</div></div>
   <div class="countdown-unit"><div class="countdown-num" id="cd-sec">--</div><div class="countdown-label">Сек</div></div>
 </div>
+      <a href="#rsvp" class="hero-rsvp-btn">RSVP</a>
     </div>
     <a href="#voyage" class="scroll-hint" aria-label="Прокрутити вниз">
       <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
@@ -297,14 +353,108 @@
     </div>
   </section>
 
-  <section class="bg-cream">
+  <!-- ═══ Повернення додому ═══ -->
+  <section class="callout-section bg-cream">
+    <div class="container">
+      <span class="label fade-up">Від'їзд</span>
+      <h2 class="fade-up">Повернення додому</h2>
+      <div class="callout-box fade-up">
+        <p>
+          Останню ніч ми проведемо <strong>в гавані Спліта</strong>. У вас є два варіанти від'їзду:
+        </p>
+        <p>
+          <strong>Варіант 1 — Зійти ввечері 12 червня.</strong> Після останньої вечері ви можете зійти на берег того ж вечора. Ідеально, якщо у вас ранній рейс 13 червня або ви бажаєте провести останню ніч у готелі.
+        </p>
+        <p>
+          <strong>Варіант 2 — Зійти вранці 13 червня.</strong> Залишайтесь на борту на останній сніданок, потім зійдіть до 9:00. Аеропорт Спліта — 30 хвилин від порту.
+        </p>
+      </div>
+
+      <div class="logistics-grid fade-up">
+        <div class="logistics-card">
+          <h3><span class="icon">&#9992;&#65039;</span> Рейси того ж дня</h3>
+          <p>Якщо летите 13 червня, бронюйте рейси з вильотом <strong>о 12:00 або пізніше</strong>, щоб мати достатньо часу після висадки.</p>
+        </div>
+        <div class="logistics-card">
+          <h3><span class="icon">&#127751;</span> Додаткова ніч</h3>
+          <p>Ми можемо організувати готель у Спліті на 12 або 13 червня. Відвідайте Палац Діоклетіана, набережну Ріва або зробіть одноденну поїздку до Трогіра.</p>
+        </div>
+        <div class="logistics-card">
+          <h3><span class="icon">&#128663;</span> Трансфери</h3>
+          <p>Трансфери до аеропорту будуть організовані для всіх — просто повідомте деталі вашого рейсу у формі RSVP або груповому чаті.</p>
+        </div>
+      </div>
+
+      <div class="flights-section fade-up">
+        <h3>Рекомендовані зворотні рейси</h3>
+        <p class="flights-note">Виліт з <strong>аеропорту Спліта (SPU)</strong>. Якщо вилітаєте 13 червня, бронюйте денні рейси. Далекі маршрути зазвичай через європейський хаб.</p>
+
+        <details class="flight-group">
+          <summary>До Детройта (DTW)</summary>
+          <div class="flight-content">
+            <div class="depart-note">Виліт зі Спліта 13 червня вдень → Прибуття в Детройт пізно ввечері 13 червня</div>
+            <div class="route-links" style="margin-top:0.75rem;">
+              <a href="https://www.google.com/travel/flights?q=flights+from+Split+to+Detroit+departing+June+13+2026" target="_blank" rel="noopener"><strong>Шукати на Google Flights ↗</strong></a>
+            </div>
+          </div>
+        </details>
+
+        <details class="flight-group">
+          <summary>До Токіо (NRT / HND)</summary>
+          <div class="flight-content">
+            <div class="depart-note">Виліт зі Спліта 13 червня → Прибуття в Токіо 14 червня</div>
+            <div class="route-links" style="margin-top:0.75rem;">
+              <a href="https://www.google.com/travel/flights?q=flights+from+Split+to+Tokyo+departing+June+13+2026" target="_blank" rel="noopener"><strong>Шукати на Google Flights ↗</strong></a>
+            </div>
+          </div>
+        </details>
+
+        <details class="flight-group">
+          <summary>До Фукуоки (FUK)</summary>
+          <div class="flight-content">
+            <div class="depart-note">Виліт зі Спліта 13 червня → Прибуття у Фукуоку 14 червня</div>
+            <div class="route-links" style="margin-top:0.75rem;">
+              <a href="https://www.google.com/travel/flights?q=flights+from+Split+to+Fukuoka+departing+June+13+2026" target="_blank" rel="noopener"><strong>Шукати на Google Flights ↗</strong></a>
+            </div>
+          </div>
+        </details>
+
+        <details class="flight-group">
+          <summary>До Кумамото (KMJ)</summary>
+          <div class="flight-content">
+            <div class="depart-note">Виліт зі Спліта 13 червня → Прибуття в Кумамото 14 червня</div>
+            <div class="route-links" style="margin-top:0.75rem;">
+              <a href="https://www.google.com/travel/flights?q=flights+from+Split+to+Kumamoto+departing+June+13+2026" target="_blank" rel="noopener"><strong>Шукати на Google Flights ↗</strong></a>
+            </div>
+          </div>
+        </details>
+
+        <details class="flight-group">
+          <summary>До Бангкока (BKK)</summary>
+          <div class="flight-content">
+            <div class="depart-note">Виліт зі Спліта 13 червня → Прибуття в Бангкок 14 червня</div>
+            <div class="route-links" style="margin-top:0.75rem;">
+              <a href="https://www.google.com/travel/flights?q=flights+from+Split+to+Bangkok+departing+June+13+2026" target="_blank" rel="noopener"><strong>Шукати на Google Flights ↗</strong></a>
+            </div>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-white">
     <div class="container">
       <span class="label fade-up">На борту</span>
       <h2 class="fade-up">Ваш дім у морі</h2>
       <p class="section-intro fade-up">OHANA — моторна яхта довжиною 49 метрів. 14 кают для 30 гостей, 12 членів екіпажу та безліч водних розваг.</p>
       <div class="amenities-grid fade-up">
-        <div class="amenity-group"><h3>На воді</h3><ul class="amenity-list"><li>Гідроцикл</li><li>SeaBobs &times; 2</li><li>E-Foil</li><li>Водні лижі</li><li>Тюбінг</li><li>Падлборди &times; 2</li><li>Каяки &times; 2</li><li>Водна гірка</li><li>Надувний басейн</li></ul></div>
+        <div class="amenity-group"><h3>На воді</h3><ul class="amenity-list"><li>Гідроцикл <span style="color:var(--gold);font-size:.8em;">*</span></li><li>SeaBobs &times; 2</li><li>E-Foil</li><li>Водні лижі</li><li>Тюбінг</li><li>Падлборди &times; 2</li><li>Каяки &times; 2</li><li>Водна гірка</li><li>Надувний басейн</li></ul></div>
         <div class="amenity-group"><h3>На борту</h3><ul class="amenity-list"><li>Кондиціонер</li><li>Wi-Fi</li><li>Постільна білизна</li><li>Рушники</li><li>Повне харчування</li><li>Капітан + 11 екіпажу</li></ul><p style="margin-top:1rem;font-size:.88rem;color:var(--text-light);">Їжа та напої на борту — за наш рахунок. Просто повідомте нам про ваші побажання.</p></div>
+      </div>
+
+      <div class="jet-ski-notice fade-up" style="margin-top:2.5rem;padding:1.25rem 1.5rem;background:rgba(184,149,95,.08);border-left:3px solid var(--gold);border-radius:6px;font-size:.9rem;line-height:1.6;">
+        <strong style="color:var(--navy);">* Для гідроцикла потрібна ліцензія</strong><br>
+        Для керування гідроциклом у Хорватії потрібен дійсний <strong>Міжнародний сертифікат компетентності (ICC)</strong> або еквівалентний національний сертифікат. Берегова охорона суворо контролює дотримання правил через минулі інциденти. Якщо хочете кататися, отримайте сертифікат до поїздки.
       </div>
     </div>
   </section>
@@ -342,6 +492,7 @@
         <li>Тварини на борт не допускаються</li>
         <li>Діти повинні бути під наглядом дорослих</li>
         <li>Моторні водні розваги потребують підписання відмови від претензій</li>
+        <li><strong>Для гідроцикла потрібен ICC</strong> (Міжнародний сертифікат компетентності) або еквівалент — берегова охорона Хорватії суворо контролює</li>
       </ul>
     </div>
   </section>
@@ -357,11 +508,12 @@
         <span class="island">Брач</span><span class="arrow">&rarr;</span>
         <span class="island">Віс</span><span class="arrow">&rarr;</span>
         <span class="island">Корчула</span><span class="arrow">&rarr;</span>
+        <span class="island">Jelsa</span><span class="arrow">&rarr;</span>
         <span class="island">Шолта</span><span class="arrow">&rarr;</span>
         <span class="island">Хвар</span><span class="arrow">&rarr;</span>
         <span class="island">Спліт</span>
       </div>
-      <p class="route-note fade-up">Точний маршрут залежить від погоди та морських умов. Капітан обирає найкращий шлях щодня.</p>
+      <p class="route-note fade-up">Погода та поточні умови визначають маршрут під час круїзу. Капітан обирає найкращий шлях щодня.</p>
     </div>
   </section>
 
@@ -385,8 +537,79 @@
     </div>
   </section>
 
+  <!-- ═══ EMERGENCY & MEDICAL ═══ -->
+  <section id="medical" class="bg-cream">
+    <div class="container">
+      <span class="label fade-up">Безпека</span>
+      <h2 class="fade-up">Екстрена допомога та медицина</h2>
+      <p class="section-intro fade-up">На борту є аптечка, екіпаж сертифікований з надання першої допомоги. Медичні заклади на кожній зупинці:</p>
+
+      <div style="margin:2rem 0 1.5rem;padding:1rem 1.5rem;background:var(--white);border-radius:8px;border:1px solid var(--border);" class="fade-up">
+        <strong style="color:var(--navy);">Екстрені номери</strong>
+        <div style="display:flex;gap:2rem;flex-wrap:wrap;margin-top:.5rem;font-size:.9rem;">
+          <span><strong>Загальний екстрений:</strong> 112</span>
+          <span><strong>Швидка допомога:</strong> 194</span>
+        </div>
+        <p style="margin-top:.5rem;font-size:.85rem;color:var(--text-light);">Безкоштовно з будь-якого телефону. Усім гостям наполегливо рекомендуємо оформити туристичну страховку.</p>
+      </div>
+
+      <div class="faq-list fade-up">
+        <details class="faq-item">
+          <summary>Спліт</summary>
+          <div class="faq-answer">
+            <ul style="list-style:none;padding:0;">
+              <li style="margin-bottom:.75rem;"><strong>Університетська лікарня Спліта (KBC Split)</strong><br>Spinčićeva 1 · <a href="tel:+38521556111">+385 21 556 111</a><br><span style="font-size:.85rem;color:var(--text-light);">Центральна лікарня регіону з повним відділенням невідкладної допомоги.</span></li>
+              <li style="margin-bottom:.75rem;"><strong>Terra Medica — Туристична клініка</strong><br>Poljička 20b · <a href="tel:+38521488600">+385 21 488 600</a><br><span style="font-size:.85rem;color:var(--text-light);">Без запису. Для туристів.</span></li>
+            </ul>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Брач</summary>
+          <div class="faq-answer">
+            <ul style="list-style:none;padding:0;">
+              <li style="margin-bottom:.75rem;"><strong>Невідкладна медична допомога — Супетар</strong><br><a href="tel:+38521630959">+385 21 630 959</a><br><span style="font-size:.85rem;color:var(--text-light);">Цілодобово. Термінові випадки — гелікоптером до Спліта.</span></li>
+            </ul>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Віс</summary>
+          <div class="faq-answer">
+            <ul style="list-style:none;padding:0;">
+              <li style="margin-bottom:.75rem;"><strong>Невідкладна медична допомога — Віс</strong><br><a href="tel:+385194">+385 194</a><br><span style="font-size:.85rem;color:var(--text-light);">Цілодобово. Термінові випадки — до Спліта.</span></li>
+            </ul>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Корчула</summary>
+          <div class="faq-answer">
+            <ul style="list-style:none;padding:0;">
+              <li style="margin-bottom:.75rem;"><strong>Медичний центр Корчули</strong><br><a href="tel:+38520711137">+385 20 711 137</a><br><span style="font-size:.85rem;color:var(--text-light);">Широкий спектр послуг. Цілодобова невідкладна допомога. Евакуація гелікоптером.</span></li>
+            </ul>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Хвар та Єлса</summary>
+          <div class="faq-answer">
+            <ul style="list-style:none;padding:0;">
+              <li style="margin-bottom:.75rem;"><strong>Медичний центр Хвара</strong><br><a href="tel:+38521717099">+385 21 717 099</a><br><span style="font-size:.85rem;color:var(--text-light);">Загальна практика, невідкладна допомога.</span></li>
+              <li style="margin-bottom:.75rem;"><strong>Медичний центр Єлси</strong><br><a href="tel:+38521765122">+385 21 765 122</a><br><span style="font-size:.85rem;color:var(--text-light);">Загальна медицина, стоматологія, невідкладна допомога.</span></li>
+            </ul>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Шолта</summary>
+          <div class="faq-answer">
+            <ul style="list-style:none;padding:0;">
+              <li style="margin-bottom:.75rem;"><strong>Медичний центр Грохоте</strong><br><a href="tel:+38521654493">+385 21 654 493</a><br><span style="font-size:.85rem;color:var(--text-light);">Загальна медицина, стоматологія. Гелікоптерний майданчик.</span></li>
+            </ul>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
   <!-- ═══ FAQ ═══ -->
-  <section class="bg-cream">
+  <section class="bg-white">
     <div class="container">
       <span class="label fade-up">FAQ</span>
       <h2 class="fade-up">Все, що потрібно знати</h2>
@@ -394,15 +617,15 @@
         <details class="faq-item"><summary>Чи є Wi-Fi на борту?</summary><div class="faq-answer">Так — <strong>Starlink</strong> супутниковий інтернет. Стабільне з'єднання у більшості локацій, достатнє для відеодзвінків.</div></details>
         <details class="faq-item"><summary>Які розетки на борту?</summary><div class="faq-answer">Європейські Type C/F. На борту є кілька адаптерів, але не для всіх — <strong>візьміть свій адаптер</strong>.</div></details>
         <details class="faq-item"><summary>Як виглядає типовий день?</summary><div class="faq-answer">Підйом, сніданок у зручний час, 2–2,5 години плавання до наступного острова, зупинка в красивій бухті для купання, обід на борту, прогулянка містечком, вечеря в ресторані на острові.</div></details>
-        <details class="faq-item"><summary>Де ми їмо — на борту чи на острові?</summary><div class="faq-answer">І там, і там. Сніданок і обід на борту (шведський стіл). Вечеря зазвичай у ресторанах на островах — оплачується окремо. Хвар — найвишуканіший, інші острови — затишні місцеві коноби.</div></details>
+        <details class="faq-item"><summary>Де ми їмо — на борту чи на острові?</summary><div class="faq-answer">І там, і там. Сніданок і обід на борту (шведський стіл). Деякі вечері — у ресторанах на островах. Хвар — найвишуканіший, інші острови — затишні місцеві коноби.</div></details>
         <details class="faq-item"><summary>Що робити з морською хворобою?</summary><div class="faq-answer">Ліки від заколисування є на борту (можуть викликати сонливість). Рекомендуємо взяти: <strong>акупунктурні браслети</strong>, <strong>пластирі від заколисування</strong> (за вухо), <strong>тайський трав'яний бальзам</strong> (рол-он).</div></details>
         <details class="faq-item"><summary>Що одягати?</summary><div class="faq-answer">На борту: купальник, casual. На берегу: не в купальнику. У Хварі — <strong>smart casual</strong>. Інші острови — розслаблено.</div></details>
         <details class="faq-item"><summary>Безпека дітей?</summary><div class="faq-answer">Рятувальні жилети для дорослих є. <strong>Батькам краще взяти дитячі жилети правильного розміру</strong>. Один дитячий стільчик на борту.</div></details>
-        <details class="faq-item"><summary>Чи є прання?</summary><div class="faq-answer">Так — прання та сушіння €40 за завантаження, 24 години. Пакуйте легко.</div></details>
+        <details class="faq-item"><summary>Чи є прання?</summary><div class="faq-answer">Так — прання та сушіння на борту, 24 години. Пакуйте легко.</div></details>
         <details class="faq-item"><summary>Медична допомога?</summary><div class="faq-answer">Аптечка на борту, екіпаж має сертифікат з надання першої допомоги. Європейський номер екстреної допомоги: <strong>112</strong>.</div></details>
         <details class="faq-item"><summary>Скільки багажу брати?</summary><div class="faq-answer">Без суворих обмежень, але багаж зберігається у каюті. <strong>М'які сумки рекомендовані</strong> замість жорстких валіз.</div></details>
         <details class="faq-item"><summary>Яка температура води?</summary><div class="faq-answer">Середня температура у червні — <strong>22°C</strong> (19–25°C). Достатньо тепло для комфортного купання.</div></details>
-        <details class="faq-item"><summary>Можна брати свої напої?</summary><div class="faq-answer">Так. Але постачальник яхти має ціни близькі до супермаркету — можливо, не варто нести все з собою.</div></details>
+        <details class="faq-item"><summary>Можна брати свої напої?</summary><div class="faq-answer">Так. Але все буде повністю забезпечено на борту — можливо, не варто нести все з собою.</div></details>
         <details class="faq-item"><summary>Що відбувається в день посадки?</summary><div class="faq-answer">Посадка о 16:00 у Спліті. Вітальний напій, знайомство з екіпажем, інструктаж з безпеки. Потім повільний круїз до острова Брач, якір у тихій бухті, купання та вечеря на борту.</div></details>
       </div>
     </div>
@@ -430,8 +653,8 @@
     <div class="container">
       <div style="text-align:center;" class="fade-up">
         <span class="label">RSVP</span>
-        <h2>Повідомте нас</h2>
-        <p class="section-intro" style="margin:0 auto;">Будь ласка, заповніть форму нижче, щоб ми могли все підготувати.</p>
+        <h2>Підтвердіть участь</h2>
+        <p class="section-intro" style="margin:0 auto;">Нам потрібні ваші дані для розподілу кают, трансферів та забезпечення. Будь ласка, заповніть якомога швидше.</p>
       </div>
       <div class="form-wrap">
         <div id="formError" class="form-error"></div>
@@ -486,6 +709,7 @@
     <p style="margin-top:1.5rem;">Питання? Звертайтесь до Кентаро напряму.</p>
   </footer>
 
+  <a href="#rsvp" class="floating-rsvp" id="floatingRsvp">RSVP</a>
   <div class="lightbox" id="lightbox" onclick="if(event.target===this)closeLB()">
     <button class="lightbox-close" onclick="closeLB()">&times;</button>
     <button class="lightbox-nav lightbox-prev" onclick="navLB(-1)">&lsaquo;</button>
@@ -533,7 +757,14 @@
     document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
 
     const langSwitch=document.getElementById('langSwitch');
-    window.addEventListener('scroll',()=>{langSwitch.classList.toggle('scrolled',window.scrollY>100)},{passive:true});
+    const floatingRsvp = document.getElementById('floatingRsvp');
+    const rsvpSection = document.getElementById('rsvp');
+    window.addEventListener('scroll',()=>{
+      langSwitch.classList.toggle('scrolled',window.scrollY>100);
+      const rsvpTop = rsvpSection.getBoundingClientRect().top;
+      const show = window.scrollY > window.innerHeight * 0.8 && rsvpTop > window.innerHeight;
+      floatingRsvp.classList.toggle('visible', show);
+    },{passive:true});
 
     const attendYes=document.getElementById('attendYes'),attendNo=document.getElementById('attendNo'),yesFields=document.getElementById('yesFields'),missYou=document.getElementById('missYou');
     function toggleFields(){if(attendYes.checked){yesFields.classList.add('visible');missYou.classList.remove('visible')}else if(attendNo.checked){yesFields.classList.remove('visible');missYou.classList.add('visible')}}

@@ -136,42 +136,54 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: rgba(0,0,0,0.65);
+      background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.7) 0%,
+        rgba(0,0,0,0.55) 40%,
+        rgba(0,0,0,0.65) 70%,
+        rgba(0,0,0,0.8) 100%
+      );
+      z-index: 1;
     }
 
-    .hero-content { position: relative; z-index: 1; }
-    .hero .label { color: var(--gold-light); margin-bottom: 1.5rem; font-size: 0.8rem; letter-spacing: 0.25em; }
+    .hero-content { position: relative; z-index: 2; }
+    .hero .label { color: var(--gold-bright); margin-bottom: 1.5rem; font-size: 0.8rem; letter-spacing: 0.25em; text-shadow: 0 2px 8px rgba(0,0,0,0.6); }
 
     .hero h1 {
       font-family: var(--font-serif);
       font-size: clamp(2.5rem, 7vw, 4.5rem);
-      font-weight: 300;
+      font-weight: 400;
       color: var(--white);
       line-height: 1.15;
       margin-bottom: 1.5rem;
+      text-shadow: 0 2px 16px rgba(0,0,0,0.5), 0 4px 32px rgba(0,0,0,0.3);
     }
 
     .hero-sub {
       font-family: var(--font-serif);
       font-size: clamp(1rem, 2.2vw, 1.25rem);
-      color: rgba(255,255,255,0.7);
+      color: rgba(255,255,255,0.95);
       max-width: 480px;
       margin: 0 auto 2rem;
       line-height: 1.7;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.6);
     }
 
     .hero-date {
       font-family: 'DM Sans', var(--font-sans);
       font-size: 0.75rem;
-      font-weight: 500;
+      font-weight: 600;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--gold-light);
+      color: var(--gold-bright);
       padding: 0.6rem 1.5rem;
-      border: 1px solid rgba(184,149,95,0.3);
+      border: 1px solid rgba(184, 149, 95, 0.4);
       border-radius: 2rem;
       display: inline-block;
       margin-bottom: 2.5rem;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+      backdrop-filter: blur(4px);
+      background: rgba(0,0,0,0.2);
     }
 
     .countdown {
@@ -187,6 +199,7 @@
       left: 50%;
       transform: translateX(-50%);
       animation: float 2.5s ease-in-out infinite;
+      z-index: 2;
     }
     .scroll-hint svg { width: 24px; height: 24px; stroke: rgba(255,255,255,0.3); fill: none; stroke-width: 2; }
 
@@ -600,8 +613,63 @@
     .hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
     .countdown-grid{display:flex;gap:1.5rem;justify-content:center;margin-top:.5rem}
     .countdown-unit{text-align:center}
-    .countdown-num{font-family:var(--font-serif-en);font-size:clamp(1.8rem,4vw,2.5rem);font-weight:400;color:var(--white);line-height:1}
-    .countdown-label{font-family:var(--font-sans);font-size:.65rem;font-weight:500;text-transform:uppercase;letter-spacing:.15em;color:rgba(255,255,255,.4);margin-top:.3rem}
+    .countdown-num{font-family:var(--font-serif-en);font-size:clamp(1.8rem,4vw,2.5rem);font-weight:500;color:var(--white);line-height:1;text-shadow:0 2px 8px rgba(0,0,0,0.5)}
+    .countdown-label{font-family:var(--font-sans);font-size:.65rem;font-weight:600;text-transform:uppercase;letter-spacing:.15em;color:rgba(255,255,255,.7);margin-top:.3rem;text-shadow:0 1px 4px rgba(0,0,0,0.5)}
+    .hero-rsvp-btn {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 0.9rem 2.5rem;
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--navy);
+      background: var(--gold-bright);
+      border-radius: 50px;
+      text-decoration: none;
+      transition: all 0.3s;
+      text-shadow: none;
+    }
+    .hero-rsvp-btn:hover {
+      background: var(--white);
+      color: var(--navy);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    }
+
+    /* Floating RSVP button */
+    .floating-rsvp {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      z-index: 999;
+      padding: 0.75rem 1.8rem;
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--white);
+      background: var(--navy);
+      border: 1px solid var(--gold);
+      border-radius: 50px;
+      text-decoration: none;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+      transition: all 0.3s;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(10px);
+    }
+    .floating-rsvp.visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+    .floating-rsvp:hover {
+      background: var(--gold);
+      color: var(--navy);
+    }
     #confetti-canvas{position:fixed;inset:0;z-index:9999;pointer-events:none}
     .route-islands{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:.5rem 0;margin:2rem 0;font-family:var(--font-serif);font-size:clamp(1rem,2vw,1.25rem);color:var(--navy)}
     .route-islands .island{padding:0 .75rem}
@@ -684,6 +752,7 @@
         <div class="countdown-unit"><div class="countdown-num" id="cd-min">--</div><div class="countdown-label">分</div></div>
         <div class="countdown-unit"><div class="countdown-num" id="cd-sec">--</div><div class="countdown-label">秒</div></div>
       </div>
+      <a href="#rsvp" class="hero-rsvp-btn">RSVPする</a>
     </div>
     <a href="#voyage" class="scroll-hint" aria-label="下へスクロール">
       <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
@@ -840,8 +909,97 @@
     </div>
   </section>
 
+  <!-- ═══ 帰路 ═══ -->
+  <section class="callout-section bg-cream">
+    <div class="container">
+      <span class="label fade-up">帰路</span>
+      <h2 class="fade-up">帰りの準備</h2>
+      <div class="callout-box fade-up">
+        <p>
+          最後の夜は<strong>スプリット港</strong>に停泊します。出発のタイミングは2つの選択肢があります：
+        </p>
+        <p>
+          <strong>選択肢1 — 6月12日の夜に下船。</strong>最後のディナーの後、その夜に下船できます。6月13日の早朝便がある方や、最後の夜をホテルで過ごしたい方に最適です。
+        </p>
+        <p>
+          <strong>選択肢2 — 6月13日の朝に下船。</strong>船上で最後の朝食を楽しんでから、午前9時までに下船。スプリット空港は港から30分です。
+        </p>
+      </div>
+
+      <div class="logistics-grid fade-up">
+        <div class="logistics-card">
+          <h3><span class="icon">&#9992;&#65039;</span> 当日のフライト</h3>
+          <p>6月13日に出発する場合、下船後の余裕を持って<strong>12:00以降</strong>のフライトをご予約ください。</p>
+        </div>
+        <div class="logistics-card">
+          <h3><span class="icon">&#127751;</span> もう一泊</h3>
+          <p>6月12日または13日のスプリットのホテルを手配できます。ディオクレティアヌス宮殿やリヴァ海岸遊歩道、トロギールへの日帰り旅行もおすすめです。</p>
+        </div>
+        <div class="logistics-card">
+          <h3><span class="icon">&#128663;</span> 送迎</h3>
+          <p>空港への送迎は全員分手配します — RSVPフォームまたはグループチャットで出発便の詳細をお知らせください。</p>
+        </div>
+      </div>
+
+      <div class="flights-section fade-up">
+        <h3>帰りの推奨フライト</h3>
+        <p class="flights-note"><strong>スプリット空港（SPU）</strong>から出発。6月13日出発の場合は午後のフライトをご予約ください。長距離路線はヨーロッパのハブ空港を経由します。</p>
+
+        <details class="flight-group">
+          <summary>デトロイト（DTW）行き</summary>
+          <div class="flight-content">
+            <div class="depart-note">6月13日午後スプリット発 → 6月13日深夜デトロイト着</div>
+            <div class="route-links" style="margin-top:0.75rem;">
+              <a href="https://www.google.com/travel/flights?q=flights+from+Split+to+Detroit+departing+June+13+2026" target="_blank" rel="noopener"><strong>Google Flightsで検索 ↗</strong></a>
+            </div>
+          </div>
+        </details>
+
+        <details class="flight-group">
+          <summary>東京（NRT / HND）行き</summary>
+          <div class="flight-content">
+            <div class="depart-note">6月13日スプリット発 → 6月14日東京着</div>
+            <div class="route-links" style="margin-top:0.75rem;">
+              <a href="https://www.google.com/travel/flights?q=flights+from+Split+to+Tokyo+departing+June+13+2026" target="_blank" rel="noopener"><strong>Google Flightsで検索 ↗</strong></a>
+            </div>
+          </div>
+        </details>
+
+        <details class="flight-group">
+          <summary>福岡（FUK）行き</summary>
+          <div class="flight-content">
+            <div class="depart-note">6月13日スプリット発 → 6月14日福岡着</div>
+            <div class="route-links" style="margin-top:0.75rem;">
+              <a href="https://www.google.com/travel/flights?q=flights+from+Split+to+Fukuoka+departing+June+13+2026" target="_blank" rel="noopener"><strong>Google Flightsで検索 ↗</strong></a>
+            </div>
+          </div>
+        </details>
+
+        <details class="flight-group">
+          <summary>熊本（KMJ）行き</summary>
+          <div class="flight-content">
+            <div class="depart-note">6月13日スプリット発 → 6月14日熊本着</div>
+            <div class="route-links" style="margin-top:0.75rem;">
+              <a href="https://www.google.com/travel/flights?q=flights+from+Split+to+Kumamoto+departing+June+13+2026" target="_blank" rel="noopener"><strong>Google Flightsで検索 ↗</strong></a>
+            </div>
+          </div>
+        </details>
+
+        <details class="flight-group">
+          <summary>バンコク（BKK）行き</summary>
+          <div class="flight-content">
+            <div class="depart-note">6月13日スプリット発 → 6月14日バンコク着</div>
+            <div class="route-links" style="margin-top:0.75rem;">
+              <a href="https://www.google.com/travel/flights?q=flights+from+Split+to+Bangkok+departing+June+13+2026" target="_blank" rel="noopener"><strong>Google Flightsで検索 ↗</strong></a>
+            </div>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
   <!-- ═══ 船上での暮らし ═══ -->
-  <section class="bg-cream">
+  <section class="bg-white">
     <div class="container">
       <span class="label fade-up">Life Aboard</span>
       <h2 class="fade-up">海の上のわが家</h2>
@@ -855,7 +1013,7 @@
         <div class="amenity-group">
           <h3>マリンアクティビティ</h3>
           <ul class="amenity-list">
-            <li>ジェットスキー</li>
+            <li>ジェットスキー <span style="color:var(--gold);font-size:.8em;">*</span></li>
             <li>SeaBobs × 2</li>
             <li>E-フォイル</li>
             <li>水上スキー</li>
@@ -880,6 +1038,11 @@
             船上の食事と飲み物はすべてこちらで手配いたします。食事のご要望だけお聞かせください。
           </p>
         </div>
+      </div>
+
+      <div class="jet-ski-notice fade-up" style="margin-top:2.5rem;padding:1.25rem 1.5rem;background:rgba(184,149,95,.08);border-left:3px solid var(--gold);border-radius:6px;font-size:.9rem;line-height:1.6;">
+        <strong style="color:var(--navy);">* ジェットスキー免許が必要です</strong><br>
+        クロアチアでジェットスキーを操縦するには、有効な<strong>国際操縦免許証（ICC）</strong>または同等の国内免許が必要です。過去の事故を受けて沿岸警備隊は厳格に取り締まっています。乗りたい方は、旅行前に免許を取得してください。
       </div>
     </div>
   </section>
@@ -919,6 +1082,7 @@
         <li>ペットの乗船はできません</li>
         <li>お子様は常に大人の監督が必要です</li>
         <li>モーター付きウォータースポーツは事前に免責同意書への署名が必要です</li>
+        <li><strong>ジェットスキーにはICC</strong>（国際操縦免許証）または同等の免許が必要 — クロアチア沿岸警備隊が厳格に取り締まり</li>
       </ul>
     </div>
   </section>
@@ -934,11 +1098,12 @@
         <span class="island">ブラチ</span><span class="arrow">&rarr;</span>
         <span class="island">ヴィス</span><span class="arrow">&rarr;</span>
         <span class="island">コルチュラ</span><span class="arrow">&rarr;</span>
+        <span class="island">Jelsa</span><span class="arrow">&rarr;</span>
         <span class="island">ショルタ</span><span class="arrow">&rarr;</span>
         <span class="island">フヴァル</span><span class="arrow">&rarr;</span>
         <span class="island">スプリット</span>
       </div>
-      <p class="route-note fade-up">正確なルートは天候と海況により決定されます。船長が毎日最適なルートを選択します。</p>
+      <p class="route-note fade-up">正確なルートは天候と海流の状況に応じて航海中に決定されます。船長が毎日最適なルートを選びます。</p>
     </div>
   </section>
 
@@ -962,8 +1127,79 @@
     </div>
   </section>
 
+  <!-- ═══ EMERGENCY & MEDICAL ═══ -->
+  <section id="medical" class="bg-cream">
+    <div class="container">
+      <span class="label fade-up">安全</span>
+      <h2 class="fade-up">緊急連絡先・医療</h2>
+      <p class="section-intro fade-up">船上には救急箱を完備し、クルーは応急処置の資格を持っています。各寄港地の医療施設はこちらです。</p>
+
+      <div style="margin:2rem 0 1.5rem;padding:1rem 1.5rem;background:var(--white);border-radius:8px;border:1px solid var(--border);" class="fade-up">
+        <strong style="color:var(--navy);">緊急電話番号</strong>
+        <div style="display:flex;gap:2rem;flex-wrap:wrap;margin-top:.5rem;font-size:.9rem;">
+          <span><strong>総合緊急:</strong> 112</span>
+          <span><strong>救急車:</strong> 194</span>
+        </div>
+        <p style="margin-top:.5rem;font-size:.85rem;color:var(--text-light);">どの電話からも無料で発信可能。すべてのゲストに旅行保険への加入を強くお勧めします。</p>
+      </div>
+
+      <div class="faq-list fade-up">
+        <details class="faq-item">
+          <summary>スプリット</summary>
+          <div class="faq-answer">
+            <ul style="list-style:none;padding:0;">
+              <li style="margin-bottom:.75rem;"><strong>スプリット大学病院 (KBC Split)</strong><br>Spinčićeva 1 · <a href="tel:+38521556111">+385 21 556 111</a><br><span style="font-size:.85rem;color:var(--text-light);">地域の中核病院。緊急部門完備。</span></li>
+              <li style="margin-bottom:.75rem;"><strong>Terra Medica — 観光客向けクリニック</strong><br>Poljička 20b · <a href="tel:+38521488600">+385 21 488 600</a><br><span style="font-size:.85rem;color:var(--text-light);">予約不要のウォークインクリニック。</span></li>
+            </ul>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>ブラチ</summary>
+          <div class="faq-answer">
+            <ul style="list-style:none;padding:0;">
+              <li style="margin-bottom:.75rem;"><strong>救急医療 — スペタル</strong><br><a href="tel:+38521630959">+385 21 630 959</a><br><span style="font-size:.85rem;color:var(--text-light);">24時間対応。重症はヘリでスプリットへ搬送。</span></li>
+            </ul>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>ヴィス</summary>
+          <div class="faq-answer">
+            <ul style="list-style:none;padding:0;">
+              <li style="margin-bottom:.75rem;"><strong>救急医療 — ヴィス</strong><br><a href="tel:+385194">+385 194</a><br><span style="font-size:.85rem;color:var(--text-light);">24時間対応。重症はスプリットへ搬送。</span></li>
+            </ul>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>コルチュラ</summary>
+          <div class="faq-answer">
+            <ul style="list-style:none;padding:0;">
+              <li style="margin-bottom:.75rem;"><strong>コルチュラ・ヘルスセンター</strong><br><a href="tel:+38520711137">+385 20 711 137</a><br><span style="font-size:.85rem;color:var(--text-light);">総合医療。24時間緊急対応。ヘリ搬送可。</span></li>
+            </ul>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>フヴァル・イェルサ</summary>
+          <div class="faq-answer">
+            <ul style="list-style:none;padding:0;">
+              <li style="margin-bottom:.75rem;"><strong>フヴァル・ヘルスセンター</strong><br><a href="tel:+38521717099">+385 21 717 099</a><br><span style="font-size:.85rem;color:var(--text-light);">一般診療、救急対応。</span></li>
+              <li style="margin-bottom:.75rem;"><strong>イェルサ・ヘルスセンター</strong><br><a href="tel:+38521765122">+385 21 765 122</a><br><span style="font-size:.85rem;color:var(--text-light);">一般医療・歯科・救急対応。</span></li>
+            </ul>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>ショルタ</summary>
+          <div class="faq-answer">
+            <ul style="list-style:none;padding:0;">
+              <li style="margin-bottom:.75rem;"><strong>グロホテ・ヘルスセンター</strong><br><a href="tel:+38521654493">+385 21 654 493</a><br><span style="font-size:.85rem;color:var(--text-light);">一般医療・歯科。ヘリポート完備。</span></li>
+            </ul>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
   <!-- ═══ FAQ ═══ -->
-  <section class="bg-cream">
+  <section class="bg-white">
     <div class="container">
       <span class="label fade-up">FAQ</span>
       <h2 class="fade-up">よくある質問</h2>
@@ -971,15 +1207,15 @@
         <details class="faq-item"><summary>船内にWi-Fiはありますか？</summary><div class="faq-answer"><strong>Starlink</strong>衛星インターネットを搭載。ほとんどの場所で安定した高速接続が可能で、ビデオ通話もOK。悪天候や極めて遠隔地では影響が出る場合があります。</div></details>
         <details class="faq-item"><summary>コンセントの形状は？</summary><div class="faq-answer">ヨーロッパ規格のType C/F。船内にアダプターは数個ありますが全員分はありません。<strong>変換アダプターをご持参ください</strong>。</div></details>
         <details class="faq-item"><summary>1日のスケジュールは？</summary><div class="faq-answer">起床、お好みの時間に朝食、次の島まで2〜2.5時間のクルーズ、美しい入り江で停泊して水泳やマリンスポーツ、船上でランチ、午後は街を散策、夜は島のレストランでディナー。</div></details>
-        <details class="faq-item"><summary>食事は船上？島？</summary><div class="faq-answer">両方。朝食とランチは船上でシェフが調理（ビュッフェスタイル）。ディナーは多くの場合、島のレストランで — こちらは別料金です。フヴァルが最もおしゃれ、他の島はコノバ（地元の居酒屋）でカジュアルに。</div></details>
+        <details class="faq-item"><summary>食事は船上？島？</summary><div class="faq-answer">両方。朝食とランチは船上でシェフが調理（ビュッフェスタイル）。夜は島のレストランでディナーの日もあります。フヴァルが最もおしゃれ、他の島はコノバ（地元の居酒屋）でカジュアルに。</div></details>
         <details class="faq-item"><summary>船酔いが心配です</summary><div class="faq-answer">船酔い薬は船内にあります（眠気を催すことがあります）。ご自身でもお持ちください：<strong>ツボ押しリストバンド</strong>、<strong>酔い止めパッチ</strong>（耳の後ろに貼るタイプ）、<strong>タイハーブバーム</strong>（ロールオンタイプ、匂いは強いが効果的）。</div></details>
         <details class="faq-item"><summary>服装は？</summary><div class="faq-answer">船上：水着、カジュアルな服、お好みで。上陸時：水着以外の服装で。フヴァルのおしゃれなレストランでは<strong>スマートカジュアル</strong>。他の島はリラックスした雰囲気。</div></details>
         <details class="faq-item"><summary>子供の安全対策は？</summary><div class="faq-answer">大人用ライフジャケットは船内にあります。<strong>お子様用は正しいサイズのものをご持参ください</strong>（または船上で購入手配可能）。ベビーチェア1台あり。追加のベビー用品も手配可能。</div></details>
-        <details class="faq-item"><summary>洗濯はできますか？</summary><div class="faq-answer">洗濯・乾燥サービスあり。1回€40、24時間で仕上がり。軽装で、着回しを。</div></details>
+        <details class="faq-item"><summary>洗濯はできますか？</summary><div class="faq-answer">洗濯・乾燥サービスあり。24時間で仕上がります。軽装で、着回しを。</div></details>
         <details class="faq-item"><summary>医療体制は？</summary><div class="faq-answer">救急箱を完備、クルーは応急処置の資格を持っています。ヨーロッパの緊急電話番号：<strong>112</strong>。</div></details>
         <details class="faq-item"><summary>荷物の制限は？</summary><div class="faq-answer">厳密な制限はありませんが、荷物はキャビン内に収納します。詰め込みすぎると窮屈に。<strong>ソフトバッグを強く推奨</strong>（ハードケースより収納しやすい）。</div></details>
         <details class="faq-item"><summary>水温は？</summary><div class="faq-answer">6月の平均水温は<strong>22℃</strong>（19〜25℃の範囲）。快適に泳げる温度です。</div></details>
-        <details class="faq-item"><summary>飲み物やお菓子を持ち込めますか？</summary><div class="faq-answer">はい、持ち込み可能です。ただし、船のプロビジョニング業者はスーパーマーケットに近い価格なので、わざわざ持って行く必要はないかもしれません。</div></details>
+        <details class="faq-item"><summary>飲み物やお菓子を持ち込めますか？</summary><div class="faq-answer">はい、持ち込み可能です。ただし、船上にすべて準備されているので、わざわざ持って行く必要はないかもしれません。</div></details>
         <details class="faq-item"><summary>乗船日は何が起こりますか？</summary><div class="faq-answer">16:00にスプリット西海岸港で乗船。ウェルカムドリンク、クルー紹介、安全説明。その後ブラチ島へ向けてゆっくり出航、静かな入り江に停泊して泳ぎ、船上でディナー。旅の始まりです。</div></details>
       </div>
     </div>
@@ -1009,9 +1245,9 @@
     <div class="container">
       <div style="text-align:center;" class="fade-up">
         <span class="label">RSVP</span>
-        <h2>ご連絡ください</h2>
+        <h2>参加を確認する</h2>
         <p class="section-intro" style="margin: 0 auto;">
-          準備のため、以下のフォームにご記入をお願いいたします。
+          キャビン、送迎、備品の手配に必要です。できるだけ早くご記入ください。
         </p>
       </div>
 
@@ -1114,6 +1350,8 @@
     <p style="margin-top: 1.5rem;">ご質問は健太郎まで直接ご連絡ください。</p>
   </footer>
 
+  <a href="#rsvp" class="floating-rsvp" id="floatingRsvp">RSVP</a>
+
   <div class="lightbox" id="lightbox" onclick="if(event.target===this)closeLB()">
     <button class="lightbox-close" onclick="closeLB()">&times;</button>
     <button class="lightbox-nav lightbox-prev" onclick="navLB(-1)">&lsaquo;</button>
@@ -1168,8 +1406,13 @@
       if(n||g){document.querySelectorAll('.lang-switch a').forEach(a=>{const u=new URL(a.href,location.origin);if(n)u.searchParams.set('name',n);if(g)u.searchParams.set('guests',g);a.href=u.toString()})}
     })();
     const langSwitch = document.getElementById('langSwitch');
+    const floatingRsvp = document.getElementById('floatingRsvp');
+    const rsvpSection = document.getElementById('rsvp');
     window.addEventListener('scroll', () => {
       langSwitch.classList.toggle('scrolled', window.scrollY > 100);
+      const rsvpTop = rsvpSection.getBoundingClientRect().top;
+      const show = window.scrollY > window.innerHeight * 0.8 && rsvpTop > window.innerHeight;
+      floatingRsvp.classList.toggle('visible', show);
     }, { passive: true });
 
     // ── Form conditional fields ──
