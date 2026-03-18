@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OHANA RSVPs</title>
+  <meta name="robots" content="noindex, nofollow">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:-apple-system,sans-serif;background:#f5f3ee;color:#1a1a2e;padding:2rem}
+    h1{font-size:1.5rem;font-weight:600;margin-bottom:.5rem}
+    .meta{color:#888;font-size:.85rem;margin-bottom:1.5rem}
+    .actions{display:flex;gap:.75rem;margin-bottom:1.5rem;flex-wrap:wrap}
+    button{padding:.5rem 1rem;font-size:.85rem;font-weight:500;border:1px solid #ccc;border-radius:6px;background:#fff;cursor:pointer;transition:all .15s}
+    button:hover{background:#0b1d35;color:#fff;border-color:#0b1d35}
+    .stats{display:flex;gap:1.5rem;margin-bottom:1.5rem;flex-wrap:wrap}
+    .stat{background:#fff;border-radius:8px;padding:1rem 1.5rem;border:1px solid #e0d8cc}
+    .stat .num{font-size:1.8rem;font-weight:700;color:#0b1d35}
+    .stat .lbl{font-size:.75rem;color:#888;text-transform:uppercase;letter-spacing:.05em}
+    table{width:100%;border-collapse:collapse;background:#fff;border-radius:8px;overflow:hidden;border:1px solid #e0d8cc}
+    th{background:#0b1d35;color:#fff;text-align:left;padding:.6rem .75rem;font-size:.75rem;text-transform:uppercase;letter-spacing:.05em;white-space:nowrap}
+    td{padding:.6rem .75rem;font-size:.85rem;border-bottom:1px solid #f0ebe0;max-width:200px;overflow:hidden;text-overflow:ellipsis}
+    tr:hover td{background:#faf8f3}
+    tr.declined td{opacity:.5}
+    .yes{color:#16a34a;font-weight:600}
+    .no{color:#dc2626;font-weight:600}
+    .hotel-yes{background:#fef3c7;padding:.15rem .4rem;border-radius:3px;font-size:.8rem}
+    .empty{text-align:center;padding:3rem;color:#888}
+    .wrap{overflow-x:auto}
+    @media(max-width:768px){body{padding:1rem}}
+  </style>
+</head>
+<body>
+  <div id="gate" style="display:flex;align-items:center;justify-content:center;min-height:80vh;">
+    <div style="text-align:center;">
+      <h1 style="margin-bottom:1rem;">OHANA Admin</h1>
+      <input type="password" id="pw" placeholder="Password" style="padding:.6rem 1rem;font-size:1rem;border:1px solid #ccc;border-radius:6px;width:220px;" autofocus>
+      <button onclick="tryAuth()" style="padding:.6rem 1rem;font-size:1rem;border:1px solid #ccc;border-radius:6px;background:#0b1d35;color:#fff;cursor:pointer;margin-left:.5rem;">Enter</button>
+      <p id="pwErr" style="color:#dc2626;font-size:.85rem;margin-top:.5rem;display:none;">Wrong password</p>
+    </div>
+  </div>
+  <div id="dashboard" style="display:none;">
+  <h1>OHANA RSVP Dashboard</h1>
+  <p class="meta" id="lastUpdate"></p>
+  <div class="stats" id="stats"></div>
+  <div class="actions">
+    <button onclick="downloadCSV()">Download CSV</button>
+    <button onclick="copyCSV()">Copy CSV to Clipboard</button>
+    <button onclick="loadData()">Refresh</button>
+  </div>
+  <div class="wrap"><table id="table"><thead></thead><tbody></tbody></table></div>
+  </div><!-- close dashboard -->
+  <script>
+    var PW_HASH='a]Hpeu4bsp2$';
+    function simpleHash(s){var h=0;for(var i=0;i<s.length;i++){h=((h<<5)-h)+s.charCodeAt(i);h|=0}return h}
+    var CORRECT=simpleHash('Godtaro123$');
+    function tryAuth(){
+      if(simpleHash(document.getElementById('pw').value)===CORRECT){
+        document.getElementById('gate').style.display='none';
+        document.getElementById('dashboard').style.display='block';
+        sessionStorage.setItem('ohana_auth','1');
+        loadData();
+      } else {
+        document.getElementById('pwErr').style.display='block';
+      }
+    }
+    document.getElementById('pw').addEventListener('keydown',function(e){if(e.key==='Enter')tryAuth()});
+    if(sessionStorage.getItem('ohana_auth')==='1'){
+      document.getElementById('gate').style.display='none';
+      document.getElementById('dashboard').style.display='block';
+    }
+  </script>
+  <script>
+    const SB='https://dyvahmmkiynvxfvqmnjb.supabase.co';
+    const SK='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR5dmFobW1raXludnhmdnFtbmpiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzIwNDgyMTEsImV4cCI6MjA4NzYyNDIxMX0.JMQnsWqIhlO-DN-CFkR-WzYld6tPpUW8pVMR1NbMtUI';
+    let rows=[];
+    async function loadData(){
+      const r=await fetch(SB+'/rest/v1/yacht_rsvps?order=created_at.desc',{headers:{apikey:SK,Authorization:'Bearer '+SK}});
+      rows=await r.json();render();
+      document.getElementById('lastUpdate').textContent='Updated '+new Date().toLocaleTimeString();
+    }
+    function esc(s){const d=document.createElement('div');d.textContent=s;return d.innerHTML}
+    function fmtArr(v){if(!v)return '';return v.replace('june_4_or_earlier','Jun 4-').replace('june_5_recommended','Jun 5').replace('june_6_departure_day','Jun 6')}
+    function render(){
+      const att=rows.filter(r=>r.attending),dec=rows.filter(r=>!r.attending);
+      const tg=att.reduce((s,r)=>s+(r.guest_count||1),0);
+      const nh=att.filter(r=>r.need_hotel).length;
+      document.getElementById('stats').innerHTML=[
+        ['stat',tg,'Total Guests'],['stat',att.length,'Accepted'],['stat',dec.length,'Declined'],['stat',nh,'Need Hotel'],['stat',rows.length,'RSVPs']
+      ].map(s=>'<div class="'+s[0]+'"><div class="num">'+s[1]+'</div><div class="lbl">'+s[2]+'</div></div>').join('');
+      const th=document.querySelector('#table thead');
+      const tb=document.querySelector('#table tbody');
+      th.innerHTML='<tr><th>Name</th><th>Email</th><th>Attending</th><th>Guests</th><th>Guest Names</th><th>Dietary</th><th>Food Prefs</th><th>Arrival</th><th>Flight</th><th>Hotel</th><th>Notes</th><th>Date</th></tr>';
+      if(!rows.length){tb.innerHTML='<tr><td colspan="12" class="empty">No RSVPs yet</td></tr>';return}
+      tb.innerHTML=rows.map(r=>'<tr class="'+(r.attending?'':'declined')+'"><td><strong>'+esc(r.full_name)+'</strong></td><td>'+esc(r.email)+'</td><td class="'+(r.attending?'yes':'no')+'">'+(r.attending?'Yes':'No')+'</td><td>'+(r.guest_count||'')+'</td><td>'+esc(r.guest_names||'')+'</td><td>'+esc(r.dietary_restrictions||'')+'</td><td>'+esc(r.food_preferences||'')+'</td><td>'+fmtArr(r.arrival_date)+'</td><td>'+esc(r.flight_details||'')+'</td><td>'+(r.need_hotel?'<span class="hotel-yes">Yes</span>':(r.need_hotel===false?'No':''))+'</td><td>'+esc(r.notes||'')+'</td><td style="white-space:nowrap">'+(r.created_at?new Date(r.created_at).toLocaleDateString():'')+'</td></tr>').join('');
+    }
+    function q(s){return '"'+(s||'').replace(/"/g,'""')+'"'}
+    function toCSV(){
+      const h='Name,Email,Attending,Guest Count,Guest Names,Dietary Restrictions,Food Preferences,Arrival Date,Flight Details,Need Hotel,Notes,Date';
+      return [h,...rows.map(r=>[q(r.full_name),q(r.email),r.attending?'Yes':'No',r.guest_count||'',q(r.guest_names||''),q(r.dietary_restrictions||''),q(r.food_preferences||''),fmtArr(r.arrival_date),q(r.flight_details||''),r.need_hotel?'Yes':(r.need_hotel===false?'No':''),q(r.notes||''),r.created_at?new Date(r.created_at).toLocaleDateString():''].join(','))].join('\n');
+    }
+    function downloadCSV(){const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([toCSV()],{type:'text/csv'}));a.download='ohana-rsvps.csv';a.click()}
+    function copyCSV(){navigator.clipboard.writeText(toCSV()).then(()=>alert('Copied! Paste into Google Sheets.'))}
+    if(sessionStorage.getItem('ohana_auth')==='1')loadData();
+  </script>
+</body>
+</html>

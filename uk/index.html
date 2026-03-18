@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Запрошуємо · YACHTTARO</title>
+  <meta name="description" content="Тиждень на M/Y OHANA, подорожуючи узбережжям Хорватії. 6–13 червня 2026.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta property="og:title" content="Запрошуємо — YACHTTARO June 2026">
+  <meta property="og:description" content="Незабутній тиждень на M/Y OHANA, узбережжя Хорватії. 6–13 червня 2026.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    :root{--navy:#0b1d35;--navy-mid:#15304f;--navy-light:#1e4268;--gold:#b8955f;--gold-light:#d4c5a0;--gold-bright:#e2c686;--cream:#faf8f3;--cream-dark:#f0ebe0;--white:#fff;--text:#2c2c3a;--text-light:#6b6b7b;--text-on-dark:#e8e0d4;--border:#e0d8cc;--font-serif:'Cormorant Garamond',Georgia,serif;--font-sans:'DM Sans',-apple-system,sans-serif;--max-w:760px;--section-py:clamp(5rem,10vw,8rem)}
+    html{scroll-behavior:smooth}
+    body{font-family:var(--font-sans);font-size:clamp(.95rem,1.2vw,1.05rem);line-height:1.8;color:var(--text);background:var(--cream);-webkit-font-smoothing:antialiased}
+    h1,h2,h3{font-family:var(--font-serif);font-weight:400;line-height:1.2}
+    h2{font-size:clamp(1.8rem,3.5vw,2.5rem);margin-bottom:1.5rem;color:var(--navy)}
+    h3{font-size:clamp(1.15rem,2.2vw,1.35rem);margin-bottom:.75rem;color:var(--navy)}
+    p+p{margin-top:1rem}
+    a{color:var(--gold);text-decoration:none;transition:color .2s}
+    a:hover{color:var(--navy)}
+    .label{font-family:var(--font-sans);font-size:.7rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;display:block}
+    .section-intro{font-family:var(--font-serif);font-size:clamp(1.05rem,1.8vw,1.2rem);line-height:1.7;color:var(--text-light);max-width:600px}
+    .container{max-width:var(--max-w);margin:0 auto;padding:0 1.5rem}
+    section{padding:var(--section-py) 0}
+    .bg-white{background:var(--white)}.bg-cream{background:var(--cream)}
+    .lang-switch{position:fixed;top:1.25rem;right:1.25rem;z-index:100;font-family:var(--font-sans);font-size:.75rem;font-weight:500;letter-spacing:.05em;background:rgba(255,255,255,.12);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.15);border-radius:2rem;padding:.4rem .9rem;display:flex;gap:.5rem;align-items:center;transition:background .3s}
+    .lang-switch.scrolled{background:rgba(255,255,255,.9);border-color:var(--border)}
+    .lang-switch a{color:rgba(255,255,255,.5);font-weight:400}.lang-switch a:hover{color:var(--white)}
+    .lang-switch .active{color:var(--white);font-weight:600}
+    .lang-switch.scrolled a{color:var(--text-light)}.lang-switch.scrolled a:hover{color:var(--navy)}
+    .lang-switch.scrolled .active{color:var(--navy);font-weight:600}
+    .lang-switch .sep{color:rgba(255,255,255,.2)}.lang-switch.scrolled .sep{color:var(--border)}
+    .hero{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden;background:var(--navy);padding:2rem 1.5rem}
+    .hero::before{content:'';position:absolute;inset:0;background:rgba(0,0,0,0.65)}
+    .hero-content{position:relative;z-index:1}
+    .hero .label{color:var(--gold-light);margin-bottom:1.5rem;font-size:.8rem;letter-spacing:.25em}
+    .hero h1{font-family:var(--font-serif);font-size:clamp(2.5rem,7vw,4.5rem);font-weight:300;color:var(--white);line-height:1.15;margin-bottom:1.5rem}
+    .hero-sub{font-family:var(--font-serif);font-size:clamp(1rem,2.2vw,1.25rem);color:rgba(255,255,255,.7);max-width:480px;margin:0 auto 2rem;line-height:1.7}
+    .hero-date{font-family:var(--font-sans);font-size:.75rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-light);padding:.6rem 1.5rem;border:1px solid rgba(184,149,95,.3);border-radius:2rem;display:inline-block;margin-bottom:2.5rem}
+    .countdown{font-family:var(--font-sans);font-size:.85rem;color:rgba(255,255,255,.5);margin-top:.5rem}
+    .scroll-hint{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);animation:float 2.5s ease-in-out infinite}
+    .scroll-hint svg{width:24px;height:24px;stroke:rgba(255,255,255,.3);fill:none;stroke-width:2}
+    @keyframes float{0%,100%{transform:translateX(-50%) translateY(0);opacity:.6}50%{transform:translateX(-50%) translateY(8px);opacity:1}}
+    .wave-separator{display:block;width:100%;height:60px;margin-top:-1px}
+    .personal-section{text-align:center;padding:clamp(4rem,8vw,6rem) 1.5rem;background:var(--white)}
+    .personal-section .message{font-family:var(--font-serif);font-size:clamp(1.05rem,1.8vw,1.2rem);font-style:italic;line-height:1.9;color:var(--text-light);max-width:520px;margin:0 auto}
+    .personal-section .message p+p{margin-top:1rem}
+    .personal-section .sig{margin-top:2rem;font-family:var(--font-serif);font-size:1.15rem;color:var(--navy)}
+    .details-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2rem;margin-top:2.5rem}
+    .detail-item{text-align:center;padding:1.5rem 1rem}
+    .detail-item .label{color:var(--gold);margin-bottom:.5rem;font-size:.7rem}
+    .detail-item strong{display:block;font-family:var(--font-serif);font-size:1.25rem;font-weight:500;color:var(--navy);margin-bottom:.25rem}
+    .detail-item span{font-size:.9rem;color:var(--text-light)}
+    .map-link{display:inline-flex;align-items:center;gap:.4rem;margin-top:2rem;font-size:.85rem;font-weight:500;color:var(--gold);border-bottom:1px solid transparent;transition:border-color .2s}
+    .map-link:hover{border-bottom-color:var(--gold);color:var(--gold)}
+    .callout-section{background:var(--white)}
+    .callout-box{background:linear-gradient(135deg,#faf6ee 0%,#f5efe3 100%);border-left:3px solid var(--gold);border-radius:0 8px 8px 0;padding:clamp(2rem,4vw,3rem);margin-top:2rem}
+    .callout-box p{max-width:600px}.callout-box p+p{margin-top:.75rem}
+    .logistics-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5rem;margin-top:2.5rem}
+    .logistics-card{padding:1.5rem;background:var(--white);border-radius:8px;border:1px solid var(--border)}
+    .logistics-card h3{font-size:1.05rem;margin-bottom:.5rem;display:flex;align-items:center;gap:.5rem}
+    .logistics-card .icon{font-size:1.3rem}
+    .logistics-card p{font-size:.88rem;color:var(--text-light);line-height:1.7}
+    .flights-section{margin-top:2.5rem}
+    .flights-section h3{margin-bottom:1rem}
+    .flights-note{font-size:.88rem;color:var(--text-light);font-style:italic;margin-bottom:1.5rem}
+    details.flight-group{border:1px solid var(--border);border-radius:8px;margin-bottom:.75rem;background:var(--white);overflow:hidden;transition:box-shadow .2s}
+    details.flight-group[open]{box-shadow:0 2px 12px rgba(0,0,0,.06)}
+    details.flight-group summary{padding:1rem 1.5rem;font-family:var(--font-sans);font-weight:500;font-size:.93rem;cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:space-between;color:var(--navy);user-select:none}
+    details.flight-group summary::-webkit-details-marker{display:none}
+    details.flight-group summary::after{content:'+';font-size:1.2rem;font-weight:300;color:var(--gold);transition:transform .2s}
+    details.flight-group[open] summary::after{content:'\2212'}
+    .flight-content{padding:0 1.5rem 1.25rem;border-top:1px solid var(--border)}
+    .depart-note{font-size:.78rem;color:var(--text-light);background:rgba(184,149,95,.08);padding:.5rem .75rem;border-radius:4px;margin-top:.75rem}
+    .route-links{display:flex;gap:1rem;flex-wrap:wrap}
+    .route-links a{font-size:.8rem;font-weight:500;color:var(--gold);display:inline-flex;align-items:center;gap:.3rem}
+    .route-links a:hover{color:var(--navy)}
+    .gallery-section{padding:0;background:var(--navy)}
+    .gallery-section .label{color:var(--gold-light);text-align:center;padding:3rem 0 1.5rem}
+    .photo-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:3px}
+    @media(min-width:640px){.photo-grid{grid-template-columns:repeat(3,1fr)}}
+    @media(min-width:1024px){.photo-grid{grid-template-columns:repeat(4,1fr)}}
+    .photo-grid .wide{grid-column:span 2}
+    .photo-grid img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;transition:transform .4s ease,filter .4s ease}
+    .photo-grid .wide img{aspect-ratio:16/9}
+    .photo-grid figure{margin:0;overflow:hidden;position:relative}
+    .photo-grid figure:hover img{transform:scale(1.03);filter:brightness(1.05)}
+    .amenities-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:2.5rem;margin-top:2.5rem}
+    .amenity-group h3{font-size:.95rem;font-family:var(--font-sans);font-weight:600;letter-spacing:.05em;color:var(--gold);margin-bottom:1rem}
+    .amenity-list{list-style:none;display:flex;flex-wrap:wrap;gap:.5rem 1.25rem}
+    .amenity-list li{font-size:.93rem;color:var(--text);position:relative;padding-left:.9rem}
+    .amenity-list li::before{content:'\00B7';position:absolute;left:0;color:var(--gold);font-weight:700}
+    .tips-list{list-style:none;margin-top:2rem}
+    .tips-list li{padding:.75rem 0;padding-left:1.5rem;position:relative;font-size:.93rem;border-bottom:1px solid rgba(0,0,0,.05)}
+    .tips-list li::before{content:'\2192';position:absolute;left:0;color:var(--gold);font-weight:500}
+    .tips-list li:last-child{border-bottom:none}
+    .rsvp-section{background:linear-gradient(180deg,var(--cream) 0%,var(--cream-dark) 100%)}
+    .form-wrap{max-width:580px;margin:2.5rem auto 0}
+    .form-group{margin-bottom:1.5rem}
+    .form-group label{display:block;font-size:.85rem;font-weight:500;color:var(--navy);margin-bottom:.4rem}
+    .form-group .hint{display:block;font-size:.78rem;color:var(--text-light);font-weight:400;margin-bottom:.4rem}
+    .form-group input[type="text"],.form-group input[type="email"],.form-group textarea,.form-group select{width:100%;padding:.75rem 1rem;font-family:var(--font-sans);font-size:.93rem;color:var(--text);background:var(--white);border:1px solid var(--border);border-radius:6px;transition:border-color .2s,box-shadow .2s;-webkit-appearance:none}
+    .form-group input:focus,.form-group textarea:focus,.form-group select:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(184,149,95,.12)}
+    .form-group textarea{resize:vertical;min-height:80px}
+    .radio-group{display:flex;gap:1rem;margin-top:.25rem}
+    .radio-option{flex:1;position:relative}
+    .radio-option input[type="radio"]{position:absolute;opacity:0;width:0;height:0}
+    .radio-option label{display:flex;align-items:center;justify-content:center;padding:.85rem 1rem;font-size:.88rem;font-weight:500;color:var(--text);background:var(--white);border:1.5px solid var(--border);border-radius:6px;cursor:pointer;transition:all .2s;text-align:center}
+    .radio-option input[type="radio"]:checked+label{border-color:var(--gold);background:rgba(184,149,95,.06);color:var(--navy)}
+    .radio-option input[type="radio"]:focus-visible+label{box-shadow:0 0 0 3px rgba(184,149,95,.15)}
+    .conditional-fields{display:none;animation:fadeIn .3s ease}
+    .conditional-fields.visible{display:block}
+    .miss-you{display:none;text-align:center;padding:2rem;font-family:var(--font-serif);font-size:1.15rem;color:var(--text-light);animation:fadeIn .3s ease}
+    .miss-you.visible{display:block}
+    @keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+    .submit-btn{display:block;width:100%;padding:1rem;font-family:var(--font-sans);font-size:.93rem;font-weight:600;letter-spacing:.05em;color:var(--white);background:var(--navy);border:none;border-radius:6px;cursor:pointer;transition:background .2s,transform .1s;margin-top:.5rem}
+    .submit-btn:hover{background:var(--navy-mid)}.submit-btn:active{transform:scale(.99)}
+    .submit-btn:disabled{opacity:.6;cursor:not-allowed}
+    .form-success{display:none;text-align:center;padding:3rem 1rem}
+    .form-success.visible{display:block}
+    .form-success h3{font-family:var(--font-serif);font-size:1.6rem;color:var(--navy);margin-bottom:.75rem}
+    .form-success p{color:var(--text-light)}
+    .form-error{display:none;padding:.75rem 1rem;background:#fef2f2;border:1px solid #fca5a5;border-radius:6px;color:#991b1b;font-size:.83rem;margin-bottom:1rem}
+    .form-error.visible{display:block}
+    footer{background:var(--navy);color:rgba(255,255,255,.5);text-align:center;padding:3rem 1.5rem;font-size:.85rem}
+    footer p+p{margin-top:.5rem}
+    footer a{color:var(--gold-light)}
+    footer .footer-vessel{font-family:var(--font-serif);font-size:1.1rem;color:rgba(255,255,255,.7);margin-bottom:.75rem}
+    .hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.countdown-grid{display:flex;gap:1.5rem;justify-content:center;margin-top:.5rem}
+.countdown-unit{text-align:center}
+.countdown-num{font-family:var(--font-serif);font-size:clamp(1.8rem,4vw,2.5rem);font-weight:400;color:var(--white);line-height:1}
+.countdown-label{font-family:var(--font-sans);font-size:.65rem;font-weight:500;text-transform:uppercase;letter-spacing:.15em;color:rgba(255,255,255,.4);margin-top:.3rem}
+#confetti-canvas{position:fixed;inset:0;z-index:9999;pointer-events:none}
+    .route-islands{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:.5rem 0;margin:2rem 0;font-family:var(--font-serif);font-size:clamp(1rem,2vw,1.25rem);color:var(--navy)}
+    .route-islands .island{padding:0 .75rem}
+    .route-islands .arrow{color:var(--gold);font-size:.85rem}
+    .route-note{text-align:center;font-size:.88rem;color:var(--text-light);font-style:italic}
+    .faq-list{margin-top:2rem}
+    details.faq-item{border-bottom:1px solid var(--border);overflow:hidden}
+    details.faq-item summary{padding:1rem 0;font-family:var(--font-sans);font-weight:500;font-size:.93rem;cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:space-between;color:var(--navy);user-select:none}
+    details.faq-item summary::-webkit-details-marker{display:none}
+    details.faq-item summary::after{content:'+';font-size:1.2rem;font-weight:300;color:var(--gold)}
+    details.faq-item[open] summary::after{content:'\2212'}
+    details.faq-item .faq-answer{padding:0 0 1rem;font-size:.88rem;color:var(--text-light);line-height:1.8}
+    .visa-alert{background:#fef3c7;border:1px solid #f59e0b;border-radius:8px;padding:1rem 1.25rem;margin-top:1.5rem;font-size:.88rem}
+    .visa-alert strong{color:#92400e}
+.phrase-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin-top:2rem}
+.phrase-card{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:1rem 1.25rem;text-align:center}
+.phrase-hr{font-size:1.1rem;font-weight:600;color:var(--navy);margin-bottom:.25rem}
+.phrase-en{font-size:.85rem;color:var(--text-light)}
+.phrase-pron{font-size:.75rem;color:var(--gold);font-style:italic;margin-top:.15rem}
+    .guest-card{border:1px solid var(--border);border-radius:8px;padding:1.5rem;margin-bottom:1rem;background:var(--white)}
+    .guest-card-title{font-family:var(--font-sans);font-size:.8rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--gold);margin-bottom:1rem}
+    .guest-card .form-row{display:grid;grid-template-columns:1fr 1fr;gap:0 1rem}
+    @media(max-width:640px){.guest-card .form-row{grid-template-columns:1fr}}
+
+    .photo-grid figure{cursor:pointer}
+    .lightbox{display:none;position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,.92);align-items:center;justify-content:center;padding:1rem;cursor:zoom-out}
+    .lightbox.open{display:flex;animation:fadeIn .2s ease}
+    .lightbox img{max-width:95vw;max-height:92vh;object-fit:contain;border-radius:4px;box-shadow:0 8px 40px rgba(0,0,0,.5)}
+    .lightbox-close{position:absolute;top:1rem;right:1.5rem;color:#fff;font-size:2rem;font-weight:300;cursor:pointer;opacity:.7;transition:opacity .2s;line-height:1;background:none;border:none}
+    .lightbox-close:hover{opacity:1}
+    .lightbox-nav{position:absolute;top:50%;transform:translateY(-50%);color:#fff;font-size:2.5rem;font-weight:300;cursor:pointer;opacity:.5;transition:opacity .2s;background:none;border:none;padding:1rem;line-height:1}
+    .lightbox-nav:hover{opacity:1}
+    .lightbox-prev{left:.5rem}.lightbox-next{right:.5rem}
+
+    .fade-up{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+    .fade-up.visible{opacity:1;transform:translateY(0)}
+    .fade-up:nth-child(2){transition-delay:.1s}.fade-up:nth-child(3){transition-delay:.2s}
+    @media(max-width:640px){.details-grid{gap:1rem}.detail-item{padding:1rem .5rem}.radio-group{flex-direction:column;gap:.5rem}.logistics-grid{grid-template-columns:1fr}.amenities-grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <div class="lang-switch" id="langSwitch">
+    <a href="/">English</a>
+    <span class="sep">|</span>
+    <a href="/ja">日本語</a>
+    <span class="sep">|</span>
+    <span class="active">Українська</span>
+  </div>
+
+  <section class="hero">
+    <video class="hero-video" autoplay muted loop playsinline poster="../img/ycf1.jpg"><source src="../img/hero-loop.mp4" type="video/mp4"></video>
+    <div class="hero-content">
+      <span class="label">Запрошуємо</span>
+      <h1>YACHT-TARO<br><span style="font-size:.45em;font-weight:300;letter-spacing:.15em;">2026</span></h1>
+      <p class="hero-sub">Незабутній тиждень на борту M/Y OHANA,<br>подорожуючи узбережжям Хорватії</p>
+      <div class="hero-date">6 – 13 червня 2026 · Спліт, Хорватія</div>
+      <div class="countdown-grid" id="countdown">
+  <div class="countdown-unit"><div class="countdown-num" id="cd-days">--</div><div class="countdown-label">Днів</div></div>
+  <div class="countdown-unit"><div class="countdown-num" id="cd-hrs">--</div><div class="countdown-label">Год</div></div>
+  <div class="countdown-unit"><div class="countdown-num" id="cd-min">--</div><div class="countdown-label">Хв</div></div>
+  <div class="countdown-unit"><div class="countdown-num" id="cd-sec">--</div><div class="countdown-label">Сек</div></div>
+</div>
+    </div>
+    <a href="#voyage" class="scroll-hint" aria-label="Прокрутити вниз">
+      <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+    </a>
+  </section>
+
+  <svg class="wave-separator" viewBox="0 0 1440 60" preserveAspectRatio="none" style="background:var(--navy);">
+    <path d="M0,20 C240,55 480,0 720,30 C960,60 1200,10 1440,35 L1440,60 L0,60Z" fill="#ffffff"/>
+  </svg>
+
+  <section class="personal-section">
+    <div class="container fade-up">
+      <div class="message">
+        <p>Ця подорож — моя подяка вам.</p>
+        <p>Людям, які змінили моє життя — роками дружби, щедрості та доброти — цей тиждень для вас.</p>
+      </div>
+      <div class="sig">— Кентаро</div>
+      <a href="https://chat.whatsapp.com/JcWEeWMv5VZ5tI4jjhCZaA?mode=gi_t" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:.6rem;padding:.75rem 1.8rem;background:#25D366;color:#fff;font-family:var(--font-sans);font-size:.85rem;font-weight:600;border-radius:50px;text-decoration:none;margin-top:2rem;transition:opacity .2s;" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Приєднатися до групового чату
+      </a>
+    </div>
+  </section>
+
+  <section id="voyage" class="bg-cream">
+    <div class="container">
+      <span class="label fade-up">Подорож</span>
+      <h2 class="fade-up">Тиждень на Адріатиці</h2>
+      <p class="section-intro fade-up">Приєднуйтесь до нас на борту OHANA — подорожуючи кришталевими водами Далматинського узбережжя. Стародавні гавані, купання в бірюзових бухтах, обіди на палубі та заходи сонця, від яких перехоплює подих.</p>
+      <div class="details-grid fade-up">
+        <div class="detail-item"><span class="label">Посадка</span><strong>6 червня (сб)</strong><span>З 16:00</span></div>
+        <div class="detail-item"><span class="label">Повернення</span><strong>13 червня (сб)</strong><span>До 9:00</span></div>
+        <div class="detail-item"><span class="label">Яхта</span><strong>M/Y OHANA</strong><span>49 м · 14 кают</span></div>
+      </div>
+      <div style="text-align:center;" class="fade-up">
+        <a class="map-link" href="https://maps.app.goo.gl/4bfc8Xu6WnfMzdBy8" target="_blank" rel="noopener">Порт на карті <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="callout-section bg-white">
+    <div class="container">
+      <span class="label fade-up">Важливо</span>
+      <h2 class="fade-up">Прибудьте до 5 червня</h2>
+      <div class="callout-box fade-up">
+        <p><strong>Наполегливо рекомендуємо</strong> прилетіти до Спліту не пізніше <strong>п'ятниці, 5 червня</strong> — за день до відправлення.</p>
+        <p>Літні рейси непередбачувані. Скасування та затримки трапляються, а OHANA відправляється за розкладом о 16:00 6 червня. Запізнитися на яхту — це реальна можливість, якщо летіти в останній момент.</p>
+        <p>Прибувши на день раніше, ви зможете дослідити чудове старе місто Спліту, відпочити та приєднатися до нас у розслабленому стані.</p>
+      </div>
+      <div class="logistics-grid fade-up">
+        <div class="logistics-card"><h3><span class="icon">&#127464;&#127479;</span> Готель</h3><p>Потрібне житло на ніч 5 червня? Ми залюбки допоможемо з бронюванням. Просто вкажіть це у формі RSVP.</p></div>
+        <div class="logistics-card"><h3><span class="icon">&#128188;</span> Багаж</h3><p>Хочете погуляти Сплітом перед посадкою? Ми організуємо доставку багажу з готелю — насолоджуйтесь містом налегке.</p></div>
+        <div class="logistics-card"><h3><span class="icon">&#128663;</span> Трансфер</h3><p>Як тільки ми матимемо деталі прибуття кожного, усі трансфери з аеропорту та готелю будуть організовані.</p></div>
+      </div>
+      <div class="flights-section fade-up">
+        <h3>Рекомендовані рейси</h3>
+        <p class="flights-note">Ваш пункт призначення — <strong>Спліт, Хорватія — аеропорт Спліт (SPU)</strong>. Для далеких перельотів виліт 4 червня, прибуття 5 червня. Зручні пересадки через європейські хаби.</p>
+        <details class="flight-group">
+          <summary>З Бухареста (OTP)</summary>
+          <div class="flight-content">
+            <div class="depart-note">Короткий переліт — можливі прямі рейси або через Стамбул/Відень</div>
+            <div class="route-links" style="margin-top:.75rem;">
+              <a href="https://www.google.com/travel/flights?q=flights+from+Bucharest+to+Split+arriving+June+5+2026+return+June+13+2026" target="_blank" rel="noopener"><strong>Шукати на Google Flights ↗</strong></a>
+            </div>
+          </div>
+        </details>
+
+        <details class="flight-group">
+          <summary>З Києва (KBP)</summary>
+          <div class="flight-content">
+            <div class="depart-note">Можливі прямі рейси влітку або через Варшаву/Стамбул</div>
+            <div class="route-links" style="margin-top:.75rem;">
+              <a href="https://www.google.com/travel/flights?q=flights+from+Kyiv+to+Split+arriving+June+5+2026+return+June+13+2026" target="_blank" rel="noopener"><strong>Шукати на Google Flights ↗</strong></a>
+            </div>
+          </div>
+        </details>
+        <details class="flight-group">
+          <summary>З Варшави (WAW)</summary>
+          <div class="flight-content">
+            <div class="depart-note">Прямі або з пересадкою, 4–5 червня</div>
+            <div class="route-links" style="margin-top:.75rem;">
+              <a href="https://www.google.com/travel/flights?q=flights+from+Warsaw+to+Split+arriving+June+5+2026+return+June+13+2026" target="_blank" rel="noopener"><strong>Шукати на Google Flights ↗</strong></a>
+            </div>
+          </div>
+        </details>
+        <details class="flight-group">
+          <summary>З Бангкоку (BKK)</summary>
+          <div class="flight-content">
+            <div class="depart-note">Виліт пізно ввечері 4 червня → прибуття в Спліт вдень 5 червня</div>
+            <div class="route-links" style="margin-top:.75rem;">
+              <a href="https://www.google.com/travel/flights?q=flights+from+Bangkok+to+Split+arriving+June+5+2026+return+June+13+2026" target="_blank" rel="noopener"><strong>Шукати на Google Flights ↗</strong></a>
+            </div>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-cream">
+    <div class="container">
+      <span class="label fade-up">На борту</span>
+      <h2 class="fade-up">Ваш дім у морі</h2>
+      <p class="section-intro fade-up">OHANA — моторна яхта довжиною 49 метрів. 14 кают для 30 гостей, 12 членів екіпажу та безліч водних розваг.</p>
+      <div class="amenities-grid fade-up">
+        <div class="amenity-group"><h3>На воді</h3><ul class="amenity-list"><li>Гідроцикл</li><li>SeaBobs &times; 2</li><li>E-Foil</li><li>Водні лижі</li><li>Тюбінг</li><li>Падлборди &times; 2</li><li>Каяки &times; 2</li><li>Водна гірка</li><li>Надувний басейн</li></ul></div>
+        <div class="amenity-group"><h3>На борту</h3><ul class="amenity-list"><li>Кондиціонер</li><li>Wi-Fi</li><li>Постільна білизна</li><li>Рушники</li><li>Повне харчування</li><li>Капітан + 11 екіпажу</li></ul><p style="margin-top:1rem;font-size:.88rem;color:var(--text-light);">Їжа та напої на борту — за наш рахунок. Просто повідомте нам про ваші побажання.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="gallery-section">
+    <span class="label">M/Y OHANA</span>
+    <div class="photo-grid">
+      <figure class="wide"><img src="../img/ycf2.jpg" alt="OHANA" loading="lazy"></figure>
+      <figure><img src="../img/brochure4.jpg" alt="Палуба" loading="lazy"></figure>
+      <figure><img src="../img/brochure5.jpg" alt="Обід на палубі" loading="lazy"></figure>
+      <figure><img src="../img/brochure6.jpg" alt="Салон" loading="lazy"></figure>
+      <figure><img src="../img/brochure7.jpg" alt="Бар" loading="lazy"></figure>
+      <figure class="wide"><img src="../img/brochure3.jpg" alt="OHANA в морі" loading="lazy"></figure>
+      <figure><img src="../img/brochure8.jpg" alt="Каюта" loading="lazy"></figure>
+      <figure><img src="../img/brochure9.jpg" alt="Люкс" loading="lazy"></figure>
+      <figure><img src="../img/brochure10.jpg" alt="Деталі" loading="lazy"></figure>
+      <figure><img src="../img/brochure11.jpg" alt="Водні розваги" loading="lazy"></figure>
+      <figure class="wide"><img src="../img/ycf3.jpg" alt="Вид зверху" loading="lazy"></figure>
+      <figure><img src="../img/brochure12.jpg" alt="Джакузі" loading="lazy"></figure>
+      <figure><img src="../img/brochure13.jpg" alt="Вечеря" loading="lazy"></figure>
+      <figure><img src="../img/brochure14.jpg" alt="Захід сонця" loading="lazy"></figure>
+      <figure><img src="../img/brochure15.jpg" alt="Узбережжя" loading="lazy"></figure>
+    </div>
+  </section>
+
+  <section class="bg-white">
+    <div class="container">
+      <span class="label fade-up">Корисне</span>
+      <h2 class="fade-up">Що варто знати</h2>
+      <ul class="tips-list fade-up">
+        <li>Одягайтесь легко — літній одяг, купальники, щось тепле на вечір</li>
+        <li>Візьміть сонцезахисний крем, капелюх, окуляри</li>
+        <li>На палубі лише взуття з м'якою підошвою — без чорних підошв</li>
+        <li>Паління дозволене лише у спеціальних зонах на відкритому повітрі</li>
+        <li>Тварини на борт не допускаються</li>
+        <li>Діти повинні бути під наглядом дорослих</li>
+        <li>Моторні водні розваги потребують підписання відмови від претензій</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ═══ Маршрут ═══ -->
+  <section class="bg-cream">
+    <div class="container">
+      <span class="label fade-up">The Route</span>
+      <h2 class="fade-up">Острівний круїз Далматинським узбережжям</h2>
+      <p class="section-intro fade-up">Наш маршрут пролягає через найкрасивіші острови Адріатики. Ми будемо плавати приблизно 2–2,5 години на день — решту часу купаємося, досліджуємо та відпочиваємо.</p>
+      <div class="route-islands fade-up">
+        <span class="island">Спліт</span><span class="arrow">&rarr;</span>
+        <span class="island">Брач</span><span class="arrow">&rarr;</span>
+        <span class="island">Віс</span><span class="arrow">&rarr;</span>
+        <span class="island">Корчула</span><span class="arrow">&rarr;</span>
+        <span class="island">Шолта</span><span class="arrow">&rarr;</span>
+        <span class="island">Хвар</span><span class="arrow">&rarr;</span>
+        <span class="island">Спліт</span>
+      </div>
+      <p class="route-note fade-up">Точний маршрут залежить від погоди та морських умов. Капітан обирає найкращий шлях щодня.</p>
+    </div>
+  </section>
+
+  <!-- ═══ Вимоги до подорожі ═══ -->
+  <section class="bg-white">
+    <div class="container">
+      <span class="label fade-up">Before You Travel</span>
+      <h2 class="fade-up">Вимоги до подорожі</h2>
+      <p class="section-intro fade-up">Хорватія є частиною Шенгенської зони. Ось що потрібно для в'їзду.</p>
+      <ul class="tips-list fade-up">
+        <li>Паспорт дійсний щонайменше <strong>6 місяців</strong> після подорожі — до <strong>13 грудня 2026</strong> або пізніше</li>
+        <li>Паспорт виданий протягом останніх 10 років</li>
+        <li><strong>Віза не потрібна</strong> для громадян США, Великобританії, Японії та України (біометричний паспорт)</li>
+        <li>Жодних карток прибуття — лише паспортний контроль</li>
+        <li>Валюта: <strong>Євро (€)</strong> — картки приймаються скрізь</li>
+        <li>Часовий пояс: <strong>CEST (UTC+2)</strong></li>
+      </ul>
+      <div class="visa-alert fade-up">
+        <strong>Власники тайських паспортів:</strong> Для в'їзду до Хорватії потрібна <strong>Шенгенська віза</strong>. Оформлення займає 2–8 тижнів. Подавайте заяву в найближчому посольстві Шенгенської країни якнайшвидше.
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FAQ ═══ -->
+  <section class="bg-cream">
+    <div class="container">
+      <span class="label fade-up">FAQ</span>
+      <h2 class="fade-up">Все, що потрібно знати</h2>
+      <div class="faq-list fade-up">
+        <details class="faq-item"><summary>Чи є Wi-Fi на борту?</summary><div class="faq-answer">Так — <strong>Starlink</strong> супутниковий інтернет. Стабільне з'єднання у більшості локацій, достатнє для відеодзвінків.</div></details>
+        <details class="faq-item"><summary>Які розетки на борту?</summary><div class="faq-answer">Європейські Type C/F. На борту є кілька адаптерів, але не для всіх — <strong>візьміть свій адаптер</strong>.</div></details>
+        <details class="faq-item"><summary>Як виглядає типовий день?</summary><div class="faq-answer">Підйом, сніданок у зручний час, 2–2,5 години плавання до наступного острова, зупинка в красивій бухті для купання, обід на борту, прогулянка містечком, вечеря в ресторані на острові.</div></details>
+        <details class="faq-item"><summary>Де ми їмо — на борту чи на острові?</summary><div class="faq-answer">І там, і там. Сніданок і обід на борту (шведський стіл). Вечеря зазвичай у ресторанах на островах — оплачується окремо. Хвар — найвишуканіший, інші острови — затишні місцеві коноби.</div></details>
+        <details class="faq-item"><summary>Що робити з морською хворобою?</summary><div class="faq-answer">Ліки від заколисування є на борту (можуть викликати сонливість). Рекомендуємо взяти: <strong>акупунктурні браслети</strong>, <strong>пластирі від заколисування</strong> (за вухо), <strong>тайський трав'яний бальзам</strong> (рол-он).</div></details>
+        <details class="faq-item"><summary>Що одягати?</summary><div class="faq-answer">На борту: купальник, casual. На берегу: не в купальнику. У Хварі — <strong>smart casual</strong>. Інші острови — розслаблено.</div></details>
+        <details class="faq-item"><summary>Безпека дітей?</summary><div class="faq-answer">Рятувальні жилети для дорослих є. <strong>Батькам краще взяти дитячі жилети правильного розміру</strong>. Один дитячий стільчик на борту.</div></details>
+        <details class="faq-item"><summary>Чи є прання?</summary><div class="faq-answer">Так — прання та сушіння €40 за завантаження, 24 години. Пакуйте легко.</div></details>
+        <details class="faq-item"><summary>Медична допомога?</summary><div class="faq-answer">Аптечка на борту, екіпаж має сертифікат з надання першої допомоги. Європейський номер екстреної допомоги: <strong>112</strong>.</div></details>
+        <details class="faq-item"><summary>Скільки багажу брати?</summary><div class="faq-answer">Без суворих обмежень, але багаж зберігається у каюті. <strong>М'які сумки рекомендовані</strong> замість жорстких валіз.</div></details>
+        <details class="faq-item"><summary>Яка температура води?</summary><div class="faq-answer">Середня температура у червні — <strong>22°C</strong> (19–25°C). Достатньо тепло для комфортного купання.</div></details>
+        <details class="faq-item"><summary>Можна брати свої напої?</summary><div class="faq-answer">Так. Але постачальник яхти має ціни близькі до супермаркету — можливо, не варто нести все з собою.</div></details>
+        <details class="faq-item"><summary>Що відбувається в день посадки?</summary><div class="faq-answer">Посадка о 16:00 у Спліті. Вітальний напій, знайомство з екіпажем, інструктаж з безпеки. Потім повільний круїз до острова Брач, якір у тихій бухті, купання та вечеря на борту.</div></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-cream">
+    <div class="container">
+      <span class="label fade-up">Перед поїздкою</span>
+      <h2 class="fade-up">Трохи хорватської</h2>
+      <p class="section-intro fade-up" style="max-width:500px;">Кілька слів, щоб вразити екіпаж та місцевих.</p>
+      <div class="phrase-grid fade-up">
+        <div class="phrase-card"><div class="phrase-hr">Bok</div><div class="phrase-en">Привіт / Бувай</div><div class="phrase-pron">бок</div></div>
+        <div class="phrase-card"><div class="phrase-hr">Hvala</div><div class="phrase-en">Дякую</div><div class="phrase-pron">ХВАЛА</div></div>
+        <div class="phrase-card"><div class="phrase-hr">Molim</div><div class="phrase-en">Будь ласка / Нема за що</div><div class="phrase-pron">МОЛІМ</div></div>
+        <div class="phrase-card"><div class="phrase-hr">Živjeli!</div><div class="phrase-en">Будьмо!</div><div class="phrase-pron">ЖІВ'ЄЛІ</div></div>
+        <div class="phrase-card"><div class="phrase-hr">Dobro jutro</div><div class="phrase-en">Доброго ранку</div><div class="phrase-pron">ДОБРО ЮТРО</div></div>
+        <div class="phrase-card"><div class="phrase-hr">Dobar dan</div><div class="phrase-en">Добрий день</div><div class="phrase-pron">ДОБАР ДАН</div></div>
+        <div class="phrase-card"><div class="phrase-hr">Predivno!</div><div class="phrase-en">Чудово!</div><div class="phrase-pron">ПРЕДІВНО</div></div>
+        <div class="phrase-card"><div class="phrase-hr">Jedno pivo, molim</div><div class="phrase-en">Одне пиво, будь ласка</div><div class="phrase-pron">ЄДНО ПІВО МОЛІМ</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="rsvp-section" id="rsvp">
+    <div class="container">
+      <div style="text-align:center;" class="fade-up">
+        <span class="label">RSVP</span>
+        <h2>Повідомте нас</h2>
+        <p class="section-intro" style="margin:0 auto;">Будь ласка, заповніть форму нижче, щоб ми могли все підготувати.</p>
+      </div>
+      <div class="form-wrap">
+        <div id="formError" class="form-error"></div>
+        <form id="rsvpForm" class="fade-up">
+          <div class="form-group"><label for="fullName">Ваше ім'я</label><input type="text" id="fullName" name="full_name" required placeholder="Повне ім'я"></div>
+          <div class="form-group"><label for="email">Електронна пошта</label><input type="email" id="email" name="email" required placeholder="your@email.com"></div>
+          <div class="form-group">
+            <label>Чи зможете приєднатися?</label>
+            <div class="radio-group">
+              <div class="radio-option"><input type="radio" id="attendYes" name="attending" value="yes" required><label for="attendYes">Так, буду!</label></div>
+              <div class="radio-option"><input type="radio" id="attendNo" name="attending" value="no"><label for="attendNo">На жаль, ні</label></div>
+            </div>
+          </div>
+          <div id="missYou" class="miss-you">Шкода. Дякуємо, що повідомили.</div>
+          <div id="yesFields" class="conditional-fields">
+            <div class="form-group"><label for="guestCount">Скільки гостей у вашій групі (включно з вами)?</label><select id="guestCount" name="guest_count"><option value="1">1 — тільки я</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option></select></div>
+
+            <p style="margin:1.5rem 0 .5rem;font-size:.83rem;color:var(--text-light);padding:.75rem 1rem;background:rgba(184,149,95,.08);border-radius:6px;border-left:3px solid var(--gold);line-height:1.7;">
+              Переконайтесь, що паспорти дійсні щонайменше до <strong>13 грудня 2026</strong> (6 місяців після закінчення подорожі). Це вимога для в'їзду до Хорватії / Шенгенської зони.
+            </p>
+
+            <div id="guestSections"></div>
+
+            <hr style="border:none;border-top:1px solid var(--border);margin:2rem 0;">
+            <h3 style="font-size:1.05rem;margin-bottom:1rem;color:var(--navy);">Деталі подорожі</h3>
+
+            <div class="form-group"><label for="arrivalDate">Коли плануєте прибути до Спліту?</label><select id="arrivalDate" name="arrival_date"><option value="">Оберіть дату</option><option value="june_4_or_earlier">4 червня або раніше</option><option value="june_5_recommended">5 червня (рекомендовано)</option><option value="june_6_departure_day">6 червня (день відправлення)</option></select></div>
+            <div class="form-group"><label for="flightDetails">Деталі рейсу (якщо відомі)</label><span class="hint">Авіакомпанія, номер рейсу, час прибуття — можна оновити пізніше</span><textarea id="flightDetails" name="flight_details" rows="2" placeholder="напр. Turkish Airlines TK1234, прибуття 14:30 5 червня"></textarea></div>
+            <div class="form-group">
+              <label>Потрібна допомога з готелем на ніч перед відправленням?</label>
+              <div class="radio-group">
+                <div class="radio-option"><input type="radio" id="hotelYes" name="need_hotel" value="yes"><label for="hotelYes">Так, будь ласка</label></div>
+                <div class="radio-option"><input type="radio" id="hotelNo" name="need_hotel" value="no"><label for="hotelNo">Ні, все гаразд</label></div>
+              </div>
+            </div>
+            <div class="form-group"><label for="notes">Щось ще?</label><textarea id="notes" name="notes" rows="2" placeholder="Питання, побажання або просто повідомлення"></textarea></div>
+          </div>
+          <button type="submit" class="submit-btn" id="submitBtn">Надіслати RSVP</button>
+        </form>
+        <div id="formSuccess" class="form-success">
+          <h3>Дякуємо!</h3>
+          <p>Вашу відповідь отримано. Ми зв'яжемось з деталями ближче до відправлення.</p>
+          <p style="margin-top:1rem;font-style:italic;color:var(--gold);">Побачимось на воді.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p class="footer-vessel">YACHTTARO</p>
+    <p>Спліт, Хорватія · 6–13 червня 2026</p>
+    <p style="margin-top:1.5rem;">Питання? Звертайтесь до Кентаро напряму.</p>
+  </footer>
+
+  <div class="lightbox" id="lightbox" onclick="if(event.target===this)closeLB()">
+    <button class="lightbox-close" onclick="closeLB()">&times;</button>
+    <button class="lightbox-nav lightbox-prev" onclick="navLB(-1)">&lsaquo;</button>
+    <img id="lbImg" src="" alt="">
+    <button class="lightbox-nav lightbox-next" onclick="navLB(1)">&rsaquo;</button>
+  </div>
+  <script>
+    const lbEl=document.getElementById('lightbox'),lbImg=document.getElementById('lbImg');
+    let lbItems=[],lbIdx=0;
+    document.querySelectorAll('.photo-grid figure').forEach((fig,i)=>{
+      lbItems.push(fig.querySelector('img').src);
+      fig.addEventListener('click',()=>{lbIdx=i;lbImg.src=lbItems[i];lbEl.classList.add('open');document.body.style.overflow='hidden'});
+    });
+    function closeLB(){lbEl.classList.remove('open');document.body.style.overflow=''}
+    function navLB(d){lbIdx=(lbIdx+d+lbItems.length)%lbItems.length;lbImg.src=lbItems[lbIdx]}
+    document.addEventListener('keydown',e=>{if(!lbEl.classList.contains('open'))return;if(e.key==='Escape')closeLB();if(e.key==='ArrowRight')navLB(1);if(e.key==='ArrowLeft')navLB(-1)});
+
+    const params=new URLSearchParams(window.location.search);
+    const guestName=params.get('name');
+    if(guestName){
+      const decoded=decodeURIComponent(guestName);
+      document.querySelector('.hero .label').textContent=decoded+', запрошуємо!';
+      document.getElementById('fullName').value=decoded;
+      document.getElementById('fullName').readOnly=true;
+      document.getElementById('fullName').style.backgroundColor='#f5f0e8';
+      document.getElementById('fullName').style.color='var(--navy)';
+    }
+    // Carry name param to lang links
+    (function(){
+      const n=params.get('name'),g=params.get('guests');
+      if(n||g){document.querySelectorAll('.lang-switch a').forEach(a=>{const u=new URL(a.href,location.origin);if(n)u.searchParams.set('name',n);if(g)u.searchParams.set('guests',g);a.href=u.toString()})}
+    })();
+
+      const target=new Date('2026-06-06T16:00:00+02:00');
+      function pad(n){return n<10?'0'+n:n}
+      function tick(){var diff=target-new Date();if(diff<=0){document.getElementById('countdown').style.display='none';return}
+        document.getElementById('cd-days').textContent=Math.floor(diff/864e5);
+        document.getElementById('cd-hrs').textContent=pad(Math.floor((diff%864e5)/36e5));
+        document.getElementById('cd-min').textContent=pad(Math.floor((diff%36e5)/6e4));
+        document.getElementById('cd-sec').textContent=pad(Math.floor((diff%6e4)/1e3));
+      }
+      tick();setInterval(tick,1000);
+
+    const obs=new IntersectionObserver(e=>{e.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')})},{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+    document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
+
+    const langSwitch=document.getElementById('langSwitch');
+    window.addEventListener('scroll',()=>{langSwitch.classList.toggle('scrolled',window.scrollY>100)},{passive:true});
+
+    const attendYes=document.getElementById('attendYes'),attendNo=document.getElementById('attendNo'),yesFields=document.getElementById('yesFields'),missYou=document.getElementById('missYou');
+    function toggleFields(){if(attendYes.checked){yesFields.classList.add('visible');missYou.classList.remove('visible')}else if(attendNo.checked){yesFields.classList.remove('visible');missYou.classList.add('visible')}}
+    attendYes.addEventListener('change',toggleFields);attendNo.addEventListener('change',toggleFields);
+
+    const guestCountEl=document.getElementById('guestCount'),guestSections=document.getElementById('guestSections');
+    function makeGuestCard(i){
+      const card=document.createElement('div');card.className='guest-card';
+      const title=document.createElement('div');title.className='guest-card-title';title.textContent='Guest '+(i+1);card.appendChild(title);
+      const fields=[['g-name','Full name (as on passport)','text','Full legal name',true],['g-dob','Date of birth','date','',true],['g-pob','Place of birth','text','City, Country',false],['g-nat','Nationality','text','e.g. Ukrainian, Israeli',false],['g-res','City & country of residence','text','e.g. Bangkok, Thailand',false],['g-pp','Passport number','text','Passport number',false],['g-ppexp','Passport expiry date','date','',false],['g-allergy','Allergies','text','None, or list allergies',false],['g-diet','Dietary restrictions & food preferences','text','e.g. Vegetarian, no spicy, loves sushi',false]];
+      var row;
+      fields.forEach(function(f,idx){
+        if(idx%2===0){row=document.createElement('div');row.className='form-row';card.appendChild(row)}
+        if(idx===8){row=document.createElement('div');card.appendChild(row)}
+        var grp=document.createElement('div');grp.className='form-group';
+        var lbl=document.createElement('label');lbl.textContent=f[1];grp.appendChild(lbl);
+        var inp=document.createElement('input');inp.type=f[2];inp.className=f[0];inp.placeholder=f[3];if(f[4])inp.required=true;grp.appendChild(inp);
+        if(idx===8){row.className='form-group';row.appendChild(lbl);row.appendChild(inp)}else{row.appendChild(grp)}
+      });
+      return card;
+    }
+    function renderGuestCards(){
+      var count=parseInt(guestCountEl.value)||1;guestSections.replaceChildren();
+      for(var i=0;i<count;i++)guestSections.appendChild(makeGuestCard(i));
+      if(guestName){var first=guestSections.querySelector('.g-name');if(first&&!first.value)first.value=decodeURIComponent(guestName)}
+    }
+    const guestParam=params.get('guests');
+    if(guestParam){guestCountEl.value=guestParam;guestCountEl.disabled=true;guestCountEl.style.backgroundColor='#f5f0e8'}
+    guestCountEl.addEventListener('change',renderGuestCards);renderGuestCards();
+
+    const SUPABASE_URL='https://dyvahmmkiynvxfvqmnjb.supabase.co';
+    const SUPABASE_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR5dmFobW1raXludnhmdnFtbmpiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzIwNDgyMTEsImV4cCI6MjA4NzYyNDIxMX0.JMQnsWqIhlO-DN-CFkR-WzYld6tPpUW8pVMR1NbMtUI';
+    const SHEETS_URL='';
+
+    document.getElementById('rsvpForm').addEventListener('submit',async function(e){
+      e.preventDefault();const btn=document.getElementById('submitBtn'),errEl=document.getElementById('formError');
+      errEl.classList.remove('visible');btn.disabled=true;btn.textContent='Надсилаємо...';
+      const attending=attendYes.checked;
+      const data={full_name:document.getElementById('fullName').value.trim(),email:document.getElementById('email').value.trim(),attending};
+      if(attending){
+        guestCountEl.disabled=false;data.guest_count=parseInt(guestCountEl.value)||1;
+        var guests=[];document.querySelectorAll('.guest-card').forEach(function(card){guests.push({name:card.querySelector('.g-name').value.trim(),dob:card.querySelector('.g-dob').value,place_of_birth:card.querySelector('.g-pob').value.trim(),nationality:card.querySelector('.g-nat').value.trim(),residence:card.querySelector('.g-res').value.trim(),passport_number:card.querySelector('.g-pp').value.trim(),passport_expiry:card.querySelector('.g-ppexp').value,allergies:card.querySelector('.g-allergy').value.trim(),dietary:card.querySelector('.g-diet').value.trim()})});
+        data.guests_json=guests;data.guest_names=guests.map(function(g){return g.name}).filter(Boolean).join('\n')||null;
+        data.dietary_restrictions=guests.map(function(g){return g.dietary?g.name+': '+g.dietary:''}).filter(Boolean).join('\n')||null;
+        data.arrival_date=document.getElementById('arrivalDate').value||null;
+        data.flight_details=document.getElementById('flightDetails').value.trim()||null;
+        data.need_hotel=document.getElementById('hotelYes').checked?true:(document.getElementById('hotelNo').checked?false:null);
+        data.notes=document.getElementById('notes').value.trim()||null;
+      }
+      try{
+        const res=await fetch(SUPABASE_URL+'/rest/v1/yacht_rsvps',{method:'POST',headers:{apikey:SUPABASE_KEY,Authorization:'Bearer '+SUPABASE_KEY,'Content-Type':'application/json',Prefer:'return=minimal'},body:JSON.stringify(data)});
+        if(!res.ok)throw new Error('fail');
+        if(SHEETS_URL){fetch(SHEETS_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)}).catch(()=>{})}
+        document.getElementById('rsvpForm').style.display='none';
+        document.getElementById('formSuccess').classList.add('visible');
+        fireConfetti();
+      }catch(err){errEl.textContent='Щось пішло не так. Спробуйте ще раз або зверніться до Кентаро.';errEl.classList.add('visible');btn.disabled=false;btn.textContent='Надіслати RSVP'}
+    });
+    function fireConfetti(){var c=document.createElement('canvas');c.id='confetti-canvas';document.body.appendChild(c);c.width=window.innerWidth;c.height=window.innerHeight;var ctx=c.getContext('2d'),cols=['#b8955f','#0b1d35','#25D366','#e2c686','#1a5f7a','#d4c5a0','#fff'],p=[];for(var i=0;i<150;i++)p.push({x:Math.random()*c.width,y:Math.random()*c.height-c.height,w:Math.random()*8+4,h:Math.random()*4+2,color:cols[Math.floor(Math.random()*cols.length)],vx:(Math.random()-.5)*4,vy:Math.random()*3+2,rot:Math.random()*360,rv:(Math.random()-.5)*10});var f=0;function draw(){ctx.clearRect(0,0,c.width,c.height);p.forEach(function(q){q.x+=q.vx;q.y+=q.vy;q.rot+=q.rv;q.vy+=.05;ctx.save();ctx.translate(q.x,q.y);ctx.rotate(q.rot*Math.PI/180);ctx.fillStyle=q.color;ctx.fillRect(-q.w/2,-q.h/2,q.w,q.h);ctx.restore()});f++;if(f<180)requestAnimationFrame(draw);else c.remove()}draw()}
+  </script>
+</body>
+</html>

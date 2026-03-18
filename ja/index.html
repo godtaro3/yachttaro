@@ -1,0 +1,1284 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ご招待 · YACHTTARO</title>
+  <meta name="description" content="M/Y OHANAに乗って、クロアチアの海岸を巡る一週間。2026年6月6日〜13日。">
+  <meta name="robots" content="noindex, nofollow">
+  <meta property="og:title" content="ご招待 — YACHTTARO June 2026">
+  <meta property="og:description" content="M/Y OHANAでクロアチアの海岸を巡る忘れられない一週間。2026年6月6日〜13日。">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Noto+Sans+JP:wght@300;400;500;600&family=Noto+Serif+JP:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --navy: #0b1d35;
+      --navy-mid: #15304f;
+      --navy-light: #1e4268;
+      --gold: #b8955f;
+      --gold-light: #d4c5a0;
+      --gold-bright: #e2c686;
+      --cream: #faf8f3;
+      --cream-dark: #f0ebe0;
+      --white: #ffffff;
+      --text: #2c2c3a;
+      --text-light: #6b6b7b;
+      --text-on-dark: #e8e0d4;
+      --border: #e0d8cc;
+      --font-serif: 'Noto Serif JP', 'Cormorant Garamond', serif;
+      --font-sans: 'Noto Sans JP', 'DM Sans', -apple-system, sans-serif;
+      --font-serif-en: 'Cormorant Garamond', serif;
+      --max-w: 760px;
+      --max-w-wide: 960px;
+      --section-py: clamp(5rem, 10vw, 8rem);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-sans);
+      font-size: clamp(0.925rem, 1.2vw, 1rem);
+      line-height: 1.85;
+      color: var(--text);
+      background: var(--cream);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3 { font-family: var(--font-serif); font-weight: 400; line-height: 1.3; }
+    h2 { font-size: clamp(1.8rem, 3.5vw, 2.5rem); margin-bottom: 1.5rem; color: var(--navy); }
+    h3 { font-size: clamp(1.15rem, 2.2vw, 1.35rem); margin-bottom: 0.75rem; color: var(--navy); }
+    p + p { margin-top: 1rem; }
+    a { color: var(--gold); text-decoration: none; transition: color 0.2s; }
+    a:hover { color: var(--navy); }
+
+    .label {
+      font-family: var(--font-sans);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .section-intro {
+      font-family: var(--font-serif);
+      font-size: clamp(1.05rem, 1.8vw, 1.2rem);
+      line-height: 1.8;
+      color: var(--text-light);
+      max-width: 600px;
+    }
+
+    .container { max-width: var(--max-w); margin: 0 auto; padding: 0 1.5rem; }
+    .container--wide { max-width: var(--max-w-wide); margin: 0 auto; padding: 0 1.5rem; }
+
+    section { padding: var(--section-py) 0; }
+    .bg-white { background: var(--white); }
+    .bg-cream { background: var(--cream); }
+    .bg-navy { background: var(--navy); color: var(--text-on-dark); }
+
+    /* ── Lang switch ── */
+    .lang-switch {
+      position: fixed;
+      top: 1.25rem;
+      right: 1.25rem;
+      z-index: 100;
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      background: rgba(255,255,255,0.12);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 2rem;
+      padding: 0.4rem 0.9rem;
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+      transition: background 0.3s;
+    }
+    .lang-switch.scrolled {
+      background: rgba(255,255,255,0.9);
+      border-color: var(--border);
+    }
+    .lang-switch a { color: rgba(255,255,255,0.5); font-weight: 400; }
+    .lang-switch a:hover { color: var(--white); }
+    .lang-switch .active { color: var(--white); font-weight: 600; }
+    .lang-switch.scrolled a { color: var(--text-light); }
+    .lang-switch.scrolled a:hover { color: var(--navy); }
+    .lang-switch.scrolled .active { color: var(--navy); font-weight: 600; }
+    .lang-switch .sep { color: rgba(255,255,255,0.2); }
+    .lang-switch.scrolled .sep { color: var(--border); }
+
+    /* ── Hero ── */
+    .hero {
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      background: var(--navy);
+      padding: 2rem 1.5rem;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.65);
+    }
+
+    .hero-content { position: relative; z-index: 1; }
+    .hero .label { color: var(--gold-light); margin-bottom: 1.5rem; font-size: 0.8rem; letter-spacing: 0.25em; }
+
+    .hero h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(2.5rem, 7vw, 4.5rem);
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1.15;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-sub {
+      font-family: var(--font-serif);
+      font-size: clamp(1rem, 2.2vw, 1.25rem);
+      color: rgba(255,255,255,0.7);
+      max-width: 480px;
+      margin: 0 auto 2rem;
+      line-height: 1.7;
+    }
+
+    .hero-date {
+      font-family: 'DM Sans', var(--font-sans);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      padding: 0.6rem 1.5rem;
+      border: 1px solid rgba(184,149,95,0.3);
+      border-radius: 2rem;
+      display: inline-block;
+      margin-bottom: 2.5rem;
+    }
+
+    .countdown {
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.5);
+      margin-top: 0.5rem;
+    }
+
+    .scroll-hint {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      animation: float 2.5s ease-in-out infinite;
+    }
+    .scroll-hint svg { width: 24px; height: 24px; stroke: rgba(255,255,255,0.3); fill: none; stroke-width: 2; }
+
+    @keyframes float {
+      0%, 100% { transform: translateX(-50%) translateY(0); opacity: 0.6; }
+      50% { transform: translateX(-50%) translateY(8px); opacity: 1; }
+    }
+
+    .wave-separator { display: block; width: 100%; height: 60px; margin-top: -1px; }
+
+    /* ── Details grid ── */
+    .details-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      margin-top: 2.5rem;
+    }
+
+    .detail-item { text-align: center; padding: 1.5rem 1rem; }
+    .detail-item .label { color: var(--gold); margin-bottom: 0.5rem; font-size: 0.7rem; }
+    .detail-item strong {
+      display: block;
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: var(--navy);
+      margin-bottom: 0.25rem;
+    }
+    .detail-item span { font-size: 0.9rem; color: var(--text-light); }
+
+    .map-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-top: 2rem;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--gold);
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+    .map-link:hover { border-bottom-color: var(--gold); color: var(--gold); }
+
+    /* ── Callout ── */
+    .callout-section { background: var(--white); }
+
+    .callout-box {
+      background: linear-gradient(135deg, #faf6ee 0%, #f5efe3 100%);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 8px 8px 0;
+      padding: clamp(2rem, 4vw, 3rem);
+      margin-top: 2rem;
+    }
+    .callout-box p { max-width: 600px; }
+    .callout-box p + p { margin-top: 0.75rem; }
+
+    .logistics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+
+    .logistics-card {
+      padding: 1.5rem;
+      background: var(--white);
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+    .logistics-card h3 {
+      font-size: 1.05rem;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .logistics-card .icon { font-size: 1.3rem; }
+    .logistics-card p { font-size: 0.88rem; color: var(--text-light); line-height: 1.7; }
+
+    /* ── Flights accordion ── */
+    .flights-section { margin-top: 2.5rem; }
+    .flights-section h3 { margin-bottom: 1rem; }
+    .flights-note {
+      font-size: 0.88rem;
+      color: var(--text-light);
+      font-style: italic;
+      margin-bottom: 1.5rem;
+    }
+
+    details.flight-group {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      margin-bottom: 0.75rem;
+      background: var(--white);
+      overflow: hidden;
+      transition: box-shadow 0.2s;
+    }
+    details.flight-group[open] { box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+
+    details.flight-group summary {
+      padding: 1rem 1.5rem;
+      font-family: var(--font-sans);
+      font-weight: 500;
+      font-size: 0.93rem;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: var(--navy);
+      user-select: none;
+    }
+    details.flight-group summary::-webkit-details-marker { display: none; }
+    details.flight-group summary::after {
+      content: '+';
+      font-size: 1.2rem;
+      font-weight: 300;
+      color: var(--gold);
+      transition: transform 0.2s;
+    }
+    details.flight-group[open] summary::after { content: '−'; }
+
+    .flight-content {
+      padding: 0 1.5rem 1.25rem;
+      border-top: 1px solid var(--border);
+    }
+    .flight-route {
+      padding: 1rem 0;
+      border-bottom: 1px solid rgba(0,0,0,0.04);
+    }
+    .flight-route:last-child { border-bottom: none; }
+    .flight-route .route-name { font-weight: 600; font-size: 0.88rem; color: var(--navy); }
+    .flight-route .route-detail { font-size: 0.83rem; color: var(--text-light); margin: 0.25rem 0 0.5rem; }
+    .flight-route .route-links { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .flight-route .route-links a {
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--gold);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    .flight-route .route-links a:hover { color: var(--navy); }
+    .depart-note {
+      font-size: 0.78rem;
+      color: var(--text-light);
+      background: rgba(184,149,95,0.08);
+      padding: 0.5rem 0.75rem;
+      border-radius: 4px;
+      margin-top: 0.75rem;
+    }
+
+    /* ── Amenities ── */
+    .amenities-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2.5rem;
+      margin-top: 2.5rem;
+    }
+    .amenity-group h3 {
+      font-size: 0.95rem;
+      font-family: var(--font-sans);
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+    .amenity-list {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1.25rem;
+    }
+    .amenity-list li {
+      font-size: 0.93rem;
+      color: var(--text);
+      position: relative;
+      padding-left: 0.9rem;
+    }
+    .amenity-list li::before {
+      content: '·';
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+      font-weight: 700;
+    }
+
+    /* ── Tips ── */
+    .tips-list { list-style: none; margin-top: 2rem; }
+    .tips-list li {
+      padding: 0.75rem 0;
+      padding-left: 1.5rem;
+      position: relative;
+      font-size: 0.93rem;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+    .tips-list li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+      font-weight: 500;
+    }
+    .tips-list li:last-child { border-bottom: none; }
+
+    /* ── RSVP Form ── */
+    .rsvp-section { background: linear-gradient(180deg, var(--cream) 0%, var(--cream-dark) 100%); }
+
+    .form-wrap { max-width: 580px; margin: 2.5rem auto 0; }
+    .form-group { margin-bottom: 1.5rem; }
+    .form-group label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--navy);
+      margin-bottom: 0.4rem;
+    }
+    .form-group .hint {
+      display: block;
+      font-size: 0.78rem;
+      color: var(--text-light);
+      font-weight: 400;
+      margin-bottom: 0.4rem;
+    }
+    .form-group input[type="text"],
+    .form-group input[type="email"],
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      font-family: var(--font-sans);
+      font-size: 0.93rem;
+      color: var(--text);
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      -webkit-appearance: none;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(184,149,95,0.12);
+    }
+    .form-group textarea { resize: vertical; min-height: 80px; }
+
+    .radio-group { display: flex; gap: 1rem; margin-top: 0.25rem; }
+    .radio-option { flex: 1; position: relative; }
+    .radio-option input[type="radio"] { position: absolute; opacity: 0; width: 0; height: 0; }
+    .radio-option label {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.85rem 1rem;
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--text);
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-align: center;
+    }
+    .radio-option input[type="radio"]:checked + label {
+      border-color: var(--gold);
+      background: rgba(184,149,95,0.06);
+      color: var(--navy);
+    }
+    .radio-option input[type="radio"]:focus-visible + label {
+      box-shadow: 0 0 0 3px rgba(184,149,95,0.15);
+    }
+
+    .conditional-fields { display: none; animation: fadeIn 0.3s ease; }
+    .conditional-fields.visible { display: block; }
+    .miss-you {
+      display: none;
+      text-align: center;
+      padding: 2rem;
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      color: var(--text-light);
+      animation: fadeIn 0.3s ease;
+    }
+    .miss-you.visible { display: block; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .submit-btn {
+      display: block;
+      width: 100%;
+      padding: 1rem;
+      font-family: var(--font-sans);
+      font-size: 0.93rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      color: var(--white);
+      background: var(--navy);
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.1s;
+      margin-top: 0.5rem;
+    }
+    .submit-btn:hover { background: var(--navy-mid); }
+    .submit-btn:active { transform: scale(0.99); }
+    .submit-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+    .form-success { display: none; text-align: center; padding: 3rem 1rem; }
+    .form-success.visible { display: block; }
+    .form-success h3 {
+      font-family: var(--font-serif);
+      font-size: 1.6rem;
+      color: var(--navy);
+      margin-bottom: 0.75rem;
+    }
+    .form-success p { color: var(--text-light); }
+
+    .form-error {
+      display: none;
+      padding: 0.75rem 1rem;
+      background: #fef2f2;
+      border: 1px solid #fca5a5;
+      border-radius: 6px;
+      color: #991b1b;
+      font-size: 0.83rem;
+      margin-bottom: 1rem;
+    }
+    .form-error.visible { display: block; }
+
+    footer {
+      background: var(--navy);
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      padding: 3rem 1.5rem;
+      font-size: 0.85rem;
+    }
+    footer p + p { margin-top: 0.5rem; }
+    footer a { color: var(--gold-light); }
+    footer .footer-vessel {
+      font-family: var(--font-serif-en);
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 0.75rem;
+    }
+
+    /* ── Personal message ── */
+    .personal-section {
+      text-align: center;
+      padding: clamp(4rem, 8vw, 6rem) 1.5rem;
+      background: var(--white);
+    }
+    .personal-section .message {
+      font-family: var(--font-serif);
+      font-size: clamp(1.05rem, 1.8vw, 1.2rem);
+      line-height: 2;
+      color: var(--text-light);
+      max-width: 520px;
+      margin: 0 auto;
+    }
+    .personal-section .message p + p { margin-top: 1rem; }
+    .personal-section .sig {
+      margin-top: 2rem;
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      color: var(--navy);
+    }
+
+    /* ── Photo gallery ── */
+    .gallery-section { padding: 0; background: var(--navy); }
+    .gallery-section .label {
+      color: var(--gold-light);
+      text-align: center;
+      padding: 3rem 0 1.5rem;
+    }
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 3px;
+    }
+    @media (min-width: 640px) {
+      .photo-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (min-width: 1024px) {
+      .photo-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+    .photo-grid .wide { grid-column: span 2; }
+    .photo-grid img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease, filter 0.4s ease;
+    }
+    .photo-grid .wide img { aspect-ratio: 16/9; }
+    .photo-grid figure {
+      margin: 0;
+      overflow: hidden;
+      position: relative;
+    }
+    .photo-grid figure:hover img {
+      transform: scale(1.03);
+      filter: brightness(1.05);
+    }
+
+    .hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+    .countdown-grid{display:flex;gap:1.5rem;justify-content:center;margin-top:.5rem}
+    .countdown-unit{text-align:center}
+    .countdown-num{font-family:var(--font-serif-en);font-size:clamp(1.8rem,4vw,2.5rem);font-weight:400;color:var(--white);line-height:1}
+    .countdown-label{font-family:var(--font-sans);font-size:.65rem;font-weight:500;text-transform:uppercase;letter-spacing:.15em;color:rgba(255,255,255,.4);margin-top:.3rem}
+    #confetti-canvas{position:fixed;inset:0;z-index:9999;pointer-events:none}
+    .route-islands{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:.5rem 0;margin:2rem 0;font-family:var(--font-serif);font-size:clamp(1rem,2vw,1.25rem);color:var(--navy)}
+    .route-islands .island{padding:0 .75rem}
+    .route-islands .arrow{color:var(--gold);font-size:.85rem}
+    .route-note{text-align:center;font-size:.88rem;color:var(--text-light);font-style:italic}
+    .faq-list{margin-top:2rem}
+    details.faq-item{border-bottom:1px solid var(--border);overflow:hidden}
+    details.faq-item summary{padding:1rem 0;font-family:var(--font-sans);font-weight:500;font-size:.93rem;cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:space-between;color:var(--navy);user-select:none}
+    details.faq-item summary::-webkit-details-marker{display:none}
+    details.faq-item summary::after{content:'+';font-size:1.2rem;font-weight:300;color:var(--gold)}
+    details.faq-item[open] summary::after{content:'\2212'}
+    details.faq-item .faq-answer{padding:0 0 1rem;font-size:.88rem;color:var(--text-light);line-height:1.8}
+    .visa-alert{background:#fef3c7;border:1px solid #f59e0b;border-radius:8px;padding:1rem 1.25rem;margin-top:1.5rem;font-size:.88rem}
+    .visa-alert strong{color:#92400e}
+    .phrase-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin-top:2rem}
+    .phrase-card{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:1rem 1.25rem;text-align:center}
+    .phrase-hr{font-size:1.1rem;font-weight:600;color:var(--navy);margin-bottom:.25rem}
+    .phrase-en{font-size:.85rem;color:var(--text-light)}
+    .phrase-pron{font-size:.75rem;color:var(--gold);font-style:italic;margin-top:.15rem}
+
+    .guest-card{border:1px solid var(--border);border-radius:8px;padding:1.5rem;margin-bottom:1rem;background:var(--white)}
+    .guest-card-title{font-family:var(--font-sans);font-size:.8rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--gold);margin-bottom:1rem}
+    .guest-card .form-row{display:grid;grid-template-columns:1fr 1fr;gap:0 1rem}
+    @media(max-width:640px){.guest-card .form-row{grid-template-columns:1fr}}
+
+    .photo-grid figure { cursor: pointer; }
+    .lightbox {
+      display:none;position:fixed;inset:0;z-index:1000;
+      background:rgba(0,0,0,.92);align-items:center;justify-content:center;
+      padding:1rem;cursor:zoom-out;
+    }
+    .lightbox.open{display:flex;animation:fadeIn .2s ease}
+    .lightbox img{max-width:95vw;max-height:92vh;object-fit:contain;border-radius:4px;box-shadow:0 8px 40px rgba(0,0,0,.5)}
+    .lightbox-close{position:absolute;top:1rem;right:1.5rem;color:#fff;font-size:2rem;font-weight:300;cursor:pointer;opacity:.7;transition:opacity .2s;line-height:1;background:none;border:none}
+    .lightbox-close:hover{opacity:1}
+    .lightbox-nav{position:absolute;top:50%;transform:translateY(-50%);color:#fff;font-size:2.5rem;font-weight:300;cursor:pointer;opacity:.5;transition:opacity .2s;background:none;border:none;padding:1rem;line-height:1}
+    .lightbox-nav:hover{opacity:1}
+    .lightbox-prev{left:.5rem}.lightbox-next{right:.5rem}
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+    .fade-up:nth-child(2) { transition-delay: 0.1s; }
+    .fade-up:nth-child(3) { transition-delay: 0.2s; }
+
+    @media (max-width: 640px) {
+      .details-grid { gap: 1rem; }
+      .detail-item { padding: 1rem 0.5rem; }
+      .radio-group { flex-direction: column; gap: 0.5rem; }
+      .logistics-grid { grid-template-columns: 1fr; }
+      .amenities-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Language switcher -->
+  <div class="lang-switch" id="langSwitch">
+    <a href="/">English</a>
+    <span class="sep">|</span>
+    <span class="active">日本語</span>
+    <span class="sep">|</span>
+    <a href="/uk">Українська</a>
+  </div>
+
+  <!-- ═══ HERO ═══ -->
+  <section class="hero">
+    <video class="hero-video" autoplay muted loop playsinline poster="../img/ycf1.jpg"><source src="../img/hero-loop.mp4" type="video/mp4"></video>
+    <div class="hero-content">
+      <span class="label">ご招待</span>
+      <h1>YACHT-TARO<br><span style="font-size:.45em;font-weight:300;letter-spacing:.15em;">2026</span></h1>
+      <p class="hero-sub">M/Y OHANAに乗って<br>クロアチアの海岸を巡る、忘れられない一週間</p>
+      <div class="hero-date">2026年6月6日 – 13日 · スプリット、クロアチア</div>
+      <div class="countdown-grid" id="countdown">
+        <div class="countdown-unit"><div class="countdown-num" id="cd-days">--</div><div class="countdown-label">日</div></div>
+        <div class="countdown-unit"><div class="countdown-num" id="cd-hrs">--</div><div class="countdown-label">時間</div></div>
+        <div class="countdown-unit"><div class="countdown-num" id="cd-min">--</div><div class="countdown-label">分</div></div>
+        <div class="countdown-unit"><div class="countdown-num" id="cd-sec">--</div><div class="countdown-label">秒</div></div>
+      </div>
+    </div>
+    <a href="#voyage" class="scroll-hint" aria-label="下へスクロール">
+      <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+    </a>
+  </section>
+
+  <svg class="wave-separator" viewBox="0 0 1440 60" preserveAspectRatio="none" style="background:var(--navy);">
+    <path d="M0,20 C240,55 480,0 720,30 C960,60 1200,10 1440,35 L1440,60 L0,60Z" fill="#ffffff"/>
+  </svg>
+
+  <!-- ═══ 健太郎より ═══ -->
+  <section class="personal-section">
+    <div class="container fade-up">
+      <div class="message">
+        <p>この旅は、私からの「ありがとう」です。</p>
+        <p>
+          長年の友情、寛大さ、優しさで私の人生を支えてくれた皆さんへ —
+          この一週間は、皆さんへの感謝の気持ちです。
+        </p>
+      </div>
+      <div class="sig">— 健太郎</div>
+      <a href="https://chat.whatsapp.com/JcWEeWMv5VZ5tI4jjhCZaA?mode=gi_t" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:.6rem;padding:.75rem 1.8rem;background:#25D366;color:#fff;font-family:var(--font-sans);font-size:.85rem;font-weight:600;border-radius:50px;text-decoration:none;margin-top:2rem;transition:opacity .2s;" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        グループチャットに参加
+      </a>
+    </div>
+  </section>
+
+  <!-- ═══ 航海について ═══ -->
+  <section id="voyage" class="bg-cream">
+    <div class="container">
+      <span class="label fade-up">The Voyage</span>
+      <h2 class="fade-up">アドリア海での一週間</h2>
+      <p class="section-intro fade-up">
+        OHANAに乗って、ダルマチア海岸の美しい海を一緒に巡りませんか。
+        古代の港を巡り、透き通った入り江で泳ぎ、デッキでゆっくりランチを楽しみ、息を呑むような夕日を眺める — そんな一週間をお届けします。
+      </p>
+
+      <div class="details-grid fade-up">
+        <div class="detail-item">
+          <span class="label">乗船</span>
+          <strong>6月6日（土）</strong>
+          <span>16:00より</span>
+        </div>
+        <div class="detail-item">
+          <span class="label">帰港</span>
+          <strong>6月13日（土）</strong>
+          <span>9:00まで</span>
+        </div>
+        <div class="detail-item">
+          <span class="label">船</span>
+          <strong>M/Y OHANA</strong>
+          <span>49m · 14室</span>
+        </div>
+      </div>
+
+      <div style="text-align:center;" class="fade-up">
+        <a class="map-link" href="https://maps.app.goo.gl/4bfc8Xu6WnfMzdBy8" target="_blank" rel="noopener">
+          港の場所を地図で見る
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 前日到着のお願い ═══ -->
+  <section class="callout-section bg-white">
+    <div class="container">
+      <span class="label fade-up">重要なお願い</span>
+      <h2 class="fade-up">6月5日までにお越しください</h2>
+      <div class="callout-box fade-up">
+        <p>
+          スプリットへは<strong>6月5日（金）</strong>までにお越しいただくことを<strong>強くお勧め</strong>します。出航の前日です。
+        </p>
+        <p>
+          夏のフライトは遅延やキャンセルが起こりやすく、OHANAは6月6日16:00に予定通り出航します。
+          ギリギリのスケジュールでは、文字通り「船に乗り遅れる」可能性があります。
+        </p>
+        <p>
+          一日早く到着すれば、スプリットの美しい旧市街を散策し、ゆっくり休んでから、リラックスした状態で乗船できます。
+        </p>
+      </div>
+
+      <div class="logistics-grid fade-up">
+        <div class="logistics-card">
+          <h3><span class="icon">&#127464;&#127479;</span> ホテル</h3>
+          <p>6月5日の宿泊先が必要でしたら、ホテルの手配をお手伝いします。下のRSVPフォームでお知らせください。</p>
+        </div>
+        <div class="logistics-card">
+          <h3><span class="icon">&#128188;</span> お荷物</h3>
+          <p>乗船前にスプリットを観光されたい方は、ホテルからの荷物ピックアップを手配します。手ぶらで街を楽しめます。</p>
+        </div>
+        <div class="logistics-card">
+          <h3><span class="icon">&#128663;</span> 送迎</h3>
+          <p>皆様の到着情報が揃い次第、空港・ホテル間の送迎をすべて手配いたします。ご心配は不要です。</p>
+        </div>
+      </div>
+
+      <!-- ── おすすめフライト ── -->
+      <div class="flights-section fade-up">
+        <h3>おすすめフライト</h3>
+        <p class="flights-note">目的地は<strong>クロアチア・スプリット — スプリット空港（SPU）</strong>です。長距離便は6月4日出発で6月5日到着が一般的です。ヨーロッパのハブ空港経由が便利です。</p>
+
+        <details class="flight-group">
+          <summary>デトロイト（DTW）発</summary>
+          <div class="flight-content">
+            <div class="depart-note">長距離便は通常6月4日出発 → 6月5日着</div>
+            <div class="route-links" style="margin-top:0.75rem;">
+              <a href="https://www.google.com/travel/flights?q=flights+from+Detroit+to+Split+arriving+June+5+2026+return+June+13+2026" target="_blank" rel="noopener"><strong>Google Flightsで検索 ↗</strong></a>
+            </div>
+          </div>
+        </details>
+
+        <details class="flight-group">
+          <summary>東京（NRT / HND）発</summary>
+          <div class="flight-content">
+            <div class="depart-note">6月4日深夜出発 → 6月5日午後スプリット着</div>
+            <div class="route-links" style="margin-top:0.75rem;">
+              <a href="https://www.google.com/travel/flights?q=flights+from+Tokyo+to+Split+arriving+June+5+2026+return+June+13+2026" target="_blank" rel="noopener"><strong>Google Flightsで検索 ↗</strong></a>
+            </div>
+          </div>
+        </details>
+
+        <details class="flight-group">
+          <summary>福岡（FUK）発</summary>
+          <div class="flight-content">
+            <div class="depart-note">6月4日午前〜午後出発 → 6月5日スプリット着</div>
+            <div class="route-links" style="margin-top:0.75rem;">
+              <a href="https://www.google.com/travel/flights?q=flights+from+Fukuoka+to+Split+arriving+June+5+2026+return+June+13+2026" target="_blank" rel="noopener"><strong>Google Flightsで検索 ↗</strong></a>
+            </div>
+          </div>
+        </details>
+
+        <details class="flight-group">
+          <summary>熊本（KMJ）発</summary>
+          <div class="flight-content">
+            <div class="depart-note">6月4日午前出発 → 6月5日スプリット着</div>
+            <div class="route-links" style="margin-top:0.75rem;">
+              <a href="https://www.google.com/travel/flights?q=flights+from+Kumamoto+to+Split+arriving+June+5+2026+return+June+13+2026" target="_blank" rel="noopener"><strong>Google Flightsで検索 ↗</strong></a>
+            </div>
+          </div>
+        </details>
+
+        <details class="flight-group">
+          <summary>バンコク（BKK）発</summary>
+          <div class="flight-content">
+            <div class="depart-note">6月4日深夜出発 → 6月5日午後スプリット着</div>
+            <div class="route-links" style="margin-top:0.75rem;">
+              <a href="https://www.google.com/travel/flights?q=flights+from+Bangkok+to+Split+arriving+June+5+2026+return+June+13+2026" target="_blank" rel="noopener"><strong>Google Flightsで検索 ↗</strong></a>
+            </div>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 船上での暮らし ═══ -->
+  <section class="bg-cream">
+    <div class="container">
+      <span class="label fade-up">Life Aboard</span>
+      <h2 class="fade-up">海の上のわが家</h2>
+      <p class="section-intro fade-up">
+        OHANAは全長49mのモーターヨット。海での一週間に必要な快適さがすべて揃っています。
+        最大30名のゲストを迎える14の美しいキャビン、12名の専属クルー、
+        そして日の出から日没まで楽しめる充実のマリントイが揃っています。
+      </p>
+
+      <div class="amenities-grid fade-up">
+        <div class="amenity-group">
+          <h3>マリンアクティビティ</h3>
+          <ul class="amenity-list">
+            <li>ジェットスキー</li>
+            <li>SeaBobs × 2</li>
+            <li>E-フォイル</li>
+            <li>水上スキー</li>
+            <li>チューブライド</li>
+            <li>パドルボード × 2</li>
+            <li>カヤック × 2</li>
+            <li>ウォータースライダー</li>
+            <li>インフレータブルプール</li>
+          </ul>
+        </div>
+        <div class="amenity-group">
+          <h3>船内設備</h3>
+          <ul class="amenity-list">
+            <li>エアコン完備</li>
+            <li>Wi-Fi</li>
+            <li>ベッドリネン</li>
+            <li>バス＆ビーチタオル</li>
+            <li>全食事付き</li>
+            <li>船長 + クルー11名</li>
+          </ul>
+          <p style="margin-top: 1rem; font-size: 0.88rem; color: var(--text-light);">
+            船上の食事と飲み物はすべてこちらで手配いたします。食事のご要望だけお聞かせください。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ フォトギャラリー ═══ -->
+  <section class="gallery-section">
+    <span class="label">M/Y OHANA</span>
+    <div class="photo-grid">
+      <figure class="wide"><img src="../img/ycf2.jpg" alt="OHANA 外観" loading="lazy"></figure>
+      <figure><img src="../img/brochure4.jpg" alt="サンデッキラウンジ" loading="lazy"></figure>
+      <figure><img src="../img/brochure5.jpg" alt="デッキでのお食事" loading="lazy"></figure>
+      <figure><img src="../img/brochure6.jpg" alt="メインサロン" loading="lazy"></figure>
+      <figure><img src="../img/brochure7.jpg" alt="バーエリア" loading="lazy"></figure>
+      <figure class="wide"><img src="../img/brochure3.jpg" alt="航海中のOHANA" loading="lazy"></figure>
+      <figure><img src="../img/brochure8.jpg" alt="ゲストキャビン" loading="lazy"></figure>
+      <figure><img src="../img/brochure9.jpg" alt="マスタースイート" loading="lazy"></figure>
+      <figure><img src="../img/brochure10.jpg" alt="キャビン詳細" loading="lazy"></figure>
+      <figure><img src="../img/brochure11.jpg" alt="マリントイ" loading="lazy"></figure>
+      <figure class="wide"><img src="../img/ycf3.jpg" alt="OHANA 空撮" loading="lazy"></figure>
+      <figure><img src="../img/brochure12.jpg" alt="ジャグジー" loading="lazy"></figure>
+      <figure><img src="../img/brochure13.jpg" alt="船上ディナー" loading="lazy"></figure>
+      <figure><img src="../img/brochure14.jpg" alt="サンセット" loading="lazy"></figure>
+      <figure><img src="../img/brochure15.jpg" alt="クロアチアの海岸" loading="lazy"></figure>
+    </div>
+  </section>
+
+  <!-- ═══ 知っておいていただきたいこと ═══ -->
+  <section class="bg-white">
+    <div class="container">
+      <span class="label fade-up">Practical</span>
+      <h2 class="fade-up">知っておいていただきたいこと</h2>
+      <ul class="tips-list fade-up">
+        <li>服装は軽装で — 夏服、水着、夜用の羽織るもの</li>
+        <li>日焼け対策をお忘れなく — 日焼け止め、帽子、サングラス</li>
+        <li>デッキではソフトソールの靴のみ — 黒いソールはご遠慮ください</li>
+        <li>喫煙は指定された屋外エリアのみで可能です</li>
+        <li>ペットの乗船はできません</li>
+        <li>お子様は常に大人の監督が必要です</li>
+        <li>モーター付きウォータースポーツは事前に免責同意書への署名が必要です</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ═══ ルート ═══ -->
+  <section class="bg-cream">
+    <div class="container">
+      <span class="label fade-up">The Route</span>
+      <h2 class="fade-up">ダルマチア海岸のアイランドホッピング</h2>
+      <p class="section-intro fade-up">アドリア海で最も美しい島々を巡ります。1日の航行は約2〜2.5時間 — 残りの時間は泳いだり、探索したり、リラックスしたり。</p>
+      <div class="route-islands fade-up">
+        <span class="island">スプリット</span><span class="arrow">&rarr;</span>
+        <span class="island">ブラチ</span><span class="arrow">&rarr;</span>
+        <span class="island">ヴィス</span><span class="arrow">&rarr;</span>
+        <span class="island">コルチュラ</span><span class="arrow">&rarr;</span>
+        <span class="island">ショルタ</span><span class="arrow">&rarr;</span>
+        <span class="island">フヴァル</span><span class="arrow">&rarr;</span>
+        <span class="island">スプリット</span>
+      </div>
+      <p class="route-note fade-up">正確なルートは天候と海況により決定されます。船長が毎日最適なルートを選択します。</p>
+    </div>
+  </section>
+
+  <!-- ═══ 渡航要件 ═══ -->
+  <section class="bg-white">
+    <div class="container">
+      <span class="label fade-up">Before You Travel</span>
+      <h2 class="fade-up">渡航要件</h2>
+      <p class="section-intro fade-up">クロアチアはシェンゲン圏です。入国に必要なものをご確認ください。</p>
+      <ul class="tips-list fade-up">
+        <li>パスポートの有効期限が旅行終了後<strong>6ヶ月以上</strong>必要 — <strong>2026年12月13日</strong>以降まで有効であること</li>
+        <li>パスポートの発行日が過去10年以内であること</li>
+        <li><strong>ビザ不要</strong>：米国、英国、日本、ウクライナ（生体認証）パスポート保持者</li>
+        <li>到着カードや入国書類の記入は不要 — パスポートコントロールのみ</li>
+        <li>通貨は<strong>ユーロ（€）</strong> — カード決済はどこでも利用可能</li>
+        <li>タイムゾーン：<strong>CEST（UTC+2）</strong></li>
+      </ul>
+      <div class="visa-alert fade-up">
+        <strong>タイのパスポート保持者の方へ：</strong>クロアチア入国には<strong>シェンゲンビザ</strong>が必要です。処理に2〜8週間かかります。最寄りのシェンゲン加盟国大使館でできるだけ早く申請してください。
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FAQ ═══ -->
+  <section class="bg-cream">
+    <div class="container">
+      <span class="label fade-up">FAQ</span>
+      <h2 class="fade-up">よくある質問</h2>
+      <div class="faq-list fade-up">
+        <details class="faq-item"><summary>船内にWi-Fiはありますか？</summary><div class="faq-answer"><strong>Starlink</strong>衛星インターネットを搭載。ほとんどの場所で安定した高速接続が可能で、ビデオ通話もOK。悪天候や極めて遠隔地では影響が出る場合があります。</div></details>
+        <details class="faq-item"><summary>コンセントの形状は？</summary><div class="faq-answer">ヨーロッパ規格のType C/F。船内にアダプターは数個ありますが全員分はありません。<strong>変換アダプターをご持参ください</strong>。</div></details>
+        <details class="faq-item"><summary>1日のスケジュールは？</summary><div class="faq-answer">起床、お好みの時間に朝食、次の島まで2〜2.5時間のクルーズ、美しい入り江で停泊して水泳やマリンスポーツ、船上でランチ、午後は街を散策、夜は島のレストランでディナー。</div></details>
+        <details class="faq-item"><summary>食事は船上？島？</summary><div class="faq-answer">両方。朝食とランチは船上でシェフが調理（ビュッフェスタイル）。ディナーは多くの場合、島のレストランで — こちらは別料金です。フヴァルが最もおしゃれ、他の島はコノバ（地元の居酒屋）でカジュアルに。</div></details>
+        <details class="faq-item"><summary>船酔いが心配です</summary><div class="faq-answer">船酔い薬は船内にあります（眠気を催すことがあります）。ご自身でもお持ちください：<strong>ツボ押しリストバンド</strong>、<strong>酔い止めパッチ</strong>（耳の後ろに貼るタイプ）、<strong>タイハーブバーム</strong>（ロールオンタイプ、匂いは強いが効果的）。</div></details>
+        <details class="faq-item"><summary>服装は？</summary><div class="faq-answer">船上：水着、カジュアルな服、お好みで。上陸時：水着以外の服装で。フヴァルのおしゃれなレストランでは<strong>スマートカジュアル</strong>。他の島はリラックスした雰囲気。</div></details>
+        <details class="faq-item"><summary>子供の安全対策は？</summary><div class="faq-answer">大人用ライフジャケットは船内にあります。<strong>お子様用は正しいサイズのものをご持参ください</strong>（または船上で購入手配可能）。ベビーチェア1台あり。追加のベビー用品も手配可能。</div></details>
+        <details class="faq-item"><summary>洗濯はできますか？</summary><div class="faq-answer">洗濯・乾燥サービスあり。1回€40、24時間で仕上がり。軽装で、着回しを。</div></details>
+        <details class="faq-item"><summary>医療体制は？</summary><div class="faq-answer">救急箱を完備、クルーは応急処置の資格を持っています。ヨーロッパの緊急電話番号：<strong>112</strong>。</div></details>
+        <details class="faq-item"><summary>荷物の制限は？</summary><div class="faq-answer">厳密な制限はありませんが、荷物はキャビン内に収納します。詰め込みすぎると窮屈に。<strong>ソフトバッグを強く推奨</strong>（ハードケースより収納しやすい）。</div></details>
+        <details class="faq-item"><summary>水温は？</summary><div class="faq-answer">6月の平均水温は<strong>22℃</strong>（19〜25℃の範囲）。快適に泳げる温度です。</div></details>
+        <details class="faq-item"><summary>飲み物やお菓子を持ち込めますか？</summary><div class="faq-answer">はい、持ち込み可能です。ただし、船のプロビジョニング業者はスーパーマーケットに近い価格なので、わざわざ持って行く必要はないかもしれません。</div></details>
+        <details class="faq-item"><summary>乗船日は何が起こりますか？</summary><div class="faq-answer">16:00にスプリット西海岸港で乗船。ウェルカムドリンク、クルー紹介、安全説明。その後ブラチ島へ向けてゆっくり出航、静かな入り江に停泊して泳ぎ、船上でディナー。旅の始まりです。</div></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ クロアチア語ミニ会話 ═══ -->
+  <section class="bg-cream">
+    <div class="container">
+      <span class="label fade-up">Before You Go</span>
+      <h2 class="fade-up">クロアチア語ミニ会話</h2>
+      <p class="section-intro fade-up" style="max-width:500px;">クルーや地元の人を感心させる一言。</p>
+      <div class="phrase-grid fade-up">
+        <div class="phrase-card"><div class="phrase-hr">Bok</div><div class="phrase-en">こんにちは / さようなら</div><div class="phrase-pron">ボク</div></div>
+        <div class="phrase-card"><div class="phrase-hr">Hvala</div><div class="phrase-en">ありがとう</div><div class="phrase-pron">フヴァーラ</div></div>
+        <div class="phrase-card"><div class="phrase-hr">Molim</div><div class="phrase-en">お願いします / どういたしまして</div><div class="phrase-pron">モリーム</div></div>
+        <div class="phrase-card"><div class="phrase-hr">Živjeli!</div><div class="phrase-en">乾杯！</div><div class="phrase-pron">ジーヴィエリ</div></div>
+        <div class="phrase-card"><div class="phrase-hr">Dobro jutro</div><div class="phrase-en">おはよう</div><div class="phrase-pron">ドブロ ユートロ</div></div>
+        <div class="phrase-card"><div class="phrase-hr">Dobar dan</div><div class="phrase-en">こんにちは</div><div class="phrase-pron">ドバル ダン</div></div>
+        <div class="phrase-card"><div class="phrase-hr">Predivno!</div><div class="phrase-en">素晴らしい！</div><div class="phrase-pron">プレディーヴノ</div></div>
+        <div class="phrase-card"><div class="phrase-hr">Jedno pivo, molim</div><div class="phrase-en">ビールを一杯ください</div><div class="phrase-pron">イェドノ ピーヴォ モリーム</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 出欠確認 ═══ -->
+  <section class="rsvp-section" id="rsvp">
+    <div class="container">
+      <div style="text-align:center;" class="fade-up">
+        <span class="label">RSVP</span>
+        <h2>ご連絡ください</h2>
+        <p class="section-intro" style="margin: 0 auto;">
+          準備のため、以下のフォームにご記入をお願いいたします。
+        </p>
+      </div>
+
+      <div class="form-wrap">
+        <div id="formError" class="form-error"></div>
+
+        <form id="rsvpForm" class="fade-up">
+          <div class="form-group">
+            <label for="fullName">お名前</label>
+            <input type="text" id="fullName" name="full_name" required placeholder="フルネーム">
+          </div>
+
+          <div class="form-group">
+            <label for="email">メールアドレス</label>
+            <input type="email" id="email" name="email" required placeholder="your@email.com">
+          </div>
+
+          <div class="form-group">
+            <label>ご参加いただけますか？</label>
+            <div class="radio-group">
+              <div class="radio-option">
+                <input type="radio" id="attendYes" name="attending" value="yes" required>
+                <label for="attendYes">はい、参加します</label>
+              </div>
+              <div class="radio-option">
+                <input type="radio" id="attendNo" name="attending" value="no">
+                <label for="attendNo">残念ですが不参加</label>
+              </div>
+            </div>
+          </div>
+
+          <div id="missYou" class="miss-you">
+            残念です。ご連絡いただきありがとうございます。
+          </div>
+
+          <div id="yesFields" class="conditional-fields">
+            <div class="form-group">
+              <label for="guestCount">ご一行の人数（ご本人を含む）</label>
+              <select id="guestCount" name="guest_count">
+                <option value="1">1名 — 自分のみ</option>
+                <option value="2">2名</option><option value="3">3名</option><option value="4">4名</option>
+                <option value="5">5名</option><option value="6">6名</option><option value="7">7名</option><option value="8">8名</option>
+              </select>
+            </div>
+
+            <p style="margin:1.5rem 0 .5rem;font-size:.83rem;color:var(--text-light);padding:.75rem 1rem;background:rgba(184,149,95,.08);border-radius:6px;border-left:3px solid var(--gold);line-height:1.7;">
+              パスポートの有効期限が<strong>2026年12月13日以降</strong>であることをご確認ください。クロアチア（シェンゲン圏）入国には出国日から6ヶ月以上の有効期間が必要です。
+            </p>
+
+            <div id="guestSections"></div>
+
+            <hr style="border:none;border-top:1px solid var(--border);margin:2rem 0;">
+            <h3 style="font-size:1.05rem;margin-bottom:1rem;color:var(--navy);">渡航情報</h3>
+
+            <div class="form-group">
+              <label for="arrivalDate">スプリットへの到着予定日</label>
+              <select id="arrivalDate" name="arrival_date">
+                <option value="">日付を選択</option>
+                <option value="june_4_or_earlier">6月4日以前</option>
+                <option value="june_5_recommended">6月5日（推奨）</option>
+                <option value="june_6_departure_day">6月6日（出航日）</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="flightDetails">フライト情報（わかっている場合）</label>
+              <span class="hint">航空会社、便名、到着時刻 — 後で更新可能です</span>
+              <textarea id="flightDetails" name="flight_details" rows="2" placeholder="例：ターキッシュ エアラインズ TK1234、6月5日 14:30着"></textarea>
+            </div>
+
+            <div class="form-group">
+              <label>前泊のホテル手配が必要ですか？</label>
+              <div class="radio-group">
+                <div class="radio-option"><input type="radio" id="hotelYes" name="need_hotel" value="yes"><label for="hotelYes">はい、お願いします</label></div>
+                <div class="radio-option"><input type="radio" id="hotelNo" name="need_hotel" value="no"><label for="hotelNo">いいえ、大丈夫です</label></div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="notes">その他ご質問やご要望</label>
+              <textarea id="notes" name="notes" rows="2" placeholder="質問、リクエスト、メッセージなど"></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="submit-btn" id="submitBtn">送信する</button>
+        </form>
+
+        <div id="formSuccess" class="form-success">
+          <h3>ありがとうございます</h3>
+          <p>ご回答を受け付けました。出航が近づきましたら、詳細をお知らせいたします。</p>
+          <p style="margin-top: 1rem; font-style: italic; color: var(--gold);">海でお会いしましょう。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p class="footer-vessel">YACHTTARO</p>
+    <p>スプリット、クロアチア · 2026年6月6日〜13日</p>
+    <p style="margin-top: 1.5rem;">ご質問は健太郎まで直接ご連絡ください。</p>
+  </footer>
+
+  <div class="lightbox" id="lightbox" onclick="if(event.target===this)closeLB()">
+    <button class="lightbox-close" onclick="closeLB()">&times;</button>
+    <button class="lightbox-nav lightbox-prev" onclick="navLB(-1)">&lsaquo;</button>
+    <img id="lbImg" src="" alt="">
+    <button class="lightbox-nav lightbox-next" onclick="navLB(1)">&rsaquo;</button>
+  </div>
+  <script>
+    const lbEl=document.getElementById('lightbox'),lbImg=document.getElementById('lbImg');
+    let lbItems=[],lbIdx=0;
+    document.querySelectorAll('.photo-grid figure').forEach((fig,i)=>{
+      lbItems.push(fig.querySelector('img').src);
+      fig.addEventListener('click',()=>{lbIdx=i;lbImg.src=lbItems[i];lbEl.classList.add('open');document.body.style.overflow='hidden'});
+    });
+    function closeLB(){lbEl.classList.remove('open');document.body.style.overflow=''}
+    function navLB(d){lbIdx=(lbIdx+d+lbItems.length)%lbItems.length;lbImg.src=lbItems[lbIdx]}
+    document.addEventListener('keydown',e=>{if(!lbEl.classList.contains('open'))return;if(e.key==='Escape')closeLB();if(e.key==='ArrowRight')navLB(1);if(e.key==='ArrowLeft')navLB(-1)});
+
+    // ── Personalization from URL ──
+    const params = new URLSearchParams(window.location.search);
+    const guestName = params.get('name');
+    if (guestName) {
+      const decoded = decodeURIComponent(guestName);
+      document.querySelector('.hero .label').textContent = decoded + '\u3078\u306E\u3054\u62DB\u5F85';
+      document.getElementById('fullName').value = decoded;
+      document.getElementById('fullName').readOnly = true;
+      document.getElementById('fullName').style.backgroundColor = '#f5f0e8';
+      document.getElementById('fullName').style.color = 'var(--navy)';
+    }
+
+    // ── Countdown ──
+    (function() {
+      const target=new Date('2026-06-06T16:00:00+02:00');
+      function pad(n){return n<10?'0'+n:n}
+      function tick(){var diff=target-new Date();if(diff<=0){document.getElementById('countdown').style.display='none';return}
+        document.getElementById('cd-days').textContent=Math.floor(diff/864e5);
+        document.getElementById('cd-hrs').textContent=pad(Math.floor((diff%864e5)/36e5));
+        document.getElementById('cd-min').textContent=pad(Math.floor((diff%36e5)/6e4));
+        document.getElementById('cd-sec').textContent=pad(Math.floor((diff%6e4)/1e3));
+      }
+      tick();setInterval(tick,1000);
+    })();
+
+    // ── Scroll animations ──
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+
+    // ── Lang switch: carry name param + scroll style ──
+    (function(){
+      const sp=new URLSearchParams(window.location.search),n=sp.get('name'),g=sp.get('guests');
+      if(n||g){document.querySelectorAll('.lang-switch a').forEach(a=>{const u=new URL(a.href,location.origin);if(n)u.searchParams.set('name',n);if(g)u.searchParams.set('guests',g);a.href=u.toString()})}
+    })();
+    const langSwitch = document.getElementById('langSwitch');
+    window.addEventListener('scroll', () => {
+      langSwitch.classList.toggle('scrolled', window.scrollY > 100);
+    }, { passive: true });
+
+    // ── Form conditional fields ──
+    const attendYes = document.getElementById('attendYes');
+    const attendNo = document.getElementById('attendNo');
+    const yesFields = document.getElementById('yesFields');
+    const missYou = document.getElementById('missYou');
+
+    function toggleFields() {
+      if (attendYes.checked) {
+        yesFields.classList.add('visible');
+        missYou.classList.remove('visible');
+      } else if (attendNo.checked) {
+        yesFields.classList.remove('visible');
+        missYou.classList.add('visible');
+      }
+    }
+    attendYes.addEventListener('change', toggleFields);
+    attendNo.addEventListener('change', toggleFields);
+
+    const guestCountEl=document.getElementById('guestCount'),guestSections=document.getElementById('guestSections');
+    function makeGuestCard(i){
+      const card=document.createElement('div');card.className='guest-card';
+      const title=document.createElement('div');title.className='guest-card-title';title.textContent='ゲスト '+(i+1);card.appendChild(title);
+      const fields=[['g-name','Full name (as on passport)','text','Full legal name',true],['g-dob','Date of birth','date','',true],['g-pob','Place of birth','text','City, Country',false],['g-nat','Nationality','text','e.g. Japanese, American',false],['g-res','City & country of residence','text','e.g. Tokyo, Japan',false],['g-pp','Passport number','text','Passport number',false],['g-ppexp','Passport expiry date','date','',false],['g-allergy','Allergies','text','None, or list allergies',false],['g-diet','Dietary restrictions & food preferences','text','e.g. Vegetarian, no spicy, loves sushi',false]];
+      var row;
+      fields.forEach(function(f,idx){
+        if(idx%2===0){row=document.createElement('div');row.className='form-row';card.appendChild(row)}
+        if(idx===8){row=document.createElement('div');card.appendChild(row)}
+        var grp=document.createElement('div');grp.className='form-group';
+        var lbl=document.createElement('label');lbl.textContent=f[1];grp.appendChild(lbl);
+        var inp=document.createElement('input');inp.type=f[2];inp.className=f[0];inp.placeholder=f[3];if(f[4])inp.required=true;grp.appendChild(inp);
+        if(idx===8){row.className='form-group';row.appendChild(lbl);row.appendChild(inp)}else{row.appendChild(grp)}
+      });
+      return card;
+    }
+    function renderGuestCards(){
+      var count=parseInt(guestCountEl.value)||1;guestSections.replaceChildren();
+      for(var i=0;i<count;i++)guestSections.appendChild(makeGuestCard(i));
+      if(guestName){var first=guestSections.querySelector('.g-name');if(first&&!first.value)first.value=decodeURIComponent(guestName)}
+    }
+    const guestParam=params.get('guests');
+    if(guestParam){guestCountEl.value=guestParam;guestCountEl.disabled=true;guestCountEl.style.backgroundColor='#f5f0e8'}
+    guestCountEl.addEventListener('change',renderGuestCards);renderGuestCards();
+
+    // ── Form submission ──
+    const SUPABASE_URL = 'https://dyvahmmkiynvxfvqmnjb.supabase.co';
+    const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR5dmFobW1raXludnhmdnFtbmpiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzIwNDgyMTEsImV4cCI6MjA4NzYyNDIxMX0.JMQnsWqIhlO-DN-CFkR-WzYld6tPpUW8pVMR1NbMtUI';
+    const SHEETS_URL = '';
+
+    document.getElementById('rsvpForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const btn = document.getElementById('submitBtn');
+      const errEl = document.getElementById('formError');
+      errEl.classList.remove('visible');
+      btn.disabled = true;
+      btn.textContent = '送信中...';
+
+      const attending = attendYes.checked;
+      const data = {
+        full_name: document.getElementById('fullName').value.trim(),
+        email: document.getElementById('email').value.trim(),
+        attending: attending,
+      };
+
+      if (attending) {
+        guestCountEl.disabled=false;data.guest_count=parseInt(guestCountEl.value)||1;
+        var guests=[];document.querySelectorAll('.guest-card').forEach(function(card){guests.push({name:card.querySelector('.g-name').value.trim(),dob:card.querySelector('.g-dob').value,place_of_birth:card.querySelector('.g-pob').value.trim(),nationality:card.querySelector('.g-nat').value.trim(),residence:card.querySelector('.g-res').value.trim(),passport_number:card.querySelector('.g-pp').value.trim(),passport_expiry:card.querySelector('.g-ppexp').value,allergies:card.querySelector('.g-allergy').value.trim(),dietary:card.querySelector('.g-diet').value.trim()})});
+        data.guests_json=guests;data.guest_names=guests.map(function(g){return g.name}).filter(Boolean).join('\n')||null;
+        data.dietary_restrictions=guests.map(function(g){return g.dietary?g.name+': '+g.dietary:''}).filter(Boolean).join('\n')||null;
+        data.arrival_date=document.getElementById('arrivalDate').value||null;
+        data.flight_details=document.getElementById('flightDetails').value.trim()||null;
+        data.need_hotel=document.getElementById('hotelYes').checked?true:(document.getElementById('hotelNo').checked?false:null);
+        data.notes=document.getElementById('notes').value.trim()||null;
+      }
+
+      try {
+        const res = await fetch(SUPABASE_URL + '/rest/v1/yacht_rsvps', {
+          method: 'POST',
+          headers: {
+            'apikey': SUPABASE_KEY,
+            'Authorization': 'Bearer ' + SUPABASE_KEY,
+            'Content-Type': 'application/json',
+            'Prefer': 'return=minimal'
+          },
+          body: JSON.stringify(data)
+        });
+        if (!res.ok) throw new Error('Failed to submit');
+
+        if (SHEETS_URL) {
+          fetch(SHEETS_URL, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+          }).catch(() => {});
+        }
+
+        document.getElementById('rsvpForm').style.display = 'none';
+        document.getElementById('formSuccess').classList.add('visible');
+        fireConfetti();
+      } catch (err) {
+        errEl.textContent = '送信に失敗しました。もう一度お試しいただくか、健太郎に直接ご連絡ください。';
+        errEl.classList.add('visible');
+        btn.disabled = false;
+        btn.textContent = '送信する';
+      }
+    });
+    function fireConfetti(){var c=document.createElement('canvas');c.id='confetti-canvas';document.body.appendChild(c);c.width=window.innerWidth;c.height=window.innerHeight;var ctx=c.getContext('2d'),cols=['#b8955f','#0b1d35','#25D366','#e2c686','#1a5f7a','#d4c5a0','#fff'],p=[];for(var i=0;i<150;i++)p.push({x:Math.random()*c.width,y:Math.random()*c.height-c.height,w:Math.random()*8+4,h:Math.random()*4+2,color:cols[Math.floor(Math.random()*cols.length)],vx:(Math.random()-.5)*4,vy:Math.random()*3+2,rot:Math.random()*360,rv:(Math.random()-.5)*10});var f=0;function draw(){ctx.clearRect(0,0,c.width,c.height);p.forEach(function(q){q.x+=q.vx;q.y+=q.vy;q.rot+=q.rv;q.vy+=.05;ctx.save();ctx.translate(q.x,q.y);ctx.rotate(q.rot*Math.PI/180);ctx.fillStyle=q.color;ctx.fillRect(-q.w/2,-q.h/2,q.w,q.h);ctx.restore()});f++;if(f<180)requestAnimationFrame(draw);else c.remove()}draw()}
+  </script>
+</body>
+</html>

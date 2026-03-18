@@ -1,0 +1,1611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>You're Invited · YACHTTARO</title>
+  <meta name="description" content="Join us for a week sailing the Croatian coast aboard M/Y OHANA. June 6–13, 2026.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta property="og:title" content="You're Invited — YACHTTARO June 2026">
+  <meta property="og:description" content="An unforgettable week aboard M/Y OHANA, cruising the Croatian coast. June 6–13, 2026.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --navy: #0b1d35;
+      --navy-mid: #15304f;
+      --navy-light: #1e4268;
+      --gold: #b8955f;
+      --gold-light: #d4c5a0;
+      --gold-bright: #e2c686;
+      --cream: #faf8f3;
+      --cream-dark: #f0ebe0;
+      --white: #ffffff;
+      --text: #2c2c3a;
+      --text-light: #6b6b7b;
+      --text-on-dark: #e8e0d4;
+      --border: #e0d8cc;
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'DM Sans', -apple-system, sans-serif;
+      --max-w: 760px;
+      --max-w-wide: 960px;
+      --section-py: clamp(5rem, 10vw, 8rem);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-sans);
+      font-size: clamp(0.975rem, 1.2vw, 1.0625rem);
+      line-height: 1.7;
+      color: var(--text);
+      background: var(--cream);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Typography ── */
+    h1, h2, h3 { font-family: var(--font-serif); font-weight: 400; line-height: 1.2; }
+    h2 { font-size: clamp(2rem, 4vw, 2.8rem); margin-bottom: 1.5rem; color: var(--navy); }
+    h3 { font-size: clamp(1.25rem, 2.5vw, 1.5rem); margin-bottom: 0.75rem; color: var(--navy); }
+    p + p { margin-top: 1rem; }
+    a { color: var(--gold); text-decoration: none; transition: color 0.2s; }
+    a:hover { color: var(--navy); }
+
+    .label {
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .section-intro {
+      font-family: var(--font-serif);
+      font-size: clamp(1.15rem, 2vw, 1.35rem);
+      line-height: 1.6;
+      color: var(--text-light);
+      max-width: 600px;
+    }
+
+    /* ── Layout ── */
+    .container { max-width: var(--max-w); margin: 0 auto; padding: 0 1.5rem; }
+    .container--wide { max-width: var(--max-w-wide); margin: 0 auto; padding: 0 1.5rem; }
+
+    section { padding: var(--section-py) 0; }
+    .bg-white { background: var(--white); }
+    .bg-cream { background: var(--cream); }
+    .bg-navy { background: var(--navy); color: var(--text-on-dark); }
+
+    /* ── Hero ── */
+    .hero {
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      background: var(--navy);
+      padding: 2rem 1.5rem;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.65);
+    }
+
+    .hero-content { position: relative; z-index: 1; }
+
+    .hero .label { color: var(--gold-light); margin-bottom: 1.5rem; font-size: 0.8rem; letter-spacing: 0.25em; }
+
+    .hero h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(3rem, 8vw, 5.5rem);
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1.05;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-sub {
+      font-family: var(--font-serif);
+      font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+      font-style: italic;
+      color: rgba(255,255,255,0.75);
+      max-width: 500px;
+      margin: 0 auto 2rem;
+      line-height: 1.5;
+    }
+
+    .hero-date {
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      padding: 0.6rem 1.5rem;
+      border: 1px solid rgba(184, 149, 95, 0.3);
+      border-radius: 2rem;
+      display: inline-block;
+      margin-bottom: 2.5rem;
+    }
+
+    .countdown {
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.5);
+      margin-top: 0.5rem;
+    }
+
+    .scroll-hint {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      animation: float 2.5s ease-in-out infinite;
+    }
+    .scroll-hint svg { width: 24px; height: 24px; stroke: rgba(255,255,255,0.3); fill: none; stroke-width: 2; }
+
+    @keyframes float {
+      0%, 100% { transform: translateX(-50%) translateY(0); opacity: 0.6; }
+      50% { transform: translateX(-50%) translateY(8px); opacity: 1; }
+    }
+
+    /* ── Wave separator ── */
+    .wave-separator {
+      display: block;
+      width: 100%;
+      height: 60px;
+      margin-top: -1px;
+    }
+
+    /* ── Details grid ── */
+    .details-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      margin-top: 2.5rem;
+    }
+
+    .detail-item { text-align: center; padding: 1.5rem 1rem; }
+    .detail-item .label { color: var(--gold); margin-bottom: 0.5rem; font-size: 0.7rem; }
+    .detail-item strong {
+      display: block;
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      font-weight: 500;
+      color: var(--navy);
+      margin-bottom: 0.25rem;
+    }
+    .detail-item span { font-size: 0.9rem; color: var(--text-light); }
+
+    .map-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-top: 2rem;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--gold);
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+    .map-link:hover { border-bottom-color: var(--gold); color: var(--gold); }
+
+    /* ── Arrive Early (callout) ── */
+    .callout-section { background: var(--white); }
+
+    .callout-box {
+      background: linear-gradient(135deg, #faf6ee 0%, #f5efe3 100%);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 8px 8px 0;
+      padding: clamp(2rem, 4vw, 3rem);
+      margin-top: 2rem;
+    }
+
+    .callout-box p { max-width: 600px; }
+    .callout-box p + p { margin-top: 0.75rem; }
+
+    .logistics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+
+    .logistics-card {
+      padding: 1.5rem;
+      background: var(--white);
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+
+    .logistics-card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .logistics-card .icon { font-size: 1.3rem; }
+    .logistics-card p { font-size: 0.9rem; color: var(--text-light); line-height: 1.6; }
+
+    /* ── Flights accordion ── */
+    .flights-section { margin-top: 2.5rem; }
+    .flights-section h3 { margin-bottom: 1rem; }
+    .flights-note {
+      font-size: 0.9rem;
+      color: var(--text-light);
+      font-style: italic;
+      margin-bottom: 1.5rem;
+    }
+
+    details.flight-group {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      margin-bottom: 0.75rem;
+      background: var(--white);
+      overflow: hidden;
+      transition: box-shadow 0.2s;
+    }
+    details.flight-group[open] {
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    }
+
+    details.flight-group summary {
+      padding: 1rem 1.5rem;
+      font-family: var(--font-sans);
+      font-weight: 500;
+      font-size: 0.95rem;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: var(--navy);
+      user-select: none;
+    }
+    details.flight-group summary::-webkit-details-marker { display: none; }
+    details.flight-group summary::after {
+      content: '+';
+      font-size: 1.2rem;
+      font-weight: 300;
+      color: var(--gold);
+      transition: transform 0.2s;
+    }
+    details.flight-group[open] summary::after {
+      content: '−';
+    }
+
+    .flight-content {
+      padding: 0 1.5rem 1.25rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .flight-route {
+      padding: 1rem 0;
+      border-bottom: 1px solid rgba(0,0,0,0.04);
+    }
+    .flight-route:last-child { border-bottom: none; }
+    .flight-route .route-name { font-weight: 600; font-size: 0.9rem; color: var(--navy); }
+    .flight-route .route-detail { font-size: 0.85rem; color: var(--text-light); margin: 0.25rem 0 0.5rem; }
+    .flight-route .route-links { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .flight-route .route-links a {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--gold);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    .flight-route .route-links a:hover { color: var(--navy); }
+    .depart-note {
+      font-size: 0.8rem;
+      color: var(--text-light);
+      background: rgba(184,149,95,0.08);
+      padding: 0.5rem 0.75rem;
+      border-radius: 4px;
+      margin-top: 0.75rem;
+    }
+
+    /* ── Amenities ── */
+    .amenities-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2.5rem;
+      margin-top: 2.5rem;
+    }
+
+    .amenity-group h3 {
+      font-size: 1rem;
+      font-family: var(--font-sans);
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+
+    .amenity-list {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1.25rem;
+    }
+    .amenity-list li {
+      font-size: 0.95rem;
+      color: var(--text);
+      position: relative;
+      padding-left: 0.9rem;
+    }
+    .amenity-list li::before {
+      content: '·';
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+      font-weight: 700;
+    }
+
+    /* ── Good to Know ── */
+    .tips-list {
+      list-style: none;
+      margin-top: 2rem;
+    }
+    .tips-list li {
+      padding: 0.75rem 0;
+      padding-left: 1.5rem;
+      position: relative;
+      font-size: 0.95rem;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+    .tips-list li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+      font-weight: 500;
+    }
+    .tips-list li:last-child { border-bottom: none; }
+
+    /* ── RSVP Form ── */
+    .rsvp-section { background: linear-gradient(180deg, var(--cream) 0%, var(--cream-dark) 100%); }
+
+    .form-wrap {
+      max-width: 580px;
+      margin: 2.5rem auto 0;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--navy);
+      margin-bottom: 0.4rem;
+    }
+
+    .form-group .hint {
+      display: block;
+      font-size: 0.8rem;
+      color: var(--text-light);
+      font-weight: 400;
+      margin-bottom: 0.4rem;
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="email"],
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+      color: var(--text);
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      -webkit-appearance: none;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(184, 149, 95, 0.12);
+    }
+
+    .form-group textarea { resize: vertical; min-height: 80px; }
+
+    .radio-group {
+      display: flex;
+      gap: 1rem;
+      margin-top: 0.25rem;
+    }
+
+    .radio-option {
+      flex: 1;
+      position: relative;
+    }
+
+    .radio-option input[type="radio"] {
+      position: absolute;
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .radio-option label {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.85rem 1rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text);
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-align: center;
+    }
+
+    .radio-option input[type="radio"]:checked + label {
+      border-color: var(--gold);
+      background: rgba(184, 149, 95, 0.06);
+      color: var(--navy);
+    }
+    .radio-option input[type="radio"]:focus-visible + label {
+      box-shadow: 0 0 0 3px rgba(184,149,95,0.15);
+    }
+
+    .conditional-fields {
+      display: none;
+      animation: fadeIn 0.3s ease;
+    }
+    .conditional-fields.visible { display: block; }
+
+    .miss-you {
+      display: none;
+      text-align: center;
+      padding: 2rem;
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      font-style: italic;
+      color: var(--text-light);
+      animation: fadeIn 0.3s ease;
+    }
+    .miss-you.visible { display: block; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .submit-btn {
+      display: block;
+      width: 100%;
+      padding: 1rem;
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      color: var(--white);
+      background: var(--navy);
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.1s;
+      margin-top: 0.5rem;
+    }
+    .submit-btn:hover { background: var(--navy-mid); }
+    .submit-btn:active { transform: scale(0.99); }
+    .submit-btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 3rem 1rem;
+    }
+    .form-success.visible { display: block; }
+    .form-success h3 {
+      font-family: var(--font-serif);
+      font-size: 1.8rem;
+      color: var(--navy);
+      margin-bottom: 0.75rem;
+    }
+    .form-success p { color: var(--text-light); }
+
+    .form-error {
+      display: none;
+      padding: 0.75rem 1rem;
+      background: #fef2f2;
+      border: 1px solid #fca5a5;
+      border-radius: 6px;
+      color: #991b1b;
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+    }
+    .form-error.visible { display: block; }
+
+    /* ── Footer ── */
+    footer {
+      background: var(--navy);
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      padding: 3rem 1.5rem;
+      font-size: 0.85rem;
+    }
+    footer p + p { margin-top: 0.5rem; }
+    footer a { color: var(--gold-light); }
+    footer .footer-vessel {
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 0.75rem;
+    }
+
+    /* ── Lang switch ── */
+    .lang-switch {
+      position: fixed;
+      top: 1.25rem;
+      right: 1.25rem;
+      z-index: 100;
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      background: rgba(255,255,255,0.12);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 2rem;
+      padding: 0.4rem 0.9rem;
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+      transition: background 0.3s;
+    }
+    .lang-switch.scrolled {
+      background: rgba(255,255,255,0.9);
+      border-color: var(--border);
+    }
+    .lang-switch a { color: rgba(255,255,255,0.5); font-weight: 400; }
+    .lang-switch a:hover { color: var(--white); }
+    .lang-switch .active { color: var(--white); font-weight: 600; }
+    .lang-switch.scrolled a { color: var(--text-light); }
+    .lang-switch.scrolled a:hover { color: var(--navy); }
+    .lang-switch.scrolled .active { color: var(--navy); font-weight: 600; }
+    .lang-switch .sep { color: rgba(255,255,255,0.2); }
+    .lang-switch.scrolled .sep { color: var(--border); }
+
+    /* ── Personal message ── */
+    .personal-section {
+      text-align: center;
+      padding: clamp(4rem, 8vw, 6rem) 1.5rem;
+      background: var(--white);
+    }
+    .personal-section .message {
+      font-family: var(--font-serif);
+      font-size: clamp(1.1rem, 2vw, 1.3rem);
+      font-style: italic;
+      line-height: 1.8;
+      color: var(--text-light);
+      max-width: 560px;
+      margin: 0 auto;
+    }
+    .personal-section .message p + p { margin-top: 1rem; }
+    .personal-section .sig {
+      margin-top: 2rem;
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      color: var(--navy);
+    }
+
+    /* ── Photo gallery ── */
+    .gallery-section { padding: 0; background: var(--navy); }
+    .gallery-section .label {
+      color: var(--gold-light);
+      text-align: center;
+      padding: 3rem 0 1.5rem;
+    }
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 3px;
+    }
+    @media (min-width: 640px) {
+      .photo-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (min-width: 1024px) {
+      .photo-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+    .photo-grid .wide { grid-column: span 2; }
+    .photo-grid img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease, filter 0.4s ease;
+    }
+    .photo-grid .wide img { aspect-ratio: 16/9; }
+    .photo-grid figure {
+      margin: 0;
+      overflow: hidden;
+      position: relative;
+    }
+    .photo-grid figure:hover img {
+      transform: scale(1.03);
+      filter: brightness(1.05);
+    }
+
+    /* ── Hero video ── */
+    .hero-video {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      object-fit: cover; z-index: 0;
+    }
+
+    /* ── Countdown ticking ── */
+    .countdown-grid {
+      display: flex; gap: 1.5rem; justify-content: center; margin-top: .5rem;
+    }
+    .countdown-unit { text-align: center; }
+    .countdown-num {
+      font-family: var(--font-serif); font-size: clamp(1.8rem, 4vw, 2.5rem);
+      font-weight: 400; color: var(--white); line-height: 1;
+    }
+    .countdown-label {
+      font-family: var(--font-sans); font-size: .65rem; font-weight: 500;
+      text-transform: uppercase; letter-spacing: .15em; color: rgba(255,255,255,.4); margin-top: .3rem;
+    }
+
+    /* ── Confetti canvas ── */
+    #confetti-canvas {
+      position: fixed; inset: 0; z-index: 9999; pointer-events: none;
+    }
+
+    /* ── Route ── */
+    .route-islands {
+      display: flex; align-items: center; justify-content: center;
+      flex-wrap: wrap; gap: .5rem 0; margin: 2rem 0; font-family: var(--font-serif);
+      font-size: clamp(1rem, 2vw, 1.25rem); color: var(--navy);
+    }
+    .route-islands .island { padding: 0 .75rem; }
+    .route-islands .arrow { color: var(--gold); font-size: .85rem; }
+    .route-note { text-align: center; font-size: .88rem; color: var(--text-light); font-style: italic; }
+
+    /* ── FAQ accordion ── */
+    .faq-list { margin-top: 2rem; }
+    details.faq-item {
+      border-bottom: 1px solid var(--border); overflow: hidden;
+    }
+    details.faq-item summary {
+      padding: 1rem 0; font-family: var(--font-sans); font-weight: 500;
+      font-size: .95rem; cursor: pointer; list-style: none;
+      display: flex; align-items: center; justify-content: space-between;
+      color: var(--navy); user-select: none;
+    }
+    details.faq-item summary::-webkit-details-marker { display: none; }
+    details.faq-item summary::after {
+      content: '+'; font-size: 1.2rem; font-weight: 300; color: var(--gold);
+    }
+    details.faq-item[open] summary::after { content: '\2212'; }
+    details.faq-item .faq-answer {
+      padding: 0 0 1rem; font-size: .9rem; color: var(--text-light); line-height: 1.7;
+    }
+    .visa-alert {
+      background: #fef3c7; border: 1px solid #f59e0b; border-radius: 8px;
+      padding: 1rem 1.25rem; margin-top: 1.5rem; font-size: .9rem;
+    }
+    .visa-alert strong { color: #92400e; }
+
+    /* ── Phrasebook ── */
+    .phrase-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem; margin-top: 2rem;
+    }
+    .phrase-card {
+      background: var(--white); border: 1px solid var(--border); border-radius: 8px;
+      padding: 1rem 1.25rem; text-align: center;
+    }
+    .phrase-hr { font-size: 1.1rem; font-weight: 600; color: var(--navy); margin-bottom: .25rem; }
+    .phrase-en { font-size: .85rem; color: var(--text-light); }
+    .phrase-pron { font-size: .75rem; color: var(--gold); font-style: italic; margin-top: .15rem; }
+
+    /* ── Guest cards ── */
+    .guest-card {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+      background: var(--white);
+    }
+    .guest-card-title {
+      font-family: var(--font-sans);
+      font-size: .8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+    .guest-card .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0 1rem;
+    }
+    @media (max-width: 640px) {
+      .guest-card .form-row { grid-template-columns: 1fr; }
+    }
+
+    /* ── Lightbox ── */
+    .photo-grid figure { cursor: pointer; }
+    .lightbox {
+      display: none; position: fixed; inset: 0; z-index: 1000;
+      background: rgba(0,0,0,.92); align-items: center; justify-content: center;
+      padding: 1rem; cursor: zoom-out;
+    }
+    .lightbox.open { display: flex; animation: fadeIn .2s ease; }
+    .lightbox img {
+      max-width: 95vw; max-height: 92vh; object-fit: contain;
+      border-radius: 4px; box-shadow: 0 8px 40px rgba(0,0,0,.5);
+    }
+    .lightbox-close {
+      position: absolute; top: 1rem; right: 1.5rem;
+      color: #fff; font-size: 2rem; font-weight: 300; cursor: pointer;
+      opacity: .7; transition: opacity .2s; line-height: 1;
+      background: none; border: none;
+    }
+    .lightbox-close:hover { opacity: 1; }
+    .lightbox-nav {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      color: #fff; font-size: 2.5rem; font-weight: 300; cursor: pointer;
+      opacity: .5; transition: opacity .2s; background: none; border: none;
+      padding: 1rem; line-height: 1;
+    }
+    .lightbox-nav:hover { opacity: 1; }
+    .lightbox-prev { left: .5rem; }
+    .lightbox-next { right: .5rem; }
+
+    /* ── Animations ── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .fade-up:nth-child(2) { transition-delay: 0.1s; }
+    .fade-up:nth-child(3) { transition-delay: 0.2s; }
+
+    /* ── Responsive ── */
+    @media (max-width: 640px) {
+      .details-grid { gap: 1rem; }
+      .detail-item { padding: 1rem 0.5rem; }
+      .radio-group { flex-direction: column; gap: 0.5rem; }
+      .logistics-grid { grid-template-columns: 1fr; }
+      .amenities-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Language switcher -->
+  <div class="lang-switch" id="langSwitch">
+    <span class="active">English</span>
+    <span class="sep">|</span>
+    <a href="/ja">日本語</a>
+    <span class="sep">|</span>
+    <a href="/uk">Українська</a>
+  </div>
+
+  <!-- ═══ HERO ═══ -->
+  <section class="hero">
+    <video class="hero-video" autoplay muted loop playsinline poster="img/ycf1.jpg"><source src="img/hero-loop.mp4" type="video/mp4"></video>
+    <div class="hero-content">
+      <span class="label">You're Invited to</span>
+      <h1>YACHT-TARO<br><span style="font-size:.45em;font-weight:300;letter-spacing:.15em;">2026</span></h1>
+      <p class="hero-sub">An unforgettable week aboard M/Y OHANA,<br>cruising the Croatian coast</p>
+      <div class="hero-date">June 6 – 13, 2026 &middot; Split, Croatia</div>
+      <div class="countdown-grid" id="countdown">
+        <div class="countdown-unit"><div class="countdown-num" id="cd-days">--</div><div class="countdown-label">Days</div></div>
+        <div class="countdown-unit"><div class="countdown-num" id="cd-hrs">--</div><div class="countdown-label">Hours</div></div>
+        <div class="countdown-unit"><div class="countdown-num" id="cd-min">--</div><div class="countdown-label">Min</div></div>
+        <div class="countdown-unit"><div class="countdown-num" id="cd-sec">--</div><div class="countdown-label">Sec</div></div>
+      </div>
+    </div>
+    <a href="#voyage" class="scroll-hint" aria-label="Scroll down">
+      <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+    </a>
+  </section>
+
+  <!-- wave into white -->
+  <svg class="wave-separator" viewBox="0 0 1440 60" preserveAspectRatio="none" style="background:var(--navy);">
+    <path d="M0,20 C240,55 480,0 720,30 C960,60 1200,10 1440,35 L1440,60 L0,60Z" fill="#ffffff"/>
+  </svg>
+
+  <!-- ═══ PERSONAL MESSAGE ═══ -->
+  <section class="personal-section">
+    <div class="container fade-up">
+      <div class="message">
+        <p>This trip is my way of saying thank you.</p>
+        <p>
+          To the people who've shaped my life — through years of friendship,
+          generosity, and kindness — this week is for you.
+        </p>
+      </div>
+      <div class="sig">— Kentaro</div>
+      <a href="https://chat.whatsapp.com/JcWEeWMv5VZ5tI4jjhCZaA?mode=gi_t" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:.6rem;padding:.75rem 1.8rem;background:#25D366;color:#fff;font-family:var(--font-sans);font-size:.85rem;font-weight:600;border-radius:50px;text-decoration:none;margin-top:2rem;transition:opacity .2s;" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Join the Group Chat
+      </a>
+    </div>
+  </section>
+
+  <!-- ═══ THE VOYAGE ═══ -->
+  <section id="voyage" class="bg-cream">
+    <div class="container">
+      <span class="label fade-up">The Voyage</span>
+      <h2 class="fade-up">A Week on the Adriatic</h2>
+      <p class="section-intro fade-up">
+        We'd love nothing more than to have you join us aboard OHANA — cruising the crystal waters of the Dalmatian Coast.
+        Think island-hopping through ancient harbors, swimming in turquoise coves, long lunches on deck, and sunsets that stop you in your tracks.
+      </p>
+
+      <div class="details-grid fade-up">
+        <div class="detail-item">
+          <span class="label">Board</span>
+          <strong>Saturday, June 6</strong>
+          <span>From 4:00 PM</span>
+        </div>
+        <div class="detail-item">
+          <span class="label">Return</span>
+          <strong>Saturday, June 13</strong>
+          <span>By 9:00 AM</span>
+        </div>
+        <div class="detail-item">
+          <span class="label">Vessel</span>
+          <strong>M/Y OHANA</strong>
+          <span>160 ft &middot; 14 Cabins</span>
+        </div>
+      </div>
+
+      <div style="text-align:center;" class="fade-up">
+        <a class="map-link" href="https://maps.app.goo.gl/4bfc8Xu6WnfMzdBy8" target="_blank" rel="noopener">
+          View port location on map
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ ARRIVE EARLY ═══ -->
+  <section class="callout-section bg-white">
+    <div class="container">
+      <span class="label fade-up">Important</span>
+      <h2 class="fade-up">Please Arrive by June 5th</h2>
+      <div class="callout-box fade-up">
+        <p>
+          We <strong>strongly recommend</strong> flying into Split no later than <strong>Friday, June 5th</strong> — the day before we set sail.
+        </p>
+        <p>
+          Summer flights are unpredictable. Cancellations and delays happen, and OHANA departs on schedule at 4:00 PM on June 6th.
+          Missing the boat isn't just an expression here — it's a real possibility if you're cutting it close.
+        </p>
+        <p>
+          Arriving a day early means you can explore Split's stunning old town, settle in, and join us relaxed and ready.
+        </p>
+      </div>
+
+      <div class="logistics-grid fade-up">
+        <div class="logistics-card">
+          <h3><span class="icon">&#127464;&#127479;</span> Hotels</h3>
+          <p>Need a place to stay the night of June 5th? We're happy to help arrange your hotel. Just let us know in the RSVP form.</p>
+        </div>
+        <div class="logistics-card">
+          <h3><span class="icon">&#128188;</span> Luggage</h3>
+          <p>Want to explore Split before boarding? We'll arrange luggage pick-up from your hotel so you can enjoy the city hands-free.</p>
+        </div>
+        <div class="logistics-card">
+          <h3><span class="icon">&#128663;</span> Transfers</h3>
+          <p>Once we have everyone's arrival details, all airport and hotel transfers will be arranged — you won't need to worry about a thing.</p>
+        </div>
+      </div>
+
+      <!-- ── Suggested Flights ── -->
+      <div class="flights-section fade-up">
+        <h3>Suggested Flights</h3>
+        <p class="flights-note">Your destination is <strong>Split, Croatia — Split Airport (SPU)</strong>. For long-haul flights, depart June 4 to arrive June 5. Most routes connect through a European hub.</p>
+
+        <details class="flight-group">
+          <summary>From Detroit (DTW)</summary>
+          <div class="flight-content">
+            <div class="depart-note">Long-haul flights typically depart June 4 to arrive June 5</div>
+            <div class="route-links" style="margin-top:0.75rem;">
+              <a href="https://www.google.com/travel/flights?q=flights+from+Detroit+to+Split+arriving+June+5+2026+return+June+13+2026" target="_blank" rel="noopener"><strong>Search flights on Google Flights ↗</strong></a>
+            </div>
+          </div>
+        </details>
+
+        <details class="flight-group">
+          <summary>From Tokyo (NRT / HND)</summary>
+          <div class="flight-content">
+            <div class="depart-note">Depart late evening June 4 → Arrive in Split June 5</div>
+            <div class="route-links" style="margin-top:0.75rem;">
+              <a href="https://www.google.com/travel/flights?q=flights+from+Tokyo+to+Split+arriving+June+5+2026+return+June+13+2026" target="_blank" rel="noopener"><strong>Search flights on Google Flights ↗</strong></a>
+            </div>
+          </div>
+        </details>
+
+        <details class="flight-group">
+          <summary>From Fukuoka (FUK)</summary>
+          <div class="flight-content">
+            <div class="depart-note">Depart morning/afternoon June 4 → Arrive in Split June 5</div>
+            <div class="route-links" style="margin-top:0.75rem;">
+              <a href="https://www.google.com/travel/flights?q=flights+from+Fukuoka+to+Split+arriving+June+5+2026+return+June+13+2026" target="_blank" rel="noopener"><strong>Search flights on Google Flights ↗</strong></a>
+            </div>
+          </div>
+        </details>
+
+        <details class="flight-group">
+          <summary>From Kumamoto (KMJ)</summary>
+          <div class="flight-content">
+            <div class="depart-note">Depart morning June 4 → Arrive in Split June 5</div>
+            <div class="route-links" style="margin-top:0.75rem;">
+              <a href="https://www.google.com/travel/flights?q=flights+from+Kumamoto+to+Split+arriving+June+5+2026+return+June+13+2026" target="_blank" rel="noopener"><strong>Search flights on Google Flights ↗</strong></a>
+            </div>
+          </div>
+        </details>
+
+        <details class="flight-group">
+          <summary>From Bangkok (BKK)</summary>
+          <div class="flight-content">
+            <div class="depart-note">Depart late evening June 4 → Arrive in Split June 5</div>
+            <div class="route-links" style="margin-top:0.75rem;">
+              <a href="https://www.google.com/travel/flights?q=flights+from+Bangkok+to+Split+arriving+June+5+2026+return+June+13+2026" target="_blank" rel="noopener"><strong>Search flights on Google Flights ↗</strong></a>
+            </div>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ LIFE ABOARD ═══ -->
+  <section class="bg-cream">
+    <div class="container">
+      <span class="label fade-up">Life Aboard</span>
+      <h2 class="fade-up">Your Home at Sea</h2>
+      <p class="section-intro fade-up">
+        OHANA is a 160-foot motor yacht with every comfort you'd want for a week at sea.
+        14 beautifully appointed cabins for up to 30 guests, a dedicated crew of 12,
+        and a toy box that'll keep everyone entertained from sunrise to sunset.
+      </p>
+
+      <div class="amenities-grid fade-up">
+        <div class="amenity-group">
+          <h3>On the Water</h3>
+          <ul class="amenity-list">
+            <li>Jet Ski</li>
+            <li>2 SeaBobs</li>
+            <li>E-Foil</li>
+            <li>Water Skis</li>
+            <li>Tube Ride</li>
+            <li>2 Paddleboards</li>
+            <li>2 Kayaks</li>
+            <li>Waterslide</li>
+            <li>Inflatable Swimming Platform</li>
+          </ul>
+        </div>
+        <div class="amenity-group">
+          <h3>On Board</h3>
+          <ul class="amenity-list">
+            <li>Air Conditioning</li>
+            <li>Wi-Fi</li>
+            <li>Bed Linens</li>
+            <li>Bath &amp; Beach Towels</li>
+            <li>Full Catering</li>
+            <li>Captain + 11 Crew</li>
+          </ul>
+          <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--text-light);">
+            All food and drinks on board are taken care of — we just need to know your dietary needs.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ PHOTO GALLERY ═══ -->
+  <section class="gallery-section">
+    <span class="label">M/Y OHANA</span>
+    <div class="photo-grid">
+      <figure class="wide"><img src="img/ycf2.jpg" alt="OHANA exterior profile" loading="lazy"></figure>
+      <figure><img src="img/brochure4.jpg" alt="Sun deck lounge area" loading="lazy"></figure>
+      <figure><img src="img/brochure5.jpg" alt="Outdoor dining on deck" loading="lazy"></figure>
+      <figure><img src="img/brochure6.jpg" alt="Main salon" loading="lazy"></figure>
+      <figure><img src="img/brochure7.jpg" alt="Bar and entertainment area" loading="lazy"></figure>
+      <figure class="wide"><img src="img/brochure3.jpg" alt="OHANA at sea" loading="lazy"></figure>
+      <figure><img src="img/brochure8.jpg" alt="Guest cabin" loading="lazy"></figure>
+      <figure><img src="img/brochure9.jpg" alt="Master suite" loading="lazy"></figure>
+      <figure><img src="img/brochure10.jpg" alt="Cabin detail" loading="lazy"></figure>
+      <figure><img src="img/brochure11.jpg" alt="Water toys and swimming platform" loading="lazy"></figure>
+      <figure class="wide"><img src="img/ycf3.jpg" alt="OHANA aerial view" loading="lazy"></figure>
+      <figure><img src="img/brochure12.jpg" alt="Jacuzzi on sun deck" loading="lazy"></figure>
+      <figure><img src="img/brochure13.jpg" alt="Onboard dining" loading="lazy"></figure>
+      <figure><img src="img/brochure14.jpg" alt="Relaxing at sunset" loading="lazy"></figure>
+      <figure><img src="img/brochure15.jpg" alt="Croatian coastline" loading="lazy"></figure>
+    </div>
+  </section>
+
+  <!-- ═══ GOOD TO KNOW ═══ -->
+  <section class="bg-white">
+    <div class="container">
+      <span class="label fade-up">Practical</span>
+      <h2 class="fade-up">Good to Know</h2>
+      <ul class="tips-list fade-up">
+        <li>Pack light — summer clothes, swimwear, and layers for the evening</li>
+        <li>Bring sun protection: sunscreen, hat, sunglasses</li>
+        <li>Soft-soled shoes only on deck — no black soles, please</li>
+        <li>Smoking is permitted in designated outdoor areas only</li>
+        <li>The yacht is a pet-free zone</li>
+        <li>Children must be supervised by an adult at all times</li>
+        <li>Motorized water sports require signing a waiver beforehand</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ═══ THE ROUTE ═══ -->
+  <section class="bg-cream">
+    <div class="container">
+      <span class="label fade-up">The Route</span>
+      <h2 class="fade-up">Island Hopping the Dalmatian Coast</h2>
+      <p class="section-intro fade-up">Our route will weave through some of the most beautiful islands in the Adriatic. We'll cruise about 2 to 2.5 hours per day — the rest is swimming, exploring, and relaxing.</p>
+      <div class="route-islands fade-up">
+        <span class="island">Split</span><span class="arrow">&rarr;</span>
+        <span class="island">Bra&#269;</span><span class="arrow">&rarr;</span>
+        <span class="island">Vis</span><span class="arrow">&rarr;</span>
+        <span class="island">Kor&#269;ula</span><span class="arrow">&rarr;</span>
+        <span class="island">&#352;olta</span><span class="arrow">&rarr;</span>
+        <span class="island">Hvar</span><span class="arrow">&rarr;</span>
+        <span class="island">Split</span>
+      </div>
+      <p class="route-note fade-up">Exact itinerary depends on weather and sea conditions. The captain will choose the best route each day.</p>
+    </div>
+  </section>
+
+  <!-- ═══ TRAVEL REQUIREMENTS ═══ -->
+  <section class="bg-white">
+    <div class="container">
+      <span class="label fade-up">Before You Travel</span>
+      <h2 class="fade-up">Travel Requirements</h2>
+      <p class="section-intro fade-up">Croatia is part of the Schengen Area. Here's what you need to enter.</p>
+      <ul class="tips-list fade-up">
+        <li>Passport must be valid for at least <strong>6 months</strong> beyond the trip — valid until <strong>December 13, 2026</strong> or later</li>
+        <li>Passport must have been issued within the last 10 years</li>
+        <li><strong>No visa needed</strong> for US, British, Japanese, and Ukrainian (biometric) passport holders</li>
+
+        <li>No arrival card or forms to fill out — just passport control on arrival</li>
+        <li>Currency is the <strong>Euro (&euro;)</strong> — cards are widely accepted everywhere</li>
+        <li>Time zone: <strong>CEST (UTC+2)</strong></li>
+      </ul>
+      <div class="visa-alert fade-up">
+        <strong>Thai passport holders:</strong> You need a <strong>Schengen visa</strong> to enter Croatia. Processing takes 2–8 weeks. Apply at the nearest Schengen country embassy as soon as possible. Do not wait — the trip is less than 3 months away.
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FAQ ═══ -->
+  <section class="bg-cream">
+    <div class="container">
+      <span class="label fade-up">FAQ</span>
+      <h2 class="fade-up">Everything Else You Need to Know</h2>
+      <div class="faq-list fade-up">
+        <details class="faq-item">
+          <summary>Is there WiFi on board?</summary>
+          <div class="faq-answer">Yes — OHANA has <strong>Starlink</strong> satellite internet. Expect stable, high-speed connectivity in most locations, good enough for video calls. Extreme weather or very remote areas may affect performance.</div>
+        </details>
+        <details class="faq-item">
+          <summary>What power outlets are on board?</summary>
+          <div class="faq-answer">European Type C/F outlets. There are a few adapters on board but not enough for everyone — <strong>bring your own adapter</strong> if you're coming from the US, UK, or Japan.</div>
+        </details>
+        <details class="faq-item">
+          <summary>What's a typical day like?</summary>
+          <div class="faq-answer">Wake up, breakfast at your preferred time, 2–2.5 hours of cruising to the next island, anchor in a beautiful bay for swimming and water sports, lunch on board, explore the town in the afternoon, dinner ashore at a local restaurant. Repeat.</div>
+        </details>
+        <details class="faq-item">
+          <summary>Are meals on board or ashore?</summary>
+          <div class="faq-answer">Both. The chef prepares breakfast and lunch on board (buffet style). Most dinners will be at restaurants on the islands — these are paid separately. Hvar has the fanciest restaurants; other islands are more relaxed with local konobas (taverns).</div>
+        </details>
+        <details class="faq-item">
+          <summary>What about seasickness?</summary>
+          <div class="faq-answer">Seasickness medication is available on board (note: it may cause drowsiness). If you're prone to motion sickness, bring your own remedies: <strong>acupuncture wrist bands</strong>, <strong>motion patches</strong> (behind the ear — strongest ones from Asian pharmacies), or <strong>Thai herbal balm</strong> (roll-on, strong smell but very effective).</div>
+        </details>
+        <details class="faq-item">
+          <summary>What should I wear?</summary>
+          <div class="faq-answer">On board: swimwear, casual clothes, whatever you're comfortable in. Going ashore: covered (not in swimwear). For nicer restaurants in Hvar, <strong>smart casual</strong>. Other islands are relaxed.</div>
+        </details>
+        <details class="faq-item">
+          <summary>What about children on board?</summary>
+          <div class="faq-answer">Adult life jackets are available. <strong>Parents should bring their own children's life jackets</strong> in the correct size (or we can purchase from the provisioning allowance). One baby feeding chair is on board. Additional baby equipment can be arranged.</div>
+        </details>
+        <details class="faq-item">
+          <summary>Is there laundry on board?</summary>
+          <div class="faq-answer">Yes — wash and dry service available at &euro;40 per load, 24-hour turnaround. So pack light and re-wear.</div>
+        </details>
+        <details class="faq-item">
+          <summary>What about medical emergencies?</summary>
+          <div class="faq-answer">First aid kit is on board and crew is certified to provide first aid. Hospital locations will be shared with the finalized itinerary. European emergency number: <strong>112</strong>.</div>
+        </details>
+        <details class="faq-item">
+          <summary>How much luggage can I bring?</summary>
+          <div class="faq-answer">No strict limit, but luggage is stored in your cabin — it gets cramped fast. Pack light. <strong>Soft bags are strongly recommended</strong> over hard suitcases (easier to store).</div>
+        </details>
+        <details class="faq-item">
+          <summary>How warm is the water?</summary>
+          <div class="faq-answer">Average water temperature in June is <strong>22&deg;C (72&deg;F)</strong>, ranging from 19–25&deg;C. Warm enough to swim comfortably.</div>
+        </details>
+        <details class="faq-item">
+          <summary>Can I bring my own drinks or snacks?</summary>
+          <div class="faq-answer">Yes, you're welcome to. However, the yacht's provisioning vendor has near-supermarket prices — so it may not be worth the hassle of carrying it all to the port.</div>
+        </details>
+        <details class="faq-item">
+          <summary>What happens on boarding day?</summary>
+          <div class="faq-answer">Board at 4:00 PM at Split West Coast Port. Welcome drink, meet the crew, safety briefing. Then we cruise to Bra&#269; island, anchor in a quiet bay for a swim, and have dinner on board. The trip begins.</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CROATIAN PHRASEBOOK ═══ -->
+  <section class="bg-cream">
+    <div class="container">
+      <span class="label fade-up">Before You Go</span>
+      <h2 class="fade-up">A Little Croatian</h2>
+      <p class="section-intro fade-up" style="max-width:500px;">A few words to impress the crew and locals.</p>
+      <div class="phrase-grid fade-up">
+        <div class="phrase-card"><div class="phrase-hr">Bok</div><div class="phrase-en">Hi / Bye</div><div class="phrase-pron">bohk</div></div>
+        <div class="phrase-card"><div class="phrase-hr">Hvala</div><div class="phrase-en">Thank you</div><div class="phrase-pron">HVAH-lah</div></div>
+        <div class="phrase-card"><div class="phrase-hr">Molim</div><div class="phrase-en">Please / You're welcome</div><div class="phrase-pron">MOH-leem</div></div>
+        <div class="phrase-card"><div class="phrase-hr">Živjeli!</div><div class="phrase-en">Cheers!</div><div class="phrase-pron">ZHEE-vyeh-lee</div></div>
+        <div class="phrase-card"><div class="phrase-hr">Dobro jutro</div><div class="phrase-en">Good morning</div><div class="phrase-pron">DOH-broh YOO-troh</div></div>
+        <div class="phrase-card"><div class="phrase-hr">Dobar dan</div><div class="phrase-en">Good afternoon</div><div class="phrase-pron">DOH-bar dahn</div></div>
+        <div class="phrase-card"><div class="phrase-hr">Predivno!</div><div class="phrase-en">Beautiful!</div><div class="phrase-pron">preh-DEEV-noh</div></div>
+        <div class="phrase-card"><div class="phrase-hr">Jedno pivo, molim</div><div class="phrase-en">One beer, please</div><div class="phrase-pron">YED-noh PEE-voh MOH-leem</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ RSVP ═══ -->
+  <section class="rsvp-section" id="rsvp">
+    <div class="container">
+      <div style="text-align:center;" class="fade-up">
+        <span class="label">RSVP</span>
+        <h2>Let Us Know</h2>
+        <p class="section-intro" style="margin: 0 auto;">
+          Please fill out the form below so we can prepare everything for you.
+        </p>
+      </div>
+
+      <div class="form-wrap">
+        <div id="formError" class="form-error"></div>
+
+        <form id="rsvpForm" class="fade-up">
+          <div class="form-group">
+            <label for="fullName">Your Name</label>
+            <input type="text" id="fullName" name="full_name" required placeholder="Full name">
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required placeholder="your@email.com">
+          </div>
+
+          <div class="form-group">
+            <label>Will you be joining us?</label>
+            <div class="radio-group">
+              <div class="radio-option">
+                <input type="radio" id="attendYes" name="attending" value="yes" required>
+                <label for="attendYes">Yes, I'll be there</label>
+              </div>
+              <div class="radio-option">
+                <input type="radio" id="attendNo" name="attending" value="no">
+                <label for="attendNo">Regretfully, no</label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Shown when "No" -->
+          <div id="missYou" class="miss-you">
+            We'll miss you. Thank you for letting us know.
+          </div>
+
+          <!-- Shown when "Yes" -->
+          <div id="yesFields" class="conditional-fields">
+            <div class="form-group">
+              <label for="guestCount">How many guests in your party (including you)?</label>
+              <select id="guestCount" name="guest_count">
+                <option value="1">1 — Just me</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+              </select>
+            </div>
+
+            <p style="margin:1.5rem 0 .5rem;font-size:.85rem;color:var(--text-light);padding:.75rem 1rem;background:rgba(184,149,95,.08);border-radius:6px;border-left:3px solid var(--gold);line-height:1.6;">
+              Please ensure all passports are valid for at least <strong>6 months after June 13, 2026</strong> (i.e. until December 13, 2026 or later). This is required for entry into Croatia / Schengen area.
+            </p>
+
+            <div id="guestSections"></div>
+
+            <hr style="border:none;border-top:1px solid var(--border);margin:2rem 0;">
+            <h3 style="font-size:1.1rem;margin-bottom:1rem;color:var(--navy);">Travel Details</h3>
+
+            <div class="form-group">
+              <label for="arrivalDate">When do you plan to arrive in Split?</label>
+              <select id="arrivalDate" name="arrival_date">
+                <option value="">Select a date</option>
+                <option value="june_4_or_earlier">June 4 or earlier</option>
+                <option value="june_5_recommended">June 5 (Recommended)</option>
+                <option value="june_6_departure_day">June 6 (Day of departure)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="flightDetails">Flight details (if known)</label>
+              <span class="hint">Airline, flight number, arrival time — you can update this later</span>
+              <textarea id="flightDetails" name="flight_details" rows="2" placeholder="e.g. Turkish Airlines TK1234, arriving 2:30 PM June 5"></textarea>
+            </div>
+
+            <div class="form-group">
+              <label>Need help with a hotel for the night before?</label>
+              <div class="radio-group">
+                <div class="radio-option">
+                  <input type="radio" id="hotelYes" name="need_hotel" value="yes">
+                  <label for="hotelYes">Yes, please</label>
+                </div>
+                <div class="radio-option">
+                  <input type="radio" id="hotelNo" name="need_hotel" value="no">
+                  <label for="hotelNo">No, I'm set</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="notes">Anything else we should know?</label>
+              <textarea id="notes" name="notes" rows="2" placeholder="Questions, requests, or just a note"></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="submit-btn" id="submitBtn">Send RSVP</button>
+        </form>
+
+        <div id="formSuccess" class="form-success">
+          <h3>Thank You</h3>
+          <p>Your RSVP has been received. We'll be in touch with more details as we get closer to departure.</p>
+          <p style="margin-top: 1rem; font-style: italic; color: var(--gold);">See you on the water.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer>
+    <p class="footer-vessel">YACHTTARO</p>
+    <p>Split, Croatia &middot; June 6–13, 2026</p>
+    <p style="margin-top: 1.5rem;">Questions? Reach out to Kentaro directly.</p>
+  </footer>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" onclick="if(event.target===this)closeLB()">
+    <button class="lightbox-close" onclick="closeLB()">&times;</button>
+    <button class="lightbox-nav lightbox-prev" onclick="navLB(-1)">&lsaquo;</button>
+    <img id="lbImg" src="" alt="">
+    <button class="lightbox-nav lightbox-next" onclick="navLB(1)">&rsaquo;</button>
+  </div>
+
+  <script>
+    // ── Lightbox ──
+    const lbEl=document.getElementById('lightbox'),lbImg=document.getElementById('lbImg');
+    let lbItems=[],lbIdx=0;
+    document.querySelectorAll('.photo-grid figure').forEach((fig,i)=>{
+      lbItems.push(fig.querySelector('img').src);
+      fig.addEventListener('click',()=>{lbIdx=i;lbImg.src=lbItems[i];lbEl.classList.add('open');document.body.style.overflow='hidden'});
+    });
+    function closeLB(){lbEl.classList.remove('open');document.body.style.overflow=''}
+    function navLB(d){lbIdx=(lbIdx+d+lbItems.length)%lbItems.length;lbImg.src=lbItems[lbIdx]}
+    document.addEventListener('keydown',e=>{if(!lbEl.classList.contains('open'))return;if(e.key==='Escape')closeLB();if(e.key==='ArrowRight')navLB(1);if(e.key==='ArrowLeft')navLB(-1)});
+
+    // ── Personalization from URL ──
+    const params = new URLSearchParams(window.location.search);
+    const guestName = params.get('name');
+    if (guestName) {
+      const decoded = decodeURIComponent(guestName);
+      let displayName;
+      if (/[&,]/.test(decoded) || /^(Mr|Mrs|Ms|The)\b/.test(decoded)) {
+        displayName = decoded;
+      } else {
+        displayName = decoded.split(' ')[0];
+      }
+      document.querySelector('.hero .label').textContent = displayName + ', You\u2019re Invited to';
+      document.getElementById('fullName').value = decoded;
+      document.getElementById('fullName').readOnly = true;
+      document.getElementById('fullName').style.backgroundColor = '#f5f0e8';
+      document.getElementById('fullName').style.color = 'var(--navy)';
+    }
+
+    // ── Ticking countdown to June 6 2026 4PM CEST ──
+    (function() {
+      const target = new Date('2026-06-06T16:00:00+02:00');
+      function pad(n) { return n < 10 ? '0' + n : n; }
+      function tick() {
+        const diff = target - new Date();
+        if (diff <= 0) { document.getElementById('countdown').style.display = 'none'; return; }
+        const d = Math.floor(diff / 864e5);
+        const h = Math.floor((diff % 864e5) / 36e5);
+        const m = Math.floor((diff % 36e5) / 6e4);
+        const s = Math.floor((diff % 6e4) / 1e3);
+        document.getElementById('cd-days').textContent = d;
+        document.getElementById('cd-hrs').textContent = pad(h);
+        document.getElementById('cd-min').textContent = pad(m);
+        document.getElementById('cd-sec').textContent = pad(s);
+      }
+      tick(); setInterval(tick, 1000);
+    })();
+
+    // ── Scroll animations ──
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+
+    // ── Lang switch: carry name param + scroll style ──
+    (function(){
+      const sp = new URLSearchParams(window.location.search);
+      const n = sp.get('name'), g = sp.get('guests');
+      if (n || g) {
+        document.querySelectorAll('.lang-switch a').forEach(a => {
+          const u = new URL(a.href, location.origin);
+          if (n) u.searchParams.set('name', n);
+          if (g) u.searchParams.set('guests', g);
+          a.href = u.toString();
+        });
+      }
+    })();
+    const langSwitch = document.getElementById('langSwitch');
+    window.addEventListener('scroll', () => {
+      langSwitch.classList.toggle('scrolled', window.scrollY > 100);
+    }, { passive: true });
+
+    // ── Form conditional fields ──
+    const attendYes = document.getElementById('attendYes');
+    const attendNo = document.getElementById('attendNo');
+    const yesFields = document.getElementById('yesFields');
+    const missYou = document.getElementById('missYou');
+
+    function toggleFields() {
+      if (attendYes.checked) {
+        yesFields.classList.add('visible');
+        missYou.classList.remove('visible');
+        renderGuestCards();
+      } else if (attendNo.checked) {
+        yesFields.classList.remove('visible');
+        missYou.classList.add('visible');
+      }
+    }
+    attendYes.addEventListener('change', toggleFields);
+    attendNo.addEventListener('change', toggleFields);
+
+    // ── Dynamic guest cards ──
+    const guestCountEl = document.getElementById('guestCount');
+    const guestSections = document.getElementById('guestSections');
+
+    function makeGuestCard(i) {
+      const card = document.createElement('div');
+      card.className = 'guest-card';
+      const title = document.createElement('div');
+      title.className = 'guest-card-title';
+      title.textContent = 'Guest ' + (i + 1);
+      card.appendChild(title);
+
+      const fields = [
+        ['g-name', 'Full name (as on passport)', 'text', 'Full legal name', true],
+        ['g-dob', 'Date of birth', 'date', '', true],
+        ['g-pob', 'Place of birth', 'text', 'City, Country', false],
+        ['g-nat', 'Nationality', 'text', 'e.g. American, Japanese', false],
+        ['g-res', 'City & country of residence', 'text', 'e.g. Bangkok, Thailand', false],
+        ['g-pp', 'Passport number', 'text', 'Passport number', false],
+        ['g-ppexp', 'Passport expiry date', 'date', '', false],
+        ['g-allergy', 'Allergies', 'text', 'None, or list allergies', false],
+        ['g-diet', 'Dietary restrictions & food preferences', 'text', 'e.g. Vegetarian, no spicy, loves sushi', false]
+      ];
+
+      let row;
+      fields.forEach(function(f, idx) {
+        if (idx % 2 === 0) { row = document.createElement('div'); row.className = 'form-row'; card.appendChild(row); }
+        if (idx === 8) { row = document.createElement('div'); card.appendChild(row); }
+        const grp = document.createElement('div');
+        grp.className = 'form-group';
+        const lbl = document.createElement('label');
+        lbl.textContent = f[1];
+        grp.appendChild(lbl);
+        const inp = document.createElement('input');
+        inp.type = f[2]; inp.className = f[0]; inp.placeholder = f[3];
+        if (f[4]) inp.required = true;
+        grp.appendChild(inp);
+        if (idx === 8) { row.className = 'form-group'; row.appendChild(lbl); row.appendChild(inp); }
+        else { row.appendChild(grp); }
+      });
+      return card;
+    }
+
+    function renderGuestCards() {
+      const count = parseInt(guestCountEl.value) || 1;
+      guestSections.replaceChildren();
+      for (let i = 0; i < count; i++) guestSections.appendChild(makeGuestCard(i));
+      if (guestName) {
+        const first = guestSections.querySelector('.g-name');
+        if (first && !first.value) first.value = decodeURIComponent(guestName);
+      }
+    }
+
+    const guestParam = params.get('guests');
+    if (guestParam) {
+      guestCountEl.value = guestParam;
+      guestCountEl.disabled = true;
+      guestCountEl.style.backgroundColor = '#f5f0e8';
+    }
+    guestCountEl.addEventListener('change', renderGuestCards);
+    renderGuestCards();
+
+    // ── Form submission ──
+    const SUPABASE_URL = 'https://dyvahmmkiynvxfvqmnjb.supabase.co';
+    const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR5dmFobW1raXludnhmdnFtbmpiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzIwNDgyMTEsImV4cCI6MjA4NzYyNDIxMX0.JMQnsWqIhlO-DN-CFkR-WzYld6tPpUW8pVMR1NbMtUI';
+    // Google Sheets Apps Script URL — replace after deploying your script
+    const SHEETS_URL = '';
+
+    document.getElementById('rsvpForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const btn = document.getElementById('submitBtn');
+      const errEl = document.getElementById('formError');
+      errEl.classList.remove('visible');
+      btn.disabled = true;
+      btn.textContent = 'Sending...';
+
+      const attending = attendYes.checked;
+      const data = {
+        full_name: document.getElementById('fullName').value.trim(),
+        email: document.getElementById('email').value.trim(),
+        attending: attending,
+      };
+
+      if (attending) {
+        guestCountEl.disabled = false;
+        data.guest_count = parseInt(guestCountEl.value) || 1;
+        // Collect per-guest details
+        var guests = [];
+        document.querySelectorAll('.guest-card').forEach(function(card) {
+          guests.push({
+            name: card.querySelector('.g-name').value.trim(),
+            dob: card.querySelector('.g-dob').value,
+            place_of_birth: card.querySelector('.g-pob').value.trim(),
+            nationality: card.querySelector('.g-nat').value.trim(),
+            residence: card.querySelector('.g-res').value.trim(),
+            passport_number: card.querySelector('.g-pp').value.trim(),
+            passport_expiry: card.querySelector('.g-ppexp').value,
+            allergies: card.querySelector('.g-allergy').value.trim(),
+            dietary: card.querySelector('.g-diet').value.trim()
+          });
+        });
+        data.guests_json = guests;
+        data.guest_names = guests.map(function(g) { return g.name; }).filter(Boolean).join('\n') || null;
+        data.dietary_restrictions = guests.map(function(g) { return g.dietary ? g.name + ': ' + g.dietary : ''; }).filter(Boolean).join('\n') || null;
+        data.arrival_date = document.getElementById('arrivalDate').value || null;
+        data.flight_details = document.getElementById('flightDetails').value.trim() || null;
+        data.need_hotel = document.getElementById('hotelYes').checked ? true : (document.getElementById('hotelNo').checked ? false : null);
+        data.notes = document.getElementById('notes').value.trim() || null;
+      }
+
+      try {
+        // Submit to Supabase
+        const res = await fetch(SUPABASE_URL + '/rest/v1/yacht_rsvps', {
+          method: 'POST',
+          headers: {
+            'apikey': SUPABASE_KEY,
+            'Authorization': 'Bearer ' + SUPABASE_KEY,
+            'Content-Type': 'application/json',
+            'Prefer': 'return=minimal'
+          },
+          body: JSON.stringify(data)
+        });
+        if (!res.ok) throw new Error('Failed to submit');
+
+        // Also submit to Google Sheets (fire-and-forget)
+        if (SHEETS_URL) {
+          fetch(SHEETS_URL, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+          }).catch(() => {});
+        }
+
+        document.getElementById('rsvpForm').style.display = 'none';
+        document.getElementById('formSuccess').classList.add('visible');
+        fireConfetti();
+      } catch (err) {
+        errEl.textContent = 'Something went wrong. Please try again or reach out to Kentaro directly.';
+        errEl.classList.add('visible');
+        btn.disabled = false;
+        btn.textContent = 'Send RSVP';
+      }
+    });
+    // ── Confetti ──
+    function fireConfetti() {
+      const canvas = document.createElement('canvas');
+      canvas.id = 'confetti-canvas';
+      document.body.appendChild(canvas);
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      const ctx = canvas.getContext('2d');
+      const colors = ['#b8955f','#0b1d35','#25D366','#e2c686','#1a5f7a','#d4c5a0','#ffffff'];
+      const pieces = [];
+      for (let i = 0; i < 150; i++) {
+        pieces.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height - canvas.height,
+          w: Math.random() * 8 + 4,
+          h: Math.random() * 4 + 2,
+          color: colors[Math.floor(Math.random() * colors.length)],
+          vx: (Math.random() - 0.5) * 4,
+          vy: Math.random() * 3 + 2,
+          rot: Math.random() * 360,
+          rv: (Math.random() - 0.5) * 10
+        });
+      }
+      let frame = 0;
+      function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        pieces.forEach(function(p) {
+          p.x += p.vx; p.y += p.vy; p.rot += p.rv; p.vy += 0.05;
+          ctx.save();
+          ctx.translate(p.x, p.y);
+          ctx.rotate(p.rot * Math.PI / 180);
+          ctx.fillStyle = p.color;
+          ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
+          ctx.restore();
+        });
+        frame++;
+        if (frame < 180) requestAnimationFrame(draw);
+        else canvas.remove();
+      }
+      draw();
+    }
+  </script>
+</body>
+</html>
