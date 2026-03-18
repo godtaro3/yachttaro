@@ -1451,16 +1451,21 @@
     <div class="container">
       <div style="text-align:center;" class="fade-up">
         <span class="label">RSVP</span>
-        <h2>Confirm Your Spot</h2>
+        <h2 id="rsvpHeading">Confirm Your Spot</h2>
         <p class="section-intro" style="margin: 0 auto;">
-          We need your details to arrange cabins, transfers, and provisions. Please fill this out as soon as possible.
+          8 guests have already confirmed. RSVP by <strong>April 20</strong> so we can arrange cabins, transfers, and provisions.
         </p>
+        <div style="margin-top:1rem;display:inline-flex;align-items:center;gap:.5rem;font-size:.8rem;color:var(--gold);font-family:var(--font-sans);font-weight:500;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 2v4M16 2v4M3 10h18M5 4h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V6a2 2 0 012-2z"/></svg>
+          <span id="rsvpDeadlineCountdown"></span>
+        </div>
       </div>
 
       <div class="form-wrap">
         <div id="formError" class="form-error"></div>
 
-        <form id="rsvpForm" class="fade-up">
+        <!-- ══ STEP 1: Quick commitment ══ -->
+        <form id="rsvpStep1" class="fade-up">
           <div class="form-group">
             <label for="fullName">Your Name</label>
             <input type="text" id="fullName" name="full_name" required placeholder="Full name">
@@ -1476,7 +1481,7 @@
             <div class="radio-group">
               <div class="radio-option">
                 <input type="radio" id="attendYes" name="attending" value="yes" required>
-                <label for="attendYes">Yes, I'll be there</label>
+                <label for="attendYes">Yes, I'll be there!</label>
               </div>
               <div class="radio-option">
                 <input type="radio" id="attendNo" name="attending" value="no">
@@ -1490,8 +1495,8 @@
             We'll miss you. Thank you for letting us know.
           </div>
 
-          <!-- Shown when "Yes" -->
-          <div id="yesFields" class="conditional-fields">
+          <!-- Shown when "Yes" — guest count only -->
+          <div id="step1YesExtra" class="conditional-fields">
             <div class="form-group">
               <label for="guestCount">How many guests in your party (including you)?</label>
               <select id="guestCount" name="guest_count">
@@ -1505,8 +1510,22 @@
                 <option value="8">8</option>
               </select>
             </div>
+          </div>
 
-            <p style="margin:1.5rem 0 .5rem;font-size:.85rem;color:var(--text-light);padding:.75rem 1rem;background:rgba(184,149,95,.08);border-radius:6px;border-left:3px solid var(--gold);line-height:1.6;">
+          <button type="submit" class="submit-btn" id="submitStep1">Confirm RSVP</button>
+          <p style="text-align:center;font-size:.8rem;color:var(--text-light);margin-top:.75rem;">Takes 10 seconds. We'll ask for details next.</p>
+        </form>
+
+        <!-- ══ STEP 2: Details (shown after step 1 submit) ══ -->
+        <div id="rsvpStep2" style="display:none;">
+          <div style="text-align:center;padding:1.5rem 0 2rem;">
+            <div style="font-size:2rem;margin-bottom:.5rem;">&#127881;</div>
+            <h3 style="font-family:var(--font-serif);font-size:1.5rem;color:var(--navy);margin-bottom:.5rem;">You're confirmed!</h3>
+            <p style="color:var(--text-light);font-size:.95rem;">Now help us prepare everything for you. You can fill this out now or come back later — your spot is secured.</p>
+          </div>
+
+          <form id="rsvpDetails" class="fade-up">
+            <p style="margin:0 0 1.5rem;font-size:.85rem;color:var(--text-light);padding:.75rem 1rem;background:rgba(184,149,95,.08);border-radius:6px;border-left:3px solid var(--gold);line-height:1.6;">
               Please ensure all passports are valid for at least <strong>6 months after June 13, 2026</strong> (i.e. until December 13, 2026 or later). This is required for entry into Croatia / Schengen area.
             </p>
 
@@ -1549,10 +1568,11 @@
               <label for="notes">Anything else we should know?</label>
               <textarea id="notes" name="notes" rows="2" placeholder="Questions, requests, or just a note"></textarea>
             </div>
-          </div>
 
-          <button type="submit" class="submit-btn" id="submitBtn">Send RSVP</button>
-        </form>
+            <button type="submit" class="submit-btn" id="submitStep2">Save Details</button>
+            <p style="text-align:center;margin-top:.75rem;"><a href="#" id="skipDetails" style="font-size:.85rem;color:var(--text-light);text-decoration:underline;">I'll fill this out later</a></p>
+          </form>
+        </div>
 
         <div id="formSuccess" class="form-success">
           <h3>Thank You</h3>
@@ -1660,19 +1680,37 @@
       floatingRsvp.classList.toggle('visible', show);
     }, { passive: true });
 
-    // ── Form conditional fields ──
+    // ── RSVP deadline countdown ──
+    (function() {
+      const deadline = new Date('2026-04-20T23:59:59+02:00');
+      function updateDeadline() {
+        const diff = deadline - new Date();
+        if (diff <= 0) { document.getElementById('rsvpDeadlineCountdown').textContent = 'Deadline passed'; return; }
+        const d = Math.floor(diff / 864e5);
+        document.getElementById('rsvpDeadlineCountdown').textContent = d + ' days left to RSVP';
+      }
+      updateDeadline(); setInterval(updateDeadline, 60000);
+    })();
+
+    // ── Personalized RSVP heading ──
+    if (guestName) {
+      const decoded = decodeURIComponent(guestName);
+      const first = (/[&,]/.test(decoded) || /^(Mr|Mrs|Ms|The)\b/.test(decoded)) ? decoded : decoded.split(' ')[0];
+      document.getElementById('rsvpHeading').textContent = first + ', Confirm Your Spot';
+    }
+
+    // ── Form conditional fields (Step 1) ──
     const attendYes = document.getElementById('attendYes');
     const attendNo = document.getElementById('attendNo');
-    const yesFields = document.getElementById('yesFields');
+    const step1YesExtra = document.getElementById('step1YesExtra');
     const missYou = document.getElementById('missYou');
 
     function toggleFields() {
       if (attendYes.checked) {
-        yesFields.classList.add('visible');
+        step1YesExtra.classList.add('visible');
         missYou.classList.remove('visible');
-        renderGuestCards();
       } else if (attendNo.checked) {
-        yesFields.classList.remove('visible');
+        step1YesExtra.classList.remove('visible');
         missYou.classList.add('visible');
       }
     }
@@ -1692,8 +1730,8 @@
       card.appendChild(title);
 
       const fields = [
-        ['g-name', 'Full name (as on passport)', 'text', 'Full legal name', true],
-        ['g-dob', 'Date of birth', 'date', '', true],
+        ['g-name', 'Full name (as on passport)', 'text', 'Full legal name', false],
+        ['g-dob', 'Date of birth', 'date', '', false],
         ['g-pob', 'Place of birth', 'text', 'City, Country', false],
         ['g-nat', 'Nationality', 'text', 'e.g. American, Japanese', false],
         ['g-res', 'City & country of residence', 'text', 'e.g. Bangkok, Thailand', false],
@@ -1714,7 +1752,6 @@
         grp.appendChild(lbl);
         const inp = document.createElement('input');
         inp.type = f[2]; inp.className = f[0]; inp.placeholder = f[3];
-        if (f[4]) inp.required = true;
         grp.appendChild(inp);
         if (idx === 8) { row.className = 'form-group'; row.appendChild(lbl); row.appendChild(inp); }
         else { row.appendChild(grp); }
@@ -1739,21 +1776,21 @@
       guestCountEl.style.backgroundColor = '#f5f0e8';
     }
     guestCountEl.addEventListener('change', renderGuestCards);
-    renderGuestCards();
 
-    // ── Form submission ──
+    // ── Supabase config ──
     const SUPABASE_URL = 'https://dyvahmmkiynvxfvqmnjb.supabase.co';
     const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR5dmFobW1raXludnhmdnFtbmpiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzIwNDgyMTEsImV4cCI6MjA4NzYyNDIxMX0.JMQnsWqIhlO-DN-CFkR-WzYld6tPpUW8pVMR1NbMtUI';
-    // Google Sheets Apps Script URL — replace after deploying your script
     const SHEETS_URL = '';
+    let savedRsvpId = null;
 
-    document.getElementById('rsvpForm').addEventListener('submit', async function(e) {
+    // ── STEP 1: Quick commitment ──
+    document.getElementById('rsvpStep1').addEventListener('submit', async function(e) {
       e.preventDefault();
-      const btn = document.getElementById('submitBtn');
+      const btn = document.getElementById('submitStep1');
       const errEl = document.getElementById('formError');
       errEl.classList.remove('visible');
       btn.disabled = true;
-      btn.textContent = 'Sending...';
+      btn.textContent = 'Confirming...';
 
       const attending = attendYes.checked;
       const data = {
@@ -1765,63 +1802,100 @@
       if (attending) {
         guestCountEl.disabled = false;
         data.guest_count = parseInt(guestCountEl.value) || 1;
-        // Collect per-guest details
-        var guests = [];
-        document.querySelectorAll('.guest-card').forEach(function(card) {
-          guests.push({
-            name: card.querySelector('.g-name').value.trim(),
-            dob: card.querySelector('.g-dob').value,
-            place_of_birth: card.querySelector('.g-pob').value.trim(),
-            nationality: card.querySelector('.g-nat').value.trim(),
-            residence: card.querySelector('.g-res').value.trim(),
-            passport_number: card.querySelector('.g-pp').value.trim(),
-            passport_expiry: card.querySelector('.g-ppexp').value,
-            allergies: card.querySelector('.g-allergy').value.trim(),
-            dietary: card.querySelector('.g-diet').value.trim()
-          });
-        });
-        data.guests_json = guests;
-        data.guest_names = guests.map(function(g) { return g.name; }).filter(Boolean).join('\n') || null;
-        data.dietary_restrictions = guests.map(function(g) { return g.dietary ? g.name + ': ' + g.dietary : ''; }).filter(Boolean).join('\n') || null;
-        data.arrival_date = document.getElementById('arrivalDate').value || null;
-        data.flight_details = document.getElementById('flightDetails').value.trim() || null;
-        data.need_hotel = document.getElementById('hotelYes').checked ? true : (document.getElementById('hotelNo').checked ? false : null);
-        data.notes = document.getElementById('notes').value.trim() || null;
       }
 
       try {
-        // Submit to Supabase
         const res = await fetch(SUPABASE_URL + '/rest/v1/yacht_rsvps', {
           method: 'POST',
           headers: {
             'apikey': SUPABASE_KEY,
             'Authorization': 'Bearer ' + SUPABASE_KEY,
             'Content-Type': 'application/json',
-            'Prefer': 'return=minimal'
+            'Prefer': 'return=representation'
           },
           body: JSON.stringify(data)
         });
         if (!res.ok) throw new Error('Failed to submit');
+        const result = await res.json();
+        savedRsvpId = result[0]?.id;
 
-        // Also submit to Google Sheets (fire-and-forget)
         if (SHEETS_URL) {
-          fetch(SHEETS_URL, {
-            method: 'POST',
-            mode: 'no-cors',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(data)
-          }).catch(() => {});
+          fetch(SHEETS_URL, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) }).catch(() => {});
         }
 
-        document.getElementById('rsvpForm').style.display = 'none';
-        document.getElementById('formSuccess').classList.add('visible');
+        document.getElementById('rsvpStep1').style.display = 'none';
         fireConfetti();
+
+        if (attending) {
+          // Show step 2 for details
+          document.getElementById('rsvpStep2').style.display = 'block';
+          renderGuestCards();
+          document.getElementById('rsvpStep2').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        } else {
+          // Declined — show thank you
+          document.getElementById('formSuccess').classList.add('visible');
+        }
       } catch (err) {
         errEl.textContent = 'Something went wrong. Please try again or reach out to Kentaro directly.';
         errEl.classList.add('visible');
         btn.disabled = false;
-        btn.textContent = 'Send RSVP';
+        btn.textContent = 'Confirm RSVP';
       }
+    });
+
+    // ── STEP 2: Save details (updates existing record) ──
+    document.getElementById('rsvpDetails').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const btn = document.getElementById('submitStep2');
+      btn.disabled = true;
+      btn.textContent = 'Saving...';
+
+      var guests = [];
+      document.querySelectorAll('.guest-card').forEach(function(card) {
+        guests.push({
+          name: card.querySelector('.g-name').value.trim(),
+          dob: card.querySelector('.g-dob').value,
+          place_of_birth: card.querySelector('.g-pob').value.trim(),
+          nationality: card.querySelector('.g-nat').value.trim(),
+          residence: card.querySelector('.g-res').value.trim(),
+          passport_number: card.querySelector('.g-pp').value.trim(),
+          passport_expiry: card.querySelector('.g-ppexp').value,
+          allergies: card.querySelector('.g-allergy').value.trim(),
+          dietary: card.querySelector('.g-diet').value.trim()
+        });
+      });
+
+      const data = {
+        guests_json: guests,
+        guest_names: guests.map(function(g) { return g.name; }).filter(Boolean).join('\n') || null,
+        dietary_restrictions: guests.map(function(g) { return g.dietary ? g.name + ': ' + g.dietary : ''; }).filter(Boolean).join('\n') || null,
+        arrival_date: document.getElementById('arrivalDate').value || null,
+        flight_details: document.getElementById('flightDetails').value.trim() || null,
+        need_hotel: document.getElementById('hotelYes').checked ? true : (document.getElementById('hotelNo').checked ? false : null),
+        notes: document.getElementById('notes').value.trim() || null,
+      };
+
+      try {
+        if (savedRsvpId) {
+          await fetch(SUPABASE_URL + '/rest/v1/yacht_rsvps?id=eq.' + savedRsvpId, {
+            method: 'PATCH',
+            headers: { 'apikey': SUPABASE_KEY, 'Authorization': 'Bearer ' + SUPABASE_KEY, 'Content-Type': 'application/json', 'Prefer': 'return=minimal' },
+            body: JSON.stringify(data)
+          });
+        }
+        document.getElementById('rsvpStep2').style.display = 'none';
+        document.getElementById('formSuccess').classList.add('visible');
+      } catch (err) {
+        btn.disabled = false;
+        btn.textContent = 'Save Details';
+      }
+    });
+
+    // ── Skip details link ──
+    document.getElementById('skipDetails').addEventListener('click', function(e) {
+      e.preventDefault();
+      document.getElementById('rsvpStep2').style.display = 'none';
+      document.getElementById('formSuccess').classList.add('visible');
     });
     // ── Confetti ──
     function fireConfetti() {
