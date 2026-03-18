@@ -1249,100 +1249,116 @@
     <div class="container">
       <div style="text-align:center;" class="fade-up">
         <span class="label">RSVP</span>
-        <h2>参加を確認する</h2>
+        <h2 id="rsvpHeading">参加を確認する</h2>
         <p class="section-intro" style="margin: 0 auto;">
-          キャビン、送迎、備品の手配に必要です。できるだけ早くご記入ください。
+          8名のゲストがすでに参加を確認しています。キャビン、送迎、備品の手配のため、<strong>4月20日</strong>までにRSVPをお願いします。
         </p>
+        <div style="margin-top:1rem;display:inline-flex;align-items:center;gap:.5rem;font-size:.8rem;color:var(--gold);font-family:var(--font-sans);font-weight:500;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 2v4M16 2v4M3 10h18M5 4h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V6a2 2 0 012-2z"/></svg>
+          <span id="rsvpDeadlineCountdown"></span>
+        </div>
       </div>
 
       <div class="form-wrap">
         <div id="formError" class="form-error"></div>
 
-        <form id="rsvpForm" class="fade-up">
+        <!-- STEP 1 -->
+        <form id="rsvpStep1" class="fade-up">
           <div class="form-group">
             <label for="fullName">お名前</label>
             <input type="text" id="fullName" name="full_name" required placeholder="フルネーム">
           </div>
-
           <div class="form-group">
             <label for="email">メールアドレス</label>
             <input type="email" id="email" name="email" required placeholder="your@email.com">
           </div>
-
           <div class="form-group">
-            <label>ご参加いただけますか？</label>
+            <label>参加されますか？</label>
             <div class="radio-group">
               <div class="radio-option">
                 <input type="radio" id="attendYes" name="attending" value="yes" required>
-                <label for="attendYes">はい、参加します</label>
+                <label for="attendYes">はい、参加します！</label>
               </div>
               <div class="radio-option">
                 <input type="radio" id="attendNo" name="attending" value="no">
-                <label for="attendNo">残念ですが不参加</label>
+                <label for="attendNo">残念ながら不参加です</label>
               </div>
             </div>
           </div>
-
-          <div id="missYou" class="miss-you">
-            残念です。ご連絡いただきありがとうございます。
-          </div>
-
-          <div id="yesFields" class="conditional-fields">
+          <div id="missYou" class="miss-you">お会いできず残念です。ご連絡ありがとうございます。</div>
+          <div id="step1YesExtra" class="conditional-fields">
             <div class="form-group">
-              <label for="guestCount">ご一行の人数（ご本人を含む）</label>
+              <label for="guestCount">参加人数（ご本人含む）</label>
               <select id="guestCount" name="guest_count">
-                <option value="1">1名 — 自分のみ</option>
-                <option value="2">2名</option><option value="3">3名</option><option value="4">4名</option>
-                <option value="5">5名</option><option value="6">6名</option><option value="7">7名</option><option value="8">8名</option>
+                <option value="1">1 — 自分だけ</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
               </select>
             </div>
+          </div>
+          <button type="submit" class="submit-btn" id="submitStep1">RSVPを確認</button>
+          <p style="text-align:center;font-size:.8rem;color:var(--text-light);margin-top:.75rem;">10秒で完了。詳細は次のステップでお聞きします。</p>
+        </form>
 
-            <p style="margin:1.5rem 0 .5rem;font-size:.83rem;color:var(--text-light);padding:.75rem 1rem;background:rgba(184,149,95,.08);border-radius:6px;border-left:3px solid var(--gold);line-height:1.7;">
-              パスポートの有効期限が<strong>2026年12月13日以降</strong>であることをご確認ください。クロアチア（シェンゲン圏）入国には出国日から6ヶ月以上の有効期間が必要です。
+        <!-- STEP 2 -->
+        <div id="rsvpStep2" style="display:none;">
+          <div style="text-align:center;padding:1.5rem 0 2rem;">
+            <div style="font-size:2rem;margin-bottom:.5rem;">&#127881;</div>
+            <h3 style="font-family:var(--font-serif);font-size:1.5rem;color:var(--navy);margin-bottom:.5rem;">参加確定！</h3>
+            <p style="color:var(--text-light);font-size:.95rem;">クロアチアの海事法により、乗船前にすべてのゲストのパスポート情報が必要です。キャビンの割り当て、送迎の手配、ヨットの備品準備にも必要です。<strong style="color:var(--navy);">今すぐご記入ください — 2分で完了します。</strong></p>
+          </div>
+          <form id="rsvpDetails" class="fade-up">
+            <p style="margin:0 0 1.5rem;font-size:.85rem;color:var(--text-light);padding:.75rem 1rem;background:rgba(184,149,95,.08);border-radius:6px;border-left:3px solid var(--gold);line-height:1.6;">
+              すべてのパスポートが<strong>2026年6月13日から6ヶ月以上有効</strong>（2026年12月13日以降まで有効）であることをご確認ください。クロアチア／シェンゲン圏への入国に必要です。
             </p>
-
             <div id="guestSections"></div>
-
             <hr style="border:none;border-top:1px solid var(--border);margin:2rem 0;">
-            <h3 style="font-size:1.05rem;margin-bottom:1rem;color:var(--navy);">渡航情報</h3>
-
+            <h3 style="font-size:1.1rem;margin-bottom:1rem;color:var(--navy);">渡航の詳細</h3>
             <div class="form-group">
-              <label for="arrivalDate">スプリットへの到着予定日</label>
+              <label for="arrivalDate">スプリットへの到着予定日は？</label>
               <select id="arrivalDate" name="arrival_date">
-                <option value="">日付を選択</option>
+                <option value="">日程を選択</option>
                 <option value="june_4_or_earlier">6月4日以前</option>
                 <option value="june_5_recommended">6月5日（推奨）</option>
-                <option value="june_6_departure_day">6月6日（出航日）</option>
+                <option value="june_6_departure_day">6月6日（出発当日）</option>
               </select>
             </div>
-
             <div class="form-group">
-              <label for="flightDetails">フライト情報（わかっている場合）</label>
-              <span class="hint">航空会社、便名、到着時刻 — 後で更新可能です</span>
-              <textarea id="flightDetails" name="flight_details" rows="2" placeholder="例：ターキッシュ エアラインズ TK1234、6月5日 14:30着"></textarea>
+              <label for="flightDetails">フライト情報（わかる場合）</label>
+              <span class="hint">航空会社、便名、到着時刻 — 後から更新できます</span>
+              <textarea id="flightDetails" name="flight_details" rows="2" placeholder="例: ターキッシュ航空 TK1234、6月5日 14:30着"></textarea>
             </div>
-
             <div class="form-group">
-              <label>前泊のホテル手配が必要ですか？</label>
+              <label>前泊のホテル手配は必要ですか？</label>
               <div class="radio-group">
-                <div class="radio-option"><input type="radio" id="hotelYes" name="need_hotel" value="yes"><label for="hotelYes">はい、お願いします</label></div>
-                <div class="radio-option"><input type="radio" id="hotelNo" name="need_hotel" value="no"><label for="hotelNo">いいえ、大丈夫です</label></div>
+                <div class="radio-option">
+                  <input type="radio" id="hotelYes" name="need_hotel" value="yes">
+                  <label for="hotelYes">お願いします</label>
+                </div>
+                <div class="radio-option">
+                  <input type="radio" id="hotelNo" name="need_hotel" value="no">
+                  <label for="hotelNo">不要です</label>
+                </div>
               </div>
             </div>
-
             <div class="form-group">
-              <label for="notes">その他ご質問やご要望</label>
-              <textarea id="notes" name="notes" rows="2" placeholder="質問、リクエスト、メッセージなど"></textarea>
+              <label for="notes">その他</label>
+              <textarea id="notes" name="notes" rows="2" placeholder="質問、リクエスト、メモなど"></textarea>
             </div>
-          </div>
-
-          <button type="submit" class="submit-btn" id="submitBtn">送信する</button>
-        </form>
+            <button type="submit" class="submit-btn" id="submitStep2">詳細を保存</button>
+            <p style="text-align:center;margin-top:.75rem;"><a href="#" id="skipDetails" style="font-size:.85rem;color:var(--text-light);text-decoration:underline;">後で記入する</a></p>
+          </form>
+        </div>
 
         <div id="formSuccess" class="form-success">
           <h3>ありがとうございます</h3>
-          <p>ご回答を受け付けました。出航が近づきましたら、詳細をお知らせいたします。</p>
-          <p style="margin-top: 1rem; font-style: italic; color: var(--gold);">海でお会いしましょう。</p>
+          <p>RSVPを受け付けました。出発が近づきましたら、詳細をご連絡いたします。</p>
+          <p style="margin-top: 1rem; font-style: italic; color: var(--gold);">海の上でお会いしましょう。</p>
         </div>
       </div>
     </div>
@@ -1419,61 +1435,117 @@
       floatingRsvp.classList.toggle('visible', show);
     }, { passive: true });
 
-    // ── Form conditional fields ──
+    // ── RSVP deadline countdown ──
+    (function() {
+      const deadline = new Date('2026-04-20T23:59:59+02:00');
+      function updateDeadline() {
+        const diff = deadline - new Date();
+        if (diff <= 0) { document.getElementById('rsvpDeadlineCountdown').textContent = 'Deadline passed'; return; }
+        const d = Math.floor(diff / 864e5);
+        document.getElementById('rsvpDeadlineCountdown').textContent = d + ' days left to RSVP';
+      }
+      updateDeadline(); setInterval(updateDeadline, 60000);
+    })();
+
+    // ── Personalized RSVP heading ──
+    if (guestName) {
+      const decoded = decodeURIComponent(guestName);
+      const first = (/[&,]/.test(decoded) || /^(Mr|Mrs|Ms|The)\b/.test(decoded)) ? decoded : decoded.split(' ')[0];
+      document.getElementById('rsvpHeading').textContent = first + ', Confirm Your Spot';
+    }
+
+    // ── Form conditional fields (Step 1) ──
     const attendYes = document.getElementById('attendYes');
     const attendNo = document.getElementById('attendNo');
-    const yesFields = document.getElementById('yesFields');
+    const step1YesExtra = document.getElementById('step1YesExtra');
     const missYou = document.getElementById('missYou');
 
     function toggleFields() {
       if (attendYes.checked) {
-        yesFields.classList.add('visible');
+        step1YesExtra.classList.add('visible');
         missYou.classList.remove('visible');
       } else if (attendNo.checked) {
-        yesFields.classList.remove('visible');
+        step1YesExtra.classList.remove('visible');
         missYou.classList.add('visible');
       }
     }
     attendYes.addEventListener('change', toggleFields);
     attendNo.addEventListener('change', toggleFields);
 
-    const guestCountEl=document.getElementById('guestCount'),guestSections=document.getElementById('guestSections');
-    function makeGuestCard(i){
-      const card=document.createElement('div');card.className='guest-card';
-      const title=document.createElement('div');title.className='guest-card-title';title.textContent='ゲスト '+(i+1);card.appendChild(title);
-      const fields=[['g-name','Full name (as on passport)','text','Full legal name',true],['g-dob','Date of birth','date','',true],['g-pob','Place of birth','text','City, Country',false],['g-nat','Nationality','text','e.g. Japanese, American',false],['g-res','City & country of residence','text','e.g. Tokyo, Japan',false],['g-pp','Passport number','text','Passport number',false],['g-ppexp','Passport expiry date','date','',false],['g-allergy','Allergies','text','None, or list allergies',false],['g-diet','Dietary restrictions & food preferences','text','e.g. Vegetarian, no spicy, loves sushi',false]];
-      var row;
-      fields.forEach(function(f,idx){
-        if(idx%2===0){row=document.createElement('div');row.className='form-row';card.appendChild(row)}
-        if(idx===8){row=document.createElement('div');card.appendChild(row)}
-        var grp=document.createElement('div');grp.className='form-group';
-        var lbl=document.createElement('label');lbl.textContent=f[1];grp.appendChild(lbl);
-        var inp=document.createElement('input');inp.type=f[2];inp.className=f[0];inp.placeholder=f[3];if(f[4])inp.required=true;grp.appendChild(inp);
-        if(idx===8){row.className='form-group';row.appendChild(lbl);row.appendChild(inp)}else{row.appendChild(grp)}
+    // ── Dynamic guest cards ──
+    const guestCountEl = document.getElementById('guestCount');
+    const guestSections = document.getElementById('guestSections');
+
+    function makeGuestCard(i) {
+      const card = document.createElement('div');
+      card.className = 'guest-card';
+      const title = document.createElement('div');
+      title.className = 'guest-card-title';
+      title.textContent = 'Guest ' + (i + 1);
+      card.appendChild(title);
+
+      const fields = [
+        ['g-name', 'Full name (as on passport)', 'text', 'Full legal name', false],
+        ['g-dob', 'Date of birth', 'date', '', false],
+        ['g-pob', 'Place of birth', 'text', 'City, Country', false],
+        ['g-nat', 'Nationality', 'text', 'e.g. American, Japanese', false],
+        ['g-res', 'City & country of residence', 'text', 'e.g. Bangkok, Thailand', false],
+        ['g-pp', 'Passport number', 'text', 'Passport number', false],
+        ['g-ppexp', 'Passport expiry date', 'date', '', false],
+        ['g-allergy', 'Allergies', 'text', 'None, or list allergies', false],
+        ['g-diet', 'Dietary restrictions & food preferences', 'text', 'e.g. Vegetarian, no spicy, loves sushi', false]
+      ];
+
+      let row;
+      fields.forEach(function(f, idx) {
+        if (idx % 2 === 0) { row = document.createElement('div'); row.className = 'form-row'; card.appendChild(row); }
+        if (idx === 8) { row = document.createElement('div'); card.appendChild(row); }
+        const grp = document.createElement('div');
+        grp.className = 'form-group';
+        const lbl = document.createElement('label');
+        lbl.textContent = f[1];
+        grp.appendChild(lbl);
+        const inp = document.createElement('input');
+        inp.type = f[2]; inp.className = f[0]; inp.placeholder = f[3];
+        grp.appendChild(inp);
+        if (idx === 8) { row.className = 'form-group'; row.appendChild(lbl); row.appendChild(inp); }
+        else { row.appendChild(grp); }
       });
       return card;
     }
-    function renderGuestCards(){
-      var count=parseInt(guestCountEl.value)||1;guestSections.replaceChildren();
-      for(var i=0;i<count;i++)guestSections.appendChild(makeGuestCard(i));
-      if(guestName){var first=guestSections.querySelector('.g-name');if(first&&!first.value)first.value=decodeURIComponent(guestName)}
-    }
-    const guestParam=params.get('guests');
-    if(guestParam){guestCountEl.value=guestParam;guestCountEl.disabled=true;guestCountEl.style.backgroundColor='#f5f0e8'}
-    guestCountEl.addEventListener('change',renderGuestCards);renderGuestCards();
 
-    // ── Form submission ──
+    function renderGuestCards() {
+      const count = parseInt(guestCountEl.value) || 1;
+      guestSections.replaceChildren();
+      for (let i = 0; i < count; i++) guestSections.appendChild(makeGuestCard(i));
+      if (guestName) {
+        const first = guestSections.querySelector('.g-name');
+        if (first && !first.value) first.value = decodeURIComponent(guestName);
+      }
+    }
+
+    const guestParam = params.get('guests');
+    if (guestParam) {
+      guestCountEl.value = guestParam;
+      guestCountEl.disabled = true;
+      guestCountEl.style.backgroundColor = '#f5f0e8';
+    }
+    guestCountEl.addEventListener('change', renderGuestCards);
+
+    // ── Supabase config ──
     const SUPABASE_URL = 'https://dyvahmmkiynvxfvqmnjb.supabase.co';
     const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR5dmFobW1raXludnhmdnFtbmpiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzIwNDgyMTEsImV4cCI6MjA4NzYyNDIxMX0.JMQnsWqIhlO-DN-CFkR-WzYld6tPpUW8pVMR1NbMtUI';
     const SHEETS_URL = '';
+    let savedRsvpId = null;
 
-    document.getElementById('rsvpForm').addEventListener('submit', async function(e) {
+    // ── STEP 1: Quick commitment ──
+    document.getElementById('rsvpStep1').addEventListener('submit', async function(e) {
       e.preventDefault();
-      const btn = document.getElementById('submitBtn');
+      const btn = document.getElementById('submitStep1');
       const errEl = document.getElementById('formError');
       errEl.classList.remove('visible');
       btn.disabled = true;
-      btn.textContent = '送信中...';
+      btn.textContent = 'Confirming...';
 
       const attending = attendYes.checked;
       const data = {
@@ -1483,14 +1555,8 @@
       };
 
       if (attending) {
-        guestCountEl.disabled=false;data.guest_count=parseInt(guestCountEl.value)||1;
-        var guests=[];document.querySelectorAll('.guest-card').forEach(function(card){guests.push({name:card.querySelector('.g-name').value.trim(),dob:card.querySelector('.g-dob').value,place_of_birth:card.querySelector('.g-pob').value.trim(),nationality:card.querySelector('.g-nat').value.trim(),residence:card.querySelector('.g-res').value.trim(),passport_number:card.querySelector('.g-pp').value.trim(),passport_expiry:card.querySelector('.g-ppexp').value,allergies:card.querySelector('.g-allergy').value.trim(),dietary:card.querySelector('.g-diet').value.trim()})});
-        data.guests_json=guests;data.guest_names=guests.map(function(g){return g.name}).filter(Boolean).join('\n')||null;
-        data.dietary_restrictions=guests.map(function(g){return g.dietary?g.name+': '+g.dietary:''}).filter(Boolean).join('\n')||null;
-        data.arrival_date=document.getElementById('arrivalDate').value||null;
-        data.flight_details=document.getElementById('flightDetails').value.trim()||null;
-        data.need_hotel=document.getElementById('hotelYes').checked?true:(document.getElementById('hotelNo').checked?false:null);
-        data.notes=document.getElementById('notes').value.trim()||null;
+        guestCountEl.disabled = false;
+        data.guest_count = parseInt(guestCountEl.value) || 1;
       }
 
       try {
@@ -1500,30 +1566,91 @@
             'apikey': SUPABASE_KEY,
             'Authorization': 'Bearer ' + SUPABASE_KEY,
             'Content-Type': 'application/json',
-            'Prefer': 'return=minimal'
+            'Prefer': 'return=representation'
           },
           body: JSON.stringify(data)
         });
         if (!res.ok) throw new Error('Failed to submit');
+        const result = await res.json();
+        savedRsvpId = result[0]?.id;
 
         if (SHEETS_URL) {
-          fetch(SHEETS_URL, {
-            method: 'POST',
-            mode: 'no-cors',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(data)
-          }).catch(() => {});
+          fetch(SHEETS_URL, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) }).catch(() => {});
         }
 
-        document.getElementById('rsvpForm').style.display = 'none';
-        document.getElementById('formSuccess').classList.add('visible');
+        document.getElementById('rsvpStep1').style.display = 'none';
         fireConfetti();
+
+        if (attending) {
+          // Show step 2 for details
+          document.getElementById('rsvpStep2').style.display = 'block';
+          renderGuestCards();
+          document.getElementById('rsvpStep2').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        } else {
+          // Declined — show thank you
+          document.getElementById('formSuccess').classList.add('visible');
+        }
       } catch (err) {
-        errEl.textContent = '送信に失敗しました。もう一度お試しいただくか、健太郎に直接ご連絡ください。';
+        errEl.textContent = 'Something went wrong. Please try again or reach out to Kentaro directly.';
         errEl.classList.add('visible');
         btn.disabled = false;
-        btn.textContent = '送信する';
+        btn.textContent = 'Confirm RSVP';
       }
+    });
+
+    // ── STEP 2: Save details (updates existing record) ──
+    document.getElementById('rsvpDetails').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const btn = document.getElementById('submitStep2');
+      btn.disabled = true;
+      btn.textContent = 'Saving...';
+
+      var guests = [];
+      document.querySelectorAll('.guest-card').forEach(function(card) {
+        guests.push({
+          name: card.querySelector('.g-name').value.trim(),
+          dob: card.querySelector('.g-dob').value,
+          place_of_birth: card.querySelector('.g-pob').value.trim(),
+          nationality: card.querySelector('.g-nat').value.trim(),
+          residence: card.querySelector('.g-res').value.trim(),
+          passport_number: card.querySelector('.g-pp').value.trim(),
+          passport_expiry: card.querySelector('.g-ppexp').value,
+          allergies: card.querySelector('.g-allergy').value.trim(),
+          dietary: card.querySelector('.g-diet').value.trim()
+        });
+      });
+
+      const data = {
+        guests_json: guests,
+        guest_names: guests.map(function(g) { return g.name; }).filter(Boolean).join('\n') || null,
+        dietary_restrictions: guests.map(function(g) { return g.dietary ? g.name + ': ' + g.dietary : ''; }).filter(Boolean).join('\n') || null,
+        arrival_date: document.getElementById('arrivalDate').value || null,
+        flight_details: document.getElementById('flightDetails').value.trim() || null,
+        need_hotel: document.getElementById('hotelYes').checked ? true : (document.getElementById('hotelNo').checked ? false : null),
+        notes: document.getElementById('notes').value.trim() || null,
+      };
+
+      try {
+        if (savedRsvpId) {
+          await fetch(SUPABASE_URL + '/rest/v1/yacht_rsvps?id=eq.' + savedRsvpId, {
+            method: 'PATCH',
+            headers: { 'apikey': SUPABASE_KEY, 'Authorization': 'Bearer ' + SUPABASE_KEY, 'Content-Type': 'application/json', 'Prefer': 'return=minimal' },
+            body: JSON.stringify(data)
+          });
+        }
+        document.getElementById('rsvpStep2').style.display = 'none';
+        document.getElementById('formSuccess').classList.add('visible');
+      } catch (err) {
+        btn.disabled = false;
+        btn.textContent = 'Save Details';
+      }
+    });
+
+    // ── Skip details link ──
+    document.getElementById('skipDetails').addEventListener('click', function(e) {
+      e.preventDefault();
+      document.getElementById('rsvpStep2').style.display = 'none';
+      document.getElementById('formSuccess').classList.add('visible');
     });
     function fireConfetti(){var c=document.createElement('canvas');c.id='confetti-canvas';document.body.appendChild(c);c.width=window.innerWidth;c.height=window.innerHeight;var ctx=c.getContext('2d'),cols=['#b8955f','#0b1d35','#25D366','#e2c686','#1a5f7a','#d4c5a0','#fff'],p=[];for(var i=0;i<150;i++)p.push({x:Math.random()*c.width,y:Math.random()*c.height-c.height,w:Math.random()*8+4,h:Math.random()*4+2,color:cols[Math.floor(Math.random()*cols.length)],vx:(Math.random()-.5)*4,vy:Math.random()*3+2,rot:Math.random()*360,rv:(Math.random()-.5)*10});var f=0;function draw(){ctx.clearRect(0,0,c.width,c.height);p.forEach(function(q){q.x+=q.vx;q.y+=q.vy;q.rot+=q.rv;q.vy+=.05;ctx.save();ctx.translate(q.x,q.y);ctx.rotate(q.rot*Math.PI/180);ctx.fillStyle=q.color;ctx.fillRect(-q.w/2,-q.h/2,q.w,q.h);ctx.restore()});f++;if(f<180)requestAnimationFrame(draw);else c.remove()}draw()}
   </script>

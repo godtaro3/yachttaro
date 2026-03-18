@@ -654,51 +654,116 @@
     <div class="container">
       <div style="text-align:center;" class="fade-up">
         <span class="label">RSVP</span>
-        <h2>Підтвердіть участь</h2>
-        <p class="section-intro" style="margin:0 auto;">Нам потрібні ваші дані для розподілу кают, трансферів та забезпечення. Будь ласка, заповніть якомога швидше.</p>
+        <h2 id="rsvpHeading">Підтвердіть участь</h2>
+        <p class="section-intro" style="margin: 0 auto;">
+          8 гостей вже підтвердили участь. Для розподілу кают, трансферів та забезпечення, будь ласка, дайте відповідь до <strong>20 квітня</strong>.
+        </p>
+        <div style="margin-top:1rem;display:inline-flex;align-items:center;gap:.5rem;font-size:.8rem;color:var(--gold);font-family:var(--font-sans);font-weight:500;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 2v4M16 2v4M3 10h18M5 4h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V6a2 2 0 012-2z"/></svg>
+          <span id="rsvpDeadlineCountdown"></span>
+        </div>
       </div>
+
       <div class="form-wrap">
         <div id="formError" class="form-error"></div>
-        <form id="rsvpForm" class="fade-up">
-          <div class="form-group"><label for="fullName">Ваше ім'я</label><input type="text" id="fullName" name="full_name" required placeholder="Повне ім'я"></div>
-          <div class="form-group"><label for="email">Електронна пошта</label><input type="email" id="email" name="email" required placeholder="your@email.com"></div>
+
+        <!-- STEP 1 -->
+        <form id="rsvpStep1" class="fade-up">
           <div class="form-group">
-            <label>Чи зможете приєднатися?</label>
-            <div class="radio-group">
-              <div class="radio-option"><input type="radio" id="attendYes" name="attending" value="yes" required><label for="attendYes">Так, буду!</label></div>
-              <div class="radio-option"><input type="radio" id="attendNo" name="attending" value="no"><label for="attendNo">На жаль, ні</label></div>
-            </div>
+            <label for="fullName">Ваше ім'я</label>
+            <input type="text" id="fullName" name="full_name" required placeholder="Повне ім'я">
           </div>
-          <div id="missYou" class="miss-you">Шкода. Дякуємо, що повідомили.</div>
-          <div id="yesFields" class="conditional-fields">
-            <div class="form-group"><label for="guestCount">Скільки гостей у вашій групі (включно з вами)?</label><select id="guestCount" name="guest_count"><option value="1">1 — тільки я</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option></select></div>
-
-            <p style="margin:1.5rem 0 .5rem;font-size:.83rem;color:var(--text-light);padding:.75rem 1rem;background:rgba(184,149,95,.08);border-radius:6px;border-left:3px solid var(--gold);line-height:1.7;">
-              Переконайтесь, що паспорти дійсні щонайменше до <strong>13 грудня 2026</strong> (6 місяців після закінчення подорожі). Це вимога для в'їзду до Хорватії / Шенгенської зони.
-            </p>
-
-            <div id="guestSections"></div>
-
-            <hr style="border:none;border-top:1px solid var(--border);margin:2rem 0;">
-            <h3 style="font-size:1.05rem;margin-bottom:1rem;color:var(--navy);">Деталі подорожі</h3>
-
-            <div class="form-group"><label for="arrivalDate">Коли плануєте прибути до Спліту?</label><select id="arrivalDate" name="arrival_date"><option value="">Оберіть дату</option><option value="june_4_or_earlier">4 червня або раніше</option><option value="june_5_recommended">5 червня (рекомендовано)</option><option value="june_6_departure_day">6 червня (день відправлення)</option></select></div>
-            <div class="form-group"><label for="flightDetails">Деталі рейсу (якщо відомі)</label><span class="hint">Авіакомпанія, номер рейсу, час прибуття — можна оновити пізніше</span><textarea id="flightDetails" name="flight_details" rows="2" placeholder="напр. Turkish Airlines TK1234, прибуття 14:30 5 червня"></textarea></div>
-            <div class="form-group">
-              <label>Потрібна допомога з готелем на ніч перед відправленням?</label>
-              <div class="radio-group">
-                <div class="radio-option"><input type="radio" id="hotelYes" name="need_hotel" value="yes"><label for="hotelYes">Так, будь ласка</label></div>
-                <div class="radio-option"><input type="radio" id="hotelNo" name="need_hotel" value="no"><label for="hotelNo">Ні, все гаразд</label></div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required placeholder="your@email.com">
+          </div>
+          <div class="form-group">
+            <label>Ви приєднаєтесь?</label>
+            <div class="radio-group">
+              <div class="radio-option">
+                <input type="radio" id="attendYes" name="attending" value="yes" required>
+                <label for="attendYes">Так, я буду!</label>
+              </div>
+              <div class="radio-option">
+                <input type="radio" id="attendNo" name="attending" value="no">
+                <label for="attendNo">На жаль, ні</label>
               </div>
             </div>
-            <div class="form-group"><label for="notes">Щось ще?</label><textarea id="notes" name="notes" rows="2" placeholder="Питання, побажання або просто повідомлення"></textarea></div>
           </div>
-          <button type="submit" class="submit-btn" id="submitBtn">Надіслати RSVP</button>
+          <div id="missYou" class="miss-you">Будемо сумувати. Дякуємо, що повідомили.</div>
+          <div id="step1YesExtra" class="conditional-fields">
+            <div class="form-group">
+              <label for="guestCount">Кількість гостей (включно з вами)</label>
+              <select id="guestCount" name="guest_count">
+                <option value="1">1 — Тільки я</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+              </select>
+            </div>
+          </div>
+          <button type="submit" class="submit-btn" id="submitStep1">Підтвердити RSVP</button>
+          <p style="text-align:center;font-size:.8rem;color:var(--text-light);margin-top:.75rem;">Займе 10 секунд. Деталі запитаємо далі.</p>
         </form>
+
+        <!-- STEP 2 -->
+        <div id="rsvpStep2" style="display:none;">
+          <div style="text-align:center;padding:1.5rem 0 2rem;">
+            <div style="font-size:2rem;margin-bottom:.5rem;">&#127881;</div>
+            <h3 style="font-family:var(--font-serif);font-size:1.5rem;color:var(--navy);margin-bottom:.5rem;">Ви в списку!</h3>
+            <p style="color:var(--text-light);font-size:.95rem;">Морське законодавство Хорватії вимагає паспортні дані кожного гостя перед посадкою. Також потрібно для розподілу кают, трансферів та забезпечення яхти. <strong style="color:var(--navy);">Будь ласка, заповніть зараз — це займе 2 хвилини.</strong></p>
+          </div>
+          <form id="rsvpDetails" class="fade-up">
+            <p style="margin:0 0 1.5rem;font-size:.85rem;color:var(--text-light);padding:.75rem 1rem;background:rgba(184,149,95,.08);border-radius:6px;border-left:3px solid var(--gold);line-height:1.6;">
+              Переконайтесь, що всі паспорти дійсні щонайменше <strong>6 місяців після 13 червня 2026</strong> (тобто до 13 грудня 2026 або довше). Це вимога для в'їзду в Хорватію / Шенгенську зону.
+            </p>
+            <div id="guestSections"></div>
+            <hr style="border:none;border-top:1px solid var(--border);margin:2rem 0;">
+            <h3 style="font-size:1.1rem;margin-bottom:1rem;color:var(--navy);">Деталі подорожі</h3>
+            <div class="form-group">
+              <label for="arrivalDate">Коли плануєте прибути до Спліта?</label>
+              <select id="arrivalDate" name="arrival_date">
+                <option value="">Оберіть дату</option>
+                <option value="june_4_or_earlier">4 червня або раніше</option>
+                <option value="june_5_recommended">5 червня (рекомендовано)</option>
+                <option value="june_6_departure_day">6 червня (день відправлення)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="flightDetails">Дані рейсу (якщо відомі)</label>
+              <span class="hint">Авіакомпанія, номер рейсу, час прибуття — можна оновити пізніше</span>
+              <textarea id="flightDetails" name="flight_details" rows="2" placeholder="напр. Turkish Airlines TK1234, прибуття 14:30 5 червня"></textarea>
+            </div>
+            <div class="form-group">
+              <label>Потрібна допомога з готелем на ніч перед?</label>
+              <div class="radio-group">
+                <div class="radio-option">
+                  <input type="radio" id="hotelYes" name="need_hotel" value="yes">
+                  <label for="hotelYes">Так, будь ласка</label>
+                </div>
+                <div class="radio-option">
+                  <input type="radio" id="hotelNo" name="need_hotel" value="no">
+                  <label for="hotelNo">Ні, все гаразд</label>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="notes">Щось ще?</label>
+              <textarea id="notes" name="notes" rows="2" placeholder="Запитання, побажання або нотатки"></textarea>
+            </div>
+            <button type="submit" class="submit-btn" id="submitStep2">Зберегти деталі</button>
+            <p style="text-align:center;margin-top:.75rem;"><a href="#" id="skipDetails" style="font-size:.85rem;color:var(--text-light);text-decoration:underline;">Заповню пізніше</a></p>
+          </form>
+        </div>
+
         <div id="formSuccess" class="form-success">
-          <h3>Дякуємо!</h3>
-          <p>Вашу відповідь отримано. Ми зв'яжемось з деталями ближче до відправлення.</p>
-          <p style="margin-top:1rem;font-style:italic;color:var(--gold);">Побачимось на воді.</p>
+          <h3>Дякуємо</h3>
+          <p>Ваш RSVP отримано. Ми зв'яжемося з деталями ближче до відправлення.</p>
+          <p style="margin-top: 1rem; font-style: italic; color: var(--gold);">До зустрічі на воді.</p>
         </div>
       </div>
     </div>
@@ -767,62 +832,222 @@
       floatingRsvp.classList.toggle('visible', show);
     },{passive:true});
 
-    const attendYes=document.getElementById('attendYes'),attendNo=document.getElementById('attendNo'),yesFields=document.getElementById('yesFields'),missYou=document.getElementById('missYou');
-    function toggleFields(){if(attendYes.checked){yesFields.classList.add('visible');missYou.classList.remove('visible')}else if(attendNo.checked){yesFields.classList.remove('visible');missYou.classList.add('visible')}}
-    attendYes.addEventListener('change',toggleFields);attendNo.addEventListener('change',toggleFields);
+    // ── RSVP deadline countdown ──
+    (function() {
+      const deadline = new Date('2026-04-20T23:59:59+02:00');
+      function updateDeadline() {
+        const diff = deadline - new Date();
+        if (diff <= 0) { document.getElementById('rsvpDeadlineCountdown').textContent = 'Deadline passed'; return; }
+        const d = Math.floor(diff / 864e5);
+        document.getElementById('rsvpDeadlineCountdown').textContent = d + ' days left to RSVP';
+      }
+      updateDeadline(); setInterval(updateDeadline, 60000);
+    })();
 
-    const guestCountEl=document.getElementById('guestCount'),guestSections=document.getElementById('guestSections');
-    function makeGuestCard(i){
-      const card=document.createElement('div');card.className='guest-card';
-      const title=document.createElement('div');title.className='guest-card-title';title.textContent='Guest '+(i+1);card.appendChild(title);
-      const fields=[['g-name','Full name (as on passport)','text','Full legal name',true],['g-dob','Date of birth','date','',true],['g-pob','Place of birth','text','City, Country',false],['g-nat','Nationality','text','e.g. Ukrainian, Israeli',false],['g-res','City & country of residence','text','e.g. Bangkok, Thailand',false],['g-pp','Passport number','text','Passport number',false],['g-ppexp','Passport expiry date','date','',false],['g-allergy','Allergies','text','None, or list allergies',false],['g-diet','Dietary restrictions & food preferences','text','e.g. Vegetarian, no spicy, loves sushi',false]];
-      var row;
-      fields.forEach(function(f,idx){
-        if(idx%2===0){row=document.createElement('div');row.className='form-row';card.appendChild(row)}
-        if(idx===8){row=document.createElement('div');card.appendChild(row)}
-        var grp=document.createElement('div');grp.className='form-group';
-        var lbl=document.createElement('label');lbl.textContent=f[1];grp.appendChild(lbl);
-        var inp=document.createElement('input');inp.type=f[2];inp.className=f[0];inp.placeholder=f[3];if(f[4])inp.required=true;grp.appendChild(inp);
-        if(idx===8){row.className='form-group';row.appendChild(lbl);row.appendChild(inp)}else{row.appendChild(grp)}
+    // ── Personalized RSVP heading ──
+    if (guestName) {
+      const decoded = decodeURIComponent(guestName);
+      const first = (/[&,]/.test(decoded) || /^(Mr|Mrs|Ms|The)\b/.test(decoded)) ? decoded : decoded.split(' ')[0];
+      document.getElementById('rsvpHeading').textContent = first + ', Confirm Your Spot';
+    }
+
+    // ── Form conditional fields (Step 1) ──
+    const attendYes = document.getElementById('attendYes');
+    const attendNo = document.getElementById('attendNo');
+    const step1YesExtra = document.getElementById('step1YesExtra');
+    const missYou = document.getElementById('missYou');
+
+    function toggleFields() {
+      if (attendYes.checked) {
+        step1YesExtra.classList.add('visible');
+        missYou.classList.remove('visible');
+      } else if (attendNo.checked) {
+        step1YesExtra.classList.remove('visible');
+        missYou.classList.add('visible');
+      }
+    }
+    attendYes.addEventListener('change', toggleFields);
+    attendNo.addEventListener('change', toggleFields);
+
+    // ── Dynamic guest cards ──
+    const guestCountEl = document.getElementById('guestCount');
+    const guestSections = document.getElementById('guestSections');
+
+    function makeGuestCard(i) {
+      const card = document.createElement('div');
+      card.className = 'guest-card';
+      const title = document.createElement('div');
+      title.className = 'guest-card-title';
+      title.textContent = 'Guest ' + (i + 1);
+      card.appendChild(title);
+
+      const fields = [
+        ['g-name', 'Full name (as on passport)', 'text', 'Full legal name', false],
+        ['g-dob', 'Date of birth', 'date', '', false],
+        ['g-pob', 'Place of birth', 'text', 'City, Country', false],
+        ['g-nat', 'Nationality', 'text', 'e.g. American, Japanese', false],
+        ['g-res', 'City & country of residence', 'text', 'e.g. Bangkok, Thailand', false],
+        ['g-pp', 'Passport number', 'text', 'Passport number', false],
+        ['g-ppexp', 'Passport expiry date', 'date', '', false],
+        ['g-allergy', 'Allergies', 'text', 'None, or list allergies', false],
+        ['g-diet', 'Dietary restrictions & food preferences', 'text', 'e.g. Vegetarian, no spicy, loves sushi', false]
+      ];
+
+      let row;
+      fields.forEach(function(f, idx) {
+        if (idx % 2 === 0) { row = document.createElement('div'); row.className = 'form-row'; card.appendChild(row); }
+        if (idx === 8) { row = document.createElement('div'); card.appendChild(row); }
+        const grp = document.createElement('div');
+        grp.className = 'form-group';
+        const lbl = document.createElement('label');
+        lbl.textContent = f[1];
+        grp.appendChild(lbl);
+        const inp = document.createElement('input');
+        inp.type = f[2]; inp.className = f[0]; inp.placeholder = f[3];
+        grp.appendChild(inp);
+        if (idx === 8) { row.className = 'form-group'; row.appendChild(lbl); row.appendChild(inp); }
+        else { row.appendChild(grp); }
       });
       return card;
     }
-    function renderGuestCards(){
-      var count=parseInt(guestCountEl.value)||1;guestSections.replaceChildren();
-      for(var i=0;i<count;i++)guestSections.appendChild(makeGuestCard(i));
-      if(guestName){var first=guestSections.querySelector('.g-name');if(first&&!first.value)first.value=decodeURIComponent(guestName)}
-    }
-    const guestParam=params.get('guests');
-    if(guestParam){guestCountEl.value=guestParam;guestCountEl.disabled=true;guestCountEl.style.backgroundColor='#f5f0e8'}
-    guestCountEl.addEventListener('change',renderGuestCards);renderGuestCards();
 
-    const SUPABASE_URL='https://dyvahmmkiynvxfvqmnjb.supabase.co';
-    const SUPABASE_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR5dmFobW1raXludnhmdnFtbmpiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzIwNDgyMTEsImV4cCI6MjA4NzYyNDIxMX0.JMQnsWqIhlO-DN-CFkR-WzYld6tPpUW8pVMR1NbMtUI';
-    const SHEETS_URL='';
-
-    document.getElementById('rsvpForm').addEventListener('submit',async function(e){
-      e.preventDefault();const btn=document.getElementById('submitBtn'),errEl=document.getElementById('formError');
-      errEl.classList.remove('visible');btn.disabled=true;btn.textContent='Надсилаємо...';
-      const attending=attendYes.checked;
-      const data={full_name:document.getElementById('fullName').value.trim(),email:document.getElementById('email').value.trim(),attending};
-      if(attending){
-        guestCountEl.disabled=false;data.guest_count=parseInt(guestCountEl.value)||1;
-        var guests=[];document.querySelectorAll('.guest-card').forEach(function(card){guests.push({name:card.querySelector('.g-name').value.trim(),dob:card.querySelector('.g-dob').value,place_of_birth:card.querySelector('.g-pob').value.trim(),nationality:card.querySelector('.g-nat').value.trim(),residence:card.querySelector('.g-res').value.trim(),passport_number:card.querySelector('.g-pp').value.trim(),passport_expiry:card.querySelector('.g-ppexp').value,allergies:card.querySelector('.g-allergy').value.trim(),dietary:card.querySelector('.g-diet').value.trim()})});
-        data.guests_json=guests;data.guest_names=guests.map(function(g){return g.name}).filter(Boolean).join('\n')||null;
-        data.dietary_restrictions=guests.map(function(g){return g.dietary?g.name+': '+g.dietary:''}).filter(Boolean).join('\n')||null;
-        data.arrival_date=document.getElementById('arrivalDate').value||null;
-        data.flight_details=document.getElementById('flightDetails').value.trim()||null;
-        data.need_hotel=document.getElementById('hotelYes').checked?true:(document.getElementById('hotelNo').checked?false:null);
-        data.notes=document.getElementById('notes').value.trim()||null;
+    function renderGuestCards() {
+      const count = parseInt(guestCountEl.value) || 1;
+      guestSections.replaceChildren();
+      for (let i = 0; i < count; i++) guestSections.appendChild(makeGuestCard(i));
+      if (guestName) {
+        const first = guestSections.querySelector('.g-name');
+        if (first && !first.value) first.value = decodeURIComponent(guestName);
       }
-      try{
-        const res=await fetch(SUPABASE_URL+'/rest/v1/yacht_rsvps',{method:'POST',headers:{apikey:SUPABASE_KEY,Authorization:'Bearer '+SUPABASE_KEY,'Content-Type':'application/json',Prefer:'return=minimal'},body:JSON.stringify(data)});
-        if(!res.ok)throw new Error('fail');
-        if(SHEETS_URL){fetch(SHEETS_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)}).catch(()=>{})}
-        document.getElementById('rsvpForm').style.display='none';
-        document.getElementById('formSuccess').classList.add('visible');
+    }
+
+    const guestParam = params.get('guests');
+    if (guestParam) {
+      guestCountEl.value = guestParam;
+      guestCountEl.disabled = true;
+      guestCountEl.style.backgroundColor = '#f5f0e8';
+    }
+    guestCountEl.addEventListener('change', renderGuestCards);
+
+    // ── Supabase config ──
+    const SUPABASE_URL = 'https://dyvahmmkiynvxfvqmnjb.supabase.co';
+    const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR5dmFobW1raXludnhmdnFtbmpiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzIwNDgyMTEsImV4cCI6MjA4NzYyNDIxMX0.JMQnsWqIhlO-DN-CFkR-WzYld6tPpUW8pVMR1NbMtUI';
+    const SHEETS_URL = '';
+    let savedRsvpId = null;
+
+    // ── STEP 1: Quick commitment ──
+    document.getElementById('rsvpStep1').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const btn = document.getElementById('submitStep1');
+      const errEl = document.getElementById('formError');
+      errEl.classList.remove('visible');
+      btn.disabled = true;
+      btn.textContent = 'Confirming...';
+
+      const attending = attendYes.checked;
+      const data = {
+        full_name: document.getElementById('fullName').value.trim(),
+        email: document.getElementById('email').value.trim(),
+        attending: attending,
+      };
+
+      if (attending) {
+        guestCountEl.disabled = false;
+        data.guest_count = parseInt(guestCountEl.value) || 1;
+      }
+
+      try {
+        const res = await fetch(SUPABASE_URL + '/rest/v1/yacht_rsvps', {
+          method: 'POST',
+          headers: {
+            'apikey': SUPABASE_KEY,
+            'Authorization': 'Bearer ' + SUPABASE_KEY,
+            'Content-Type': 'application/json',
+            'Prefer': 'return=representation'
+          },
+          body: JSON.stringify(data)
+        });
+        if (!res.ok) throw new Error('Failed to submit');
+        const result = await res.json();
+        savedRsvpId = result[0]?.id;
+
+        if (SHEETS_URL) {
+          fetch(SHEETS_URL, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) }).catch(() => {});
+        }
+
+        document.getElementById('rsvpStep1').style.display = 'none';
         fireConfetti();
-      }catch(err){errEl.textContent='Щось пішло не так. Спробуйте ще раз або зверніться до Кентаро.';errEl.classList.add('visible');btn.disabled=false;btn.textContent='Надіслати RSVP'}
+
+        if (attending) {
+          // Show step 2 for details
+          document.getElementById('rsvpStep2').style.display = 'block';
+          renderGuestCards();
+          document.getElementById('rsvpStep2').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        } else {
+          // Declined — show thank you
+          document.getElementById('formSuccess').classList.add('visible');
+        }
+      } catch (err) {
+        errEl.textContent = 'Something went wrong. Please try again or reach out to Kentaro directly.';
+        errEl.classList.add('visible');
+        btn.disabled = false;
+        btn.textContent = 'Confirm RSVP';
+      }
+    });
+
+    // ── STEP 2: Save details (updates existing record) ──
+    document.getElementById('rsvpDetails').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const btn = document.getElementById('submitStep2');
+      btn.disabled = true;
+      btn.textContent = 'Saving...';
+
+      var guests = [];
+      document.querySelectorAll('.guest-card').forEach(function(card) {
+        guests.push({
+          name: card.querySelector('.g-name').value.trim(),
+          dob: card.querySelector('.g-dob').value,
+          place_of_birth: card.querySelector('.g-pob').value.trim(),
+          nationality: card.querySelector('.g-nat').value.trim(),
+          residence: card.querySelector('.g-res').value.trim(),
+          passport_number: card.querySelector('.g-pp').value.trim(),
+          passport_expiry: card.querySelector('.g-ppexp').value,
+          allergies: card.querySelector('.g-allergy').value.trim(),
+          dietary: card.querySelector('.g-diet').value.trim()
+        });
+      });
+
+      const data = {
+        guests_json: guests,
+        guest_names: guests.map(function(g) { return g.name; }).filter(Boolean).join('\n') || null,
+        dietary_restrictions: guests.map(function(g) { return g.dietary ? g.name + ': ' + g.dietary : ''; }).filter(Boolean).join('\n') || null,
+        arrival_date: document.getElementById('arrivalDate').value || null,
+        flight_details: document.getElementById('flightDetails').value.trim() || null,
+        need_hotel: document.getElementById('hotelYes').checked ? true : (document.getElementById('hotelNo').checked ? false : null),
+        notes: document.getElementById('notes').value.trim() || null,
+      };
+
+      try {
+        if (savedRsvpId) {
+          await fetch(SUPABASE_URL + '/rest/v1/yacht_rsvps?id=eq.' + savedRsvpId, {
+            method: 'PATCH',
+            headers: { 'apikey': SUPABASE_KEY, 'Authorization': 'Bearer ' + SUPABASE_KEY, 'Content-Type': 'application/json', 'Prefer': 'return=minimal' },
+            body: JSON.stringify(data)
+          });
+        }
+        document.getElementById('rsvpStep2').style.display = 'none';
+        document.getElementById('formSuccess').classList.add('visible');
+      } catch (err) {
+        btn.disabled = false;
+        btn.textContent = 'Save Details';
+      }
+    });
+
+    // ── Skip details link ──
+    document.getElementById('skipDetails').addEventListener('click', function(e) {
+      e.preventDefault();
+      document.getElementById('rsvpStep2').style.display = 'none';
+      document.getElementById('formSuccess').classList.add('visible');
     });
     function fireConfetti(){var c=document.createElement('canvas');c.id='confetti-canvas';document.body.appendChild(c);c.width=window.innerWidth;c.height=window.innerHeight;var ctx=c.getContext('2d'),cols=['#b8955f','#0b1d35','#25D366','#e2c686','#1a5f7a','#d4c5a0','#fff'],p=[];for(var i=0;i<150;i++)p.push({x:Math.random()*c.width,y:Math.random()*c.height-c.height,w:Math.random()*8+4,h:Math.random()*4+2,color:cols[Math.floor(Math.random()*cols.length)],vx:(Math.random()-.5)*4,vy:Math.random()*3+2,rot:Math.random()*360,rv:(Math.random()-.5)*10});var f=0;function draw(){ctx.clearRect(0,0,c.width,c.height);p.forEach(function(q){q.x+=q.vx;q.y+=q.vy;q.rot+=q.rv;q.vy+=.05;ctx.save();ctx.translate(q.x,q.y);ctx.rotate(q.rot*Math.PI/180);ctx.fillStyle=q.color;ctx.fillRect(-q.w/2,-q.h/2,q.w,q.h);ctx.restore()});f++;if(f<180)requestAnimationFrame(draw);else c.remove()}draw()}
   </script>
