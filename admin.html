@@ -66,8 +66,8 @@
 <p class="subtitle">Guest list, personalized RSVP URLs, and submission status</p>
 
 <div class="stats">
-  <div class="stat"><div class="stat-num">14</div><div class="stat-label">Parties</div></div>
-  <div class="stat"><div class="stat-num">29</div><div class="stat-label">Total Pax</div></div>
+  <div class="stat"><div class="stat-num">15</div><div class="stat-label">Parties</div></div>
+  <div class="stat"><div class="stat-num">30</div><div class="stat-label">Total Pax</div></div>
   <div class="stat"><div class="stat-num" id="rsvpCount">—</div><div class="stat-label">RSVPs In</div></div>
   <div class="stat"><div class="stat-num" id="rsvpPending">—</div><div class="stat-label">Pending</div></div>
 </div>
@@ -102,6 +102,7 @@
         <th>Arrival</th>
         <th>Hotel</th>
         <th>Submitted</th>
+        <th>Updated</th>
       </tr>
     </thead>
     <tbody id="rsvpTable"></tbody>
@@ -124,6 +125,7 @@ const guests = [
   { name: 'Mr. Samann', party: 'Mr. Samann', pax: 1, lang: 'en', base: '/' },
   { name: 'Mrs. Samann', party: 'Mrs. Samann', pax: 1, lang: 'en', base: '/' },
   { name: '\u3086\u3046\u3061\u3083\u3093', party: '\u3086\u3046\u3061\u3083\u3093', pax: 1, lang: 'ja', base: '/ja/' },
+  { name: '\u30de\u30de', party: '\u30de\u30de', pax: 1, lang: 'ja', base: '/ja/' },
 ];
 
 const SUPABASE_URL = 'https://dyvahmmkiynvxfvqmnjb.supabase.co';
@@ -206,7 +208,7 @@ function renderRsvps(rsvps) {
 
   if (!rsvps.length) {
     var tr = document.createElement('tr');
-    var td = createEl('td', { colspan: '7' }, 'No RSVPs yet');
+    var td = createEl('td', { colspan: '8' }, 'No RSVPs yet');
     td.style.textAlign = 'center';
     td.style.color = '#888';
     td.style.padding = '2rem';
@@ -229,6 +231,10 @@ function renderRsvps(rsvps) {
     tr.appendChild(createEl('td', null, r.arrival_date || '\u2014'));
     tr.appendChild(createEl('td', null, r.need_hotel === true ? 'Yes' : (r.need_hotel === false ? 'No' : '\u2014')));
     tr.appendChild(createEl('td', null, dateStr));
+    var updatedStr = r.updated_at ? new Date(r.updated_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' }) : '\u2014';
+    var updTd = createEl('td', null, updatedStr);
+    if (r.updated_at) { updTd.style.color = '#b8955f'; updTd.style.fontWeight = '600'; }
+    tr.appendChild(updTd);
 
     tb.appendChild(tr);
   });

@@ -1609,7 +1609,7 @@
 
             <div class="form-group">
               <label for="flightDetails">Flight details (if known)</label>
-              <span class="hint">Airline, flight number, arrival time — you can update this later</span>
+              <span class="hint">Airline, flight number, arrival time — revisit your invite link anytime to update</span>
               <textarea id="flightDetails" name="flight_details" rows="2" placeholder="e.g. Turkish Airlines TK1234, arriving 2:30 PM June 5"></textarea>
             </div>
 
@@ -1857,8 +1857,69 @@
     // ── Supabase config ──
     const SUPABASE_URL = 'https://dyvahmmkiynvxfvqmnjb.supabase.co';
     const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR5dmFobW1raXludnhmdnFtbmpiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzIwNDgyMTEsImV4cCI6MjA4NzYyNDIxMX0.JMQnsWqIhlO-DN-CFkR-WzYld6tPpUW8pVMR1NbMtUI';
-    const SHEETS_URL = '';
+    const NOTIFY_URL = 'https://dyvahmmkiynvxfvqmnjb.supabase.co/functions/v1/notify-rsvp';
     let savedRsvpId = null;
+    let isReturningGuest = false;
+
+    // ── Notify helper ──
+    function sendNotification(type, extra) {
+      var payload = Object.assign({ type: type, name: document.getElementById('fullName').value.trim(), email: document.getElementById('email').value.trim() }, extra || {});
+      fetch(NOTIFY_URL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) }).catch(function() {});
+    }
+
+    // ── Check for returning guest ──
+    if (guestName) {
+      (async function() {
+        try {
+          var encoded = encodeURIComponent(decodeURIComponent(guestName));
+          var res = await fetch(SUPABASE_URL + '/rest/v1/yacht_rsvps?full_name=eq.' + encoded + '&select=*&limit=1', {
+            headers: { 'apikey': SUPABASE_KEY, 'Authorization': 'Bearer ' + SUPABASE_KEY }
+          });
+          if (res.ok) {
+            var rows = await res.json();
+            if (rows.length > 0) {
+              var r = rows[0];
+              savedRsvpId = r.id;
+              isReturningGuest = true;
+              // Skip step 1, show step 2 pre-filled
+              document.getElementById('rsvpStep1').style.display = 'none';
+              document.getElementById('rsvpStep2').style.display = 'block';
+              document.querySelector('#rsvpStep2 h3').textContent = 'Update Your Details';
+              document.querySelector('#rsvpStep2 p').textContent = 'Update your travel details below. Changes are saved instantly.';
+              document.getElementById('submitStep2').textContent = 'Save Updates';
+              // Pre-fill fields
+              if (r.arrival_date) document.getElementById('arrivalDate').value = r.arrival_date;
+              if (r.flight_details) document.getElementById('flightDetails').value = r.flight_details;
+              if (r.need_hotel === true) document.getElementById('hotelYes').checked = true;
+              if (r.need_hotel === false) document.getElementById('hotelNo').checked = true;
+              if (r.notes) document.getElementById('notes').value = r.notes;
+              if (r.guest_count) guestCountEl.value = r.guest_count;
+              renderGuestCards();
+              // Pre-fill guest cards from guests_json
+              if (r.guests_json && Array.isArray(r.guests_json)) {
+                var cards = document.querySelectorAll('.guest-card');
+                r.guests_json.forEach(function(g, i) {
+                  if (!cards[i]) return;
+                  var c = cards[i];
+                  if (g.name) c.querySelector('.g-name').value = g.name;
+                  if (g.dob) c.querySelector('.g-dob').value = g.dob;
+                  if (g.place_of_birth) c.querySelector('.g-pob').value = g.place_of_birth;
+                  if (g.nationality) c.querySelector('.g-nat').value = g.nationality;
+                  if (g.residence) c.querySelector('.g-res').value = g.residence;
+                  if (g.passport_number) c.querySelector('.g-pp').value = g.passport_number;
+                  if (g.passport_expiry) c.querySelector('.g-ppexp').value = g.passport_expiry;
+                  if (g.allergies) c.querySelector('.g-allergy').value = g.allergies;
+                  if (g.dietary) c.querySelector('.g-diet').value = g.dietary;
+                });
+              }
+              // Hide skip link for returning guests
+              var skipEl = document.getElementById('skipDetails');
+              if (skipEl) skipEl.style.display = 'none';
+            }
+          }
+        } catch(e) {}
+      })();
+    }
 
     // ── STEP 1: Quick commitment ──
     document.getElementById('rsvpStep1').addEventListener('submit', async function(e) {
@@ -1895,20 +1956,16 @@
         const result = await res.json();
         savedRsvpId = result[0]?.id;
 
-        if (SHEETS_URL) {
-          fetch(SHEETS_URL, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) }).catch(() => {});
-        }
+        sendNotification('new', { attending: attending, guest_count: data.guest_count });
 
         document.getElementById('rsvpStep1').style.display = 'none';
         fireConfetti();
 
         if (attending) {
-          // Show step 2 for details
           document.getElementById('rsvpStep2').style.display = 'block';
           renderGuestCards();
           document.getElementById('rsvpStep2').scrollIntoView({ behavior: 'smooth', block: 'start' });
         } else {
-          // Declined — show thank you
           document.getElementById('formSuccess').classList.add('visible');
         }
       } catch (err) {
@@ -1953,6 +2010,7 @@
 
       try {
         if (savedRsvpId) {
+          data.updated_at = new Date().toISOString();
           const res = await fetch(SUPABASE_URL + '/rest/v1/yacht_rsvps?id=eq.' + savedRsvpId, {
             method: 'PATCH',
             headers: { 'apikey': SUPABASE_KEY, 'Authorization': 'Bearer ' + SUPABASE_KEY, 'Content-Type': 'application/json', 'Prefer': 'return=minimal' },
@@ -1960,13 +2018,25 @@
           });
           if (!res.ok) throw new Error('Failed to save details');
         }
+        sendNotification(isReturningGuest ? 'update' : 'details', {
+          attending: true,
+          guest_count: parseInt(guestCountEl.value) || 1,
+          arrival_date: data.arrival_date,
+          flight_details: data.flight_details,
+          need_hotel: data.need_hotel,
+          notes: data.notes
+        });
         document.getElementById('rsvpStep2').style.display = 'none';
         document.getElementById('formSuccess').classList.add('visible');
+        if (isReturningGuest) {
+          document.querySelector('#formSuccess h3').textContent = 'Details Updated!';
+          document.querySelector('#formSuccess p').textContent = 'Your travel details have been saved.';
+        }
       } catch (err) {
         document.getElementById('formError').textContent = 'Could not save your details. Please try again or message Kentaro directly.';
         document.getElementById('formError').classList.add('visible');
         btn.disabled = false;
-        btn.textContent = 'Save Details';
+        btn.textContent = isReturningGuest ? 'Save Updates' : 'Save Details';
       }
     });
 
