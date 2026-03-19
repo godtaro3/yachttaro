@@ -1491,8 +1491,7 @@
     // ── Personalized RSVP heading ──
     if (guestName) {
       const decoded = decodeURIComponent(guestName);
-      const first = (/[&,]/.test(decoded) || /^(Mr|Mrs|Ms|The)\b/.test(decoded)) ? decoded : decoded.split(' ')[0];
-      document.getElementById('rsvpHeading').textContent = first + 'さん、参加を確認する';
+      document.getElementById('rsvpHeading').textContent = decoded + 'さん、参加を確認する';
     }
 
     // ── Form conditional fields (Step 1) ──

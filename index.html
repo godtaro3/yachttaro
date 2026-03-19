@@ -1681,13 +1681,7 @@
     const guestName = params.get('name');
     if (guestName) {
       const decoded = decodeURIComponent(guestName);
-      let displayName;
-      if (/[&,]/.test(decoded) || /^(Mr|Mrs|Ms|The)\b/.test(decoded)) {
-        displayName = decoded;
-      } else {
-        displayName = decoded.split(' ')[0];
-      }
-      document.querySelector('.hero .label').textContent = displayName + ', You\u2019re Invited to';
+      document.querySelector('.hero .label').textContent = decoded + ', You\u2019re Invited to';
       document.getElementById('fullName').value = decoded;
       document.getElementById('fullName').readOnly = true;
       document.getElementById('fullName').style.backgroundColor = '#f5f0e8';
@@ -1770,8 +1764,7 @@
     // ── Personalized RSVP heading ──
     if (guestName) {
       const decoded = decodeURIComponent(guestName);
-      const first = (/[&,]/.test(decoded) || /^(Mr|Mrs|Ms|The)\b/.test(decoded)) ? decoded : decoded.split(' ')[0];
-      document.getElementById('rsvpHeading').textContent = first + ', Confirm Your Spot';
+      document.getElementById('rsvpHeading').textContent = decoded + ', Confirm Your Spot';
     }
 
     // ── Form conditional fields (Step 1) ──
