@@ -9,6 +9,9 @@
   <meta property="og:title" content="Запрошуємо — YACHTTARO June 2026">
   <meta property="og:description" content="Незабутній тиждень на M/Y OHANA, узбережжя Хорватії. 6–13 червня 2026.">
   <meta property="og:type" content="website">
+  <meta property="og:image" content="https://yachttaro.com/img/ycf2.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -875,9 +878,9 @@
       const deadline = new Date('2026-04-20T23:59:59+02:00');
       function updateDeadline() {
         const diff = deadline - new Date();
-        if (diff <= 0) { document.getElementById('rsvpDeadlineCountdown').textContent = 'Deadline passed'; return; }
+        if (diff <= 0) { document.getElementById('rsvpDeadlineCountdown').textContent = 'Термін минув'; return; }
         const d = Math.floor(diff / 864e5);
-        document.getElementById('rsvpDeadlineCountdown').textContent = d + ' days left to RSVP';
+        document.getElementById('rsvpDeadlineCountdown').textContent = d + ' днів до кінця реєстрації';
       }
       updateDeadline(); setInterval(updateDeadline, 60000);
     })();
@@ -886,7 +889,7 @@
     if (guestName) {
       const decoded = decodeURIComponent(guestName);
       const first = (/[&,]/.test(decoded) || /^(Mr|Mrs|Ms|The)\b/.test(decoded)) ? decoded : decoded.split(' ')[0];
-      document.getElementById('rsvpHeading').textContent = first + ', Confirm Your Spot';
+      document.getElementById('rsvpHeading').textContent = first + ', підтвердіть свою участь';
     }
 
     // ── Form conditional fields (Step 1) ──
@@ -916,19 +919,19 @@
       card.className = 'guest-card';
       const title = document.createElement('div');
       title.className = 'guest-card-title';
-      title.textContent = 'Guest ' + (i + 1);
+      title.textContent = 'Гість ' + (i + 1);
       card.appendChild(title);
 
       const fields = [
-        ['g-name', 'Full name (as on passport)', 'text', 'Full legal name', false],
-        ['g-dob', 'Date of birth', 'date', '', false],
-        ['g-pob', 'Place of birth', 'text', 'City, Country', false],
-        ['g-nat', 'Nationality', 'text', 'e.g. American, Japanese', false],
-        ['g-res', 'City & country of residence', 'text', 'e.g. Bangkok, Thailand', false],
-        ['g-pp', 'Passport number', 'text', 'Passport number', false],
-        ['g-ppexp', 'Passport expiry date', 'date', '', false],
-        ['g-allergy', 'Allergies', 'text', 'None, or list allergies', false],
-        ['g-diet', 'Dietary restrictions & food preferences', 'text', 'e.g. Vegetarian, no spicy, loves sushi', false]
+        ['g-name', 'Повне ім\'я (як у паспорті)', 'text', 'Офіційне ім\'я за паспортом', false],
+        ['g-dob', 'Дата народження', 'date', '', false],
+        ['g-pob', 'Місце народження', 'text', 'Місто, Країна', false],
+        ['g-nat', 'Громадянство', 'text', 'напр. Українське', false],
+        ['g-res', 'Місто та країна проживання', 'text', 'напр. Київ, Україна', false],
+        ['g-pp', 'Номер паспорта', 'text', 'Номер паспорта', false],
+        ['g-ppexp', 'Термін дії паспорта', 'date', '', false],
+        ['g-allergy', 'Алергії', 'text', 'Немає, або вкажіть алергії', false],
+        ['g-diet', 'Дієтичні обмеження та вподобання', 'text', 'напр. Вегетаріанець, без гострого', false]
       ];
 
       let row;
@@ -980,7 +983,7 @@
       const errEl = document.getElementById('formError');
       errEl.classList.remove('visible');
       btn.disabled = true;
-      btn.textContent = 'Confirming...';
+      btn.textContent = 'Підтверджуємо...';
 
       const attending = attendYes.checked;
       const data = {
@@ -1026,10 +1029,10 @@
           document.getElementById('formSuccess').classList.add('visible');
         }
       } catch (err) {
-        errEl.textContent = 'Something went wrong. Please try again or reach out to Kentaro directly.';
+        errEl.textContent = 'Щось пішло не так. Спробуйте ще раз або зверніться до Кентаро напряму.';
         errEl.classList.add('visible');
         btn.disabled = false;
-        btn.textContent = 'Confirm RSVP';
+        btn.textContent = 'Підтвердити RSVP';
       }
     });
 
@@ -1038,7 +1041,7 @@
       e.preventDefault();
       const btn = document.getElementById('submitStep2');
       btn.disabled = true;
-      btn.textContent = 'Saving...';
+      btn.textContent = 'Зберігаємо...';
 
       var guests = [];
       document.querySelectorAll('.guest-card').forEach(function(card) {
@@ -1067,17 +1070,20 @@
 
       try {
         if (savedRsvpId) {
-          await fetch(SUPABASE_URL + '/rest/v1/yacht_rsvps?id=eq.' + savedRsvpId, {
+          const res = await fetch(SUPABASE_URL + '/rest/v1/yacht_rsvps?id=eq.' + savedRsvpId, {
             method: 'PATCH',
             headers: { 'apikey': SUPABASE_KEY, 'Authorization': 'Bearer ' + SUPABASE_KEY, 'Content-Type': 'application/json', 'Prefer': 'return=minimal' },
             body: JSON.stringify(data)
           });
+          if (!res.ok) throw new Error('Failed to save details');
         }
         document.getElementById('rsvpStep2').style.display = 'none';
         document.getElementById('formSuccess').classList.add('visible');
       } catch (err) {
+        document.getElementById('formError').textContent = 'Не вдалося зберегти деталі. Спробуйте ще раз або зверніться до Кентаро напряму.';
+        document.getElementById('formError').classList.add('visible');
         btn.disabled = false;
-        btn.textContent = 'Save Details';
+        btn.textContent = 'Зберегти деталі';
       }
     });
 

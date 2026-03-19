@@ -9,6 +9,9 @@
   <meta property="og:title" content="ご招待 — YACHTTARO June 2026">
   <meta property="og:description" content="M/Y OHANAでクロアチアの海岸を巡る忘れられない一週間。2026年6月6日〜13日。">
   <meta property="og:type" content="website">
+  <meta property="og:image" content="https://yachttaro.com/img/ycf2.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1521,15 +1524,15 @@
       card.appendChild(title);
 
       const fields = [
-        ['g-name', 'Full name (as on passport)', 'text', 'Full legal name', false],
-        ['g-dob', 'Date of birth', 'date', '', false],
-        ['g-pob', 'Place of birth', 'text', 'City, Country', false],
-        ['g-nat', 'Nationality', 'text', 'e.g. American, Japanese', false],
-        ['g-res', 'City & country of residence', 'text', 'e.g. Bangkok, Thailand', false],
-        ['g-pp', 'Passport number', 'text', 'Passport number', false],
-        ['g-ppexp', 'Passport expiry date', 'date', '', false],
-        ['g-allergy', 'Allergies', 'text', 'None, or list allergies', false],
-        ['g-diet', 'Dietary restrictions & food preferences', 'text', 'e.g. Vegetarian, no spicy, loves sushi', false]
+        ['g-name', '氏名（パスポート記載通り）', 'text', 'パスポート記載の正式名', false],
+        ['g-dob', '生年月日', 'date', '', false],
+        ['g-pob', '出生地', 'text', '市区町村、国', false],
+        ['g-nat', '国籍', 'text', '例：日本', false],
+        ['g-res', '現住所（都市・国）', 'text', '例：東京、日本', false],
+        ['g-pp', 'パスポート番号', 'text', 'パスポート番号', false],
+        ['g-ppexp', 'パスポート有効期限', 'date', '', false],
+        ['g-allergy', 'アレルギー', 'text', 'なし、またはアレルギーを記載', false],
+        ['g-diet', '食事制限・食の好み', 'text', '例：ベジタリアン、辛いもの不可、寿司好き', false]
       ];
 
       let row;
@@ -1668,15 +1671,18 @@
 
       try {
         if (savedRsvpId) {
-          await fetch(SUPABASE_URL + '/rest/v1/yacht_rsvps?id=eq.' + savedRsvpId, {
+          const res = await fetch(SUPABASE_URL + '/rest/v1/yacht_rsvps?id=eq.' + savedRsvpId, {
             method: 'PATCH',
             headers: { 'apikey': SUPABASE_KEY, 'Authorization': 'Bearer ' + SUPABASE_KEY, 'Content-Type': 'application/json', 'Prefer': 'return=minimal' },
             body: JSON.stringify(data)
           });
+          if (!res.ok) throw new Error('Failed to save details');
         }
         document.getElementById('rsvpStep2').style.display = 'none';
         document.getElementById('formSuccess').classList.add('visible');
       } catch (err) {
+        document.getElementById('formError').textContent = '保存できませんでした。もう一度お試しいただくか、ケンタロウに直接ご連絡ください。';
+        document.getElementById('formError').classList.add('visible');
         btn.disabled = false;
         btn.textContent = '詳細を保存';
       }
