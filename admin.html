@@ -68,6 +68,7 @@
 <div class="stats">
   <div class="stat"><div class="stat-num">16</div><div class="stat-label">Parties</div></div>
   <div class="stat"><div class="stat-num">32</div><div class="stat-label">Total Pax</div></div>
+  <div class="stat"><div class="stat-num" id="sentCount">—</div><div class="stat-label">Sent</div></div>
   <div class="stat"><div class="stat-num" id="rsvpCount">—</div><div class="stat-label">RSVPs In</div></div>
   <div class="stat"><div class="stat-num" id="rsvpPending">—</div><div class="stat-label">Pending</div></div>
 </div>
@@ -78,6 +79,7 @@
 <table>
   <thead>
     <tr>
+      <th>Sent</th>
       <th>#</th>
       <th>Party</th>
       <th>Pax</th>
@@ -146,6 +148,17 @@ function createEl(tag, attrs, text) {
   return el;
 }
 
+var sentState = JSON.parse(localStorage.getItem('yt_sent') || '{}');
+
+function saveSent() {
+  localStorage.setItem('yt_sent', JSON.stringify(sentState));
+}
+
+function updateSentCount() {
+  var count = guests.filter(function(g) { return !!sentState[g.name]; }).length;
+  document.getElementById('sentCount').textContent = count;
+}
+
 function renderTable(rsvps) {
   var rsvpYes = 0;
   var tb = document.getElementById('guestTable');
@@ -154,6 +167,25 @@ function renderTable(rsvps) {
   guests.forEach(function(g, i) {
     var url = buildUrl(g);
     var tr = document.createElement('tr');
+
+    // Sent checkbox
+    var sentTd = document.createElement('td');
+    sentTd.style.textAlign = 'center';
+    var cb = document.createElement('input');
+    cb.type = 'checkbox';
+    cb.checked = !!sentState[g.name];
+    cb.style.cursor = 'pointer';
+    cb.style.width = '16px';
+    cb.style.height = '16px';
+    cb.addEventListener('change', function() {
+      sentState[g.name] = cb.checked;
+      saveSent();
+      updateSentCount();
+      tr.style.opacity = cb.checked ? '0.5' : '1';
+    });
+    sentTd.appendChild(cb);
+    tr.appendChild(sentTd);
+    if (sentState[g.name]) tr.style.opacity = '0.5';
 
     // #
     tr.appendChild(createEl('td', null, i + 1));
@@ -201,6 +233,7 @@ function renderTable(rsvps) {
 
   document.getElementById('rsvpCount').textContent = rsvpYes;
   document.getElementById('rsvpPending').textContent = guests.length - rsvpYes;
+  updateSentCount();
 }
 
 function renderRsvps(rsvps) {
