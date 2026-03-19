@@ -1567,9 +1567,11 @@
 
     const guestParam = params.get('guests');
     if (guestParam) {
+      var maxGuests = parseInt(guestParam);
+      Array.from(guestCountEl.options).forEach(function(opt) {
+        if (parseInt(opt.value) > maxGuests) opt.remove();
+      });
       guestCountEl.value = guestParam;
-      guestCountEl.disabled = true;
-      guestCountEl.style.backgroundColor = '#f5f0e8';
     }
     guestCountEl.addEventListener('change', renderGuestCards);
 
@@ -1596,7 +1598,6 @@
       };
 
       if (attending) {
-        guestCountEl.disabled = false;
         data.guest_count = parseInt(guestCountEl.value) || 1;
       }
 
