@@ -48,6 +48,20 @@
     .copy-all:hover { background: #b8955f; }
     .rsvp-section { margin-top: 3rem; }
     .note { font-size: .8rem; color: #888; margin-top: .5rem; }
+    .expand-btn { background: none; border: 1px solid #e0d8cc; border-radius: 4px; cursor: pointer; font-size: .7rem; padding: .25rem .5rem; color: #888; transition: all .2s; }
+    .expand-btn:hover { border-color: #b8955f; color: #b8955f; }
+    .detail-row td { padding: 0 !important; border-bottom: 2px solid #b8955f !important; }
+    .detail-panel { padding: 1rem 1.5rem 1.5rem; background: #faf8f4; }
+    .detail-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: .75rem 2rem; margin-bottom: 1rem; }
+    .detail-item label { font-size: .65rem; text-transform: uppercase; letter-spacing: .08em; color: #888; display: block; margin-bottom: .15rem; }
+    .detail-item span { font-size: .85rem; color: #1a2a3a; }
+    .guest-cards { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: .5rem; }
+    .guest-card-admin { background: #fff; border: 1px solid #e0d8cc; border-radius: 8px; padding: .75rem 1rem; min-width: 220px; flex: 1; max-width: 320px; }
+    .guest-card-admin h4 { font-size: .85rem; color: #b8955f; margin-bottom: .5rem; border-bottom: 1px solid #f0ece4; padding-bottom: .4rem; }
+    .guest-card-admin .gc-row { display: flex; justify-content: space-between; font-size: .8rem; padding: .2rem 0; }
+    .guest-card-admin .gc-label { color: #888; }
+    .guest-card-admin .gc-val { color: #1a2a3a; font-weight: 500; }
+    .section-label { font-size: .7rem; text-transform: uppercase; letter-spacing: .1em; color: #b8955f; font-weight: 600; margin: .75rem 0 .25rem; }
   </style>
 </head>
 <body>
@@ -97,11 +111,13 @@
   <table style="margin-top: 1rem;">
     <thead>
       <tr>
+        <th></th>
         <th>Name</th>
         <th>Email</th>
         <th>Attending</th>
         <th>Pax</th>
         <th>Arrival</th>
+        <th>Flight</th>
         <th>Hotel</th>
         <th>Submitted</th>
         <th>Updated</th>
@@ -242,7 +258,7 @@ function renderRsvps(rsvps) {
 
   if (!rsvps.length) {
     var tr = document.createElement('tr');
-    var td = createEl('td', { colspan: '8' }, 'No RSVPs yet');
+    var td = createEl('td', { colspan: '10' }, 'No RSVPs yet');
     td.style.textAlign = 'center';
     td.style.color = '#888';
     td.style.padding = '2rem';
@@ -253,8 +269,16 @@ function renderRsvps(rsvps) {
 
   rsvps.forEach(function(r) {
     var tr = document.createElement('tr');
+    tr.style.cursor = 'pointer';
     var d = new Date(r.created_at);
     var dateStr = d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' });
+
+    // Expand button
+    var expandTd = document.createElement('td');
+    expandTd.style.textAlign = 'center';
+    var btn = createEl('button', { className: 'expand-btn' }, '\u25B6');
+    expandTd.appendChild(btn);
+    tr.appendChild(expandTd);
 
     tr.appendChild(createEl('td', null, r.full_name || '\u2014'));
     tr.appendChild(createEl('td', null, r.email || '\u2014'));
@@ -263,6 +287,7 @@ function renderRsvps(rsvps) {
     paxTd.style.textAlign = 'center';
     tr.appendChild(paxTd);
     tr.appendChild(createEl('td', null, r.arrival_date || '\u2014'));
+    tr.appendChild(createEl('td', null, r.flight_details || '\u2014'));
     tr.appendChild(createEl('td', null, r.need_hotel === true ? 'Yes' : (r.need_hotel === false ? 'No' : '\u2014')));
     tr.appendChild(createEl('td', null, dateStr));
     var updatedStr = r.updated_at ? new Date(r.updated_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' }) : '\u2014';
@@ -271,7 +296,69 @@ function renderRsvps(rsvps) {
     tr.appendChild(updTd);
 
     tb.appendChild(tr);
+
+    // Detail row (hidden by default)
+    var detailTr = document.createElement('tr');
+    detailTr.className = 'detail-row';
+    detailTr.style.display = 'none';
+    var detailTd = document.createElement('td');
+    detailTd.setAttribute('colspan', '10');
+    var panel = document.createElement('div');
+    panel.className = 'detail-panel';
+
+    // Top-level details
+    var notes = r.notes || '\u2014';
+    var dietary = r.dietary_restrictions || '\u2014';
+    var guestNames = r.guest_names || '\u2014';
+
+    panel.innerHTML =
+      '<div class="detail-grid">' +
+        '<div class="detail-item"><label>Guest Names</label><span>' + esc(guestNames).replace(/\n/g, ', ') + '</span></div>' +
+        '<div class="detail-item"><label>Dietary Restrictions</label><span>' + esc(dietary).replace(/\n/g, '<br>') + '</span></div>' +
+        '<div class="detail-item"><label>Notes</label><span>' + esc(notes) + '</span></div>' +
+      '</div>';
+
+    // Per-guest passport cards
+    var guestsJson = r.guests_json;
+    if (guestsJson && guestsJson.length) {
+      var cardsHtml = '<div class="section-label">Passport &amp; Guest Details</div><div class="guest-cards">';
+      guestsJson.forEach(function(g, idx) {
+        cardsHtml +=
+          '<div class="guest-card-admin">' +
+            '<h4>Guest ' + (idx + 1) + ': ' + esc(g.name || 'Unnamed') + '</h4>' +
+            '<div class="gc-row"><span class="gc-label">DOB</span><span class="gc-val">' + esc(g.dob || '\u2014') + '</span></div>' +
+            '<div class="gc-row"><span class="gc-label">Place of Birth</span><span class="gc-val">' + esc(g.place_of_birth || '\u2014') + '</span></div>' +
+            '<div class="gc-row"><span class="gc-label">Nationality</span><span class="gc-val">' + esc(g.nationality || '\u2014') + '</span></div>' +
+            '<div class="gc-row"><span class="gc-label">Residence</span><span class="gc-val">' + esc(g.residence || '\u2014') + '</span></div>' +
+            '<div class="gc-row"><span class="gc-label">Passport #</span><span class="gc-val">' + esc(g.passport_number || '\u2014') + '</span></div>' +
+            '<div class="gc-row"><span class="gc-label">Passport Exp</span><span class="gc-val">' + esc(g.passport_expiry || '\u2014') + '</span></div>' +
+            '<div class="gc-row"><span class="gc-label">Allergies</span><span class="gc-val">' + esc(g.allergies || '\u2014') + '</span></div>' +
+            '<div class="gc-row"><span class="gc-label">Dietary</span><span class="gc-val">' + esc(g.dietary || '\u2014') + '</span></div>' +
+          '</div>';
+      });
+      cardsHtml += '</div>';
+      panel.innerHTML += cardsHtml;
+    } else {
+      panel.innerHTML += '<div class="section-label" style="color:#888;">No guest details submitted yet</div>';
+    }
+
+    detailTd.appendChild(panel);
+    detailTr.appendChild(detailTd);
+    tb.appendChild(detailTr);
+
+    // Toggle
+    tr.addEventListener('click', function() {
+      var open = detailTr.style.display !== 'none';
+      detailTr.style.display = open ? 'none' : 'table-row';
+      btn.textContent = open ? '\u25B6' : '\u25BC';
+    });
   });
+}
+
+function esc(s) {
+  var d = document.createElement('div');
+  d.textContent = s;
+  return d.innerHTML;
 }
 
 document.getElementById('copyAllBtn').addEventListener('click', function() {
