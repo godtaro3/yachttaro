@@ -52,7 +52,7 @@
     .expand-btn:hover { border-color: #b8955f; color: #b8955f; }
     .detail-row td { padding: 0 !important; border-bottom: 2px solid #b8955f !important; }
     .detail-panel { padding: 1rem 1.5rem 1.5rem; background: #faf8f4; }
-    .detail-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: .75rem 2rem; margin-bottom: 1rem; }
+    .detail-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: .75rem 2rem; margin-bottom: 1rem; }
     .detail-item label { font-size: .65rem; text-transform: uppercase; letter-spacing: .08em; color: #888; display: block; margin-bottom: .15rem; }
     .detail-item span { font-size: .85rem; color: #1a2a3a; }
     .guest-cards { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: .5rem; }
@@ -108,6 +108,7 @@
 <div class="rsvp-section">
   <div class="section-title">RSVP Submissions</div>
   <p class="note">Live from Supabase — refresh to update</p>
+  <button class="copy-all" id="toggleAllBtn" style="margin-top:.5rem;">Collapse all</button>
   <table style="margin-top: 1rem;">
     <thead>
       <tr>
@@ -273,10 +274,10 @@ function renderRsvps(rsvps) {
     var d = new Date(r.created_at);
     var dateStr = d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' });
 
-    // Expand button
+    // Expand button (default: expanded)
     var expandTd = document.createElement('td');
     expandTd.style.textAlign = 'center';
-    var btn = createEl('button', { className: 'expand-btn' }, '\u25B6');
+    var btn = createEl('button', { className: 'expand-btn' }, '\u25BC');
     expandTd.appendChild(btn);
     tr.appendChild(expandTd);
 
@@ -286,7 +287,7 @@ function renderRsvps(rsvps) {
     var paxTd = createEl('td', null, r.guest_count || '\u2014');
     paxTd.style.textAlign = 'center';
     tr.appendChild(paxTd);
-    tr.appendChild(createEl('td', null, r.arrival_date || '\u2014'));
+    tr.appendChild(createEl('td', null, prettyArrival(r.arrival_date)));
     tr.appendChild(createEl('td', null, r.flight_details || '\u2014'));
     tr.appendChild(createEl('td', null, r.need_hotel === true ? 'Yes' : (r.need_hotel === false ? 'No' : '\u2014')));
     tr.appendChild(createEl('td', null, dateStr));
@@ -297,10 +298,10 @@ function renderRsvps(rsvps) {
 
     tb.appendChild(tr);
 
-    // Detail row (hidden by default)
+    // Detail row (expanded by default — surface all submitted data)
     var detailTr = document.createElement('tr');
     detailTr.className = 'detail-row';
-    detailTr.style.display = 'none';
+    detailTr.style.display = 'table-row';
     var detailTd = document.createElement('td');
     detailTd.setAttribute('colspan', '10');
     var panel = document.createElement('div');
@@ -311,10 +312,14 @@ function renderRsvps(rsvps) {
     var dietary = r.dietary_restrictions || '\u2014';
     var guestNames = r.guest_names || '\u2014';
 
+    var foodPrefs = r.food_preferences || '\u2014';
+    var hotelTxt = r.need_hotel === true ? 'Yes' : (r.need_hotel === false ? 'No' : '\u2014');
+
     panel.innerHTML =
       '<div class="detail-grid">' +
         '<div class="detail-item"><label>Guest Names</label><span>' + esc(guestNames).replace(/\n/g, ', ') + '</span></div>' +
         '<div class="detail-item"><label>Dietary Restrictions</label><span>' + esc(dietary).replace(/\n/g, '<br>') + '</span></div>' +
+        '<div class="detail-item"><label>Food Preferences</label><span>' + esc(foodPrefs) + '</span></div>' +
         '<div class="detail-item"><label>Notes</label><span>' + esc(notes) + '</span></div>' +
       '</div>';
 
@@ -360,6 +365,26 @@ function esc(s) {
   d.textContent = s;
   return d.innerHTML;
 }
+
+function prettyArrival(v) {
+  if (!v) return '\u2014';
+  var map = {
+    'june_4_or_earlier': 'Jun 4 or earlier',
+    'june_5_recommended': 'Jun 5 (recommended)',
+    'june_6_departure_day': 'Jun 6 (departure day)'
+  };
+  return map[v] || v;
+}
+
+document.getElementById('toggleAllBtn').addEventListener('click', function() {
+  var rows = document.querySelectorAll('#rsvpTable .detail-row');
+  var btns = document.querySelectorAll('#rsvpTable .expand-btn');
+  // If any row is collapsed, expand all. Otherwise collapse all.
+  var anyCollapsed = Array.prototype.some.call(rows, function(r) { return r.style.display === 'none'; });
+  rows.forEach(function(r) { r.style.display = anyCollapsed ? 'table-row' : 'none'; });
+  btns.forEach(function(b) { b.textContent = anyCollapsed ? '\u25BC' : '\u25B6'; });
+  document.getElementById('toggleAllBtn').textContent = anyCollapsed ? 'Collapse all' : 'Expand all';
+});
 
 document.getElementById('copyAllBtn').addEventListener('click', function() {
   var lines = guests.map(function(g, i) {
